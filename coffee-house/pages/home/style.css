@@ -59,7 +59,7 @@ body{
    width: 100%;
    height: 100%;
    max-width: 1440px;
-   padding: 0 40px;
+   padding: 0 40px 40px;
 }
 
 header{
@@ -352,14 +352,20 @@ h2{
    background-color: #fff;
 }
 
+.mobile-button-text{
+   margin-left: 10px;
+}
+
 .mobile-button{
    width: 200px;
    height: 64px;
    border-radius: 100px;
    border: 1px solid #665F55;
    display: flex;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
+   padding: 20px;
+   text-align: start;
 }
 
 .mobile-text{
@@ -381,3 +387,64 @@ h2{
    display: flex;
    justify-content: flex-end;
 }
+
+footer{
+   height: 450px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 100px;
+   border-radius: 40px;
+   background-color: var(--background-color2);
+   color: var(--background-color);
+}
+
+.footer-icon-container{
+   width: 204px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.footer-icon{
+   width: 60px;
+   height: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100%;
+   border: 1px solid #C1B6AD;
+}
+
+.footer-header-container{
+   width: 530px;
+}
+
+.footer-contact-container{
+   width: 530px;
+}
+
+h3{
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 125%;
+   margin-bottom: 40px;
+}
+
+.contact-container{
+   height: 116px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 150%;
+}
+
+.footer-heider{
+   color: #E1D4C9;
+   margin-bottom: 40px;
+}
+
