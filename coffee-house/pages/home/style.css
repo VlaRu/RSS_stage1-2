@@ -52,7 +52,7 @@ body{
    justify-content: center;
    margin: 0;
    width: 100vw;
-   font-family: Inter;
+   font-family: 'Inter', sans-serif;
    font-style: normal;
 }
 .container{
@@ -322,4 +322,62 @@ h2{
    left: -33px;
    top: -68px;
    position: absolute;
+}
+
+.mobile-app-section{
+   height: 830px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.mobile-text-container{
+   width: calc(1360 / 630 * 100%);
+   height: 342px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.mobile-image-container{
+   width: calc(1360 / 630 * 100%);
+}
+
+.mobile-button-container{
+   width: 420px;
+   display: flex;
+   justify-content: space-between;
+   background-color: #fff;
+}
+
+.mobile-button{
+   width: 200px;
+   height: 64px;
+   border-radius: 100px;
+   border: 1px solid #665F55;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.mobile-text{
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 150%;
+   color: #403F3D;
+}
+
+.mobile-paragraph{
+   font-size: 10px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 140%;
+}
+
+.mobile-image-container{
+   display: flex;
+   justify-content: flex-end;
 }
