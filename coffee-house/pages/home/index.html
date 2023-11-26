@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link rel="icon" href="../../assets/icons/logo-iso.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -23,7 +24,7 @@
           <li class="link-element"><a href="#footer">Contact us</a></li>
         </ul>
       </nav>
-      <a class="button-menu-container">
+      <a class="button-menu-container" href="../menu/index.html">
         <p>Menu</p>
         <img src="../../assets/icons/coffee-cup.png" alt="cup-icon">
       </a>
@@ -33,7 +34,7 @@
         <div class="enjoy-content-container">
           <h1><span class="hight-header">Enjoy</span> premium coffee at our charming cafe</h1>
           <p class="enjoy-text">With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
-          <div class="button-enjoy">Menu</div>
+          <div class="button-enjoy-menu"><a href="../../pages/menu/index.html">Menu</a></div>
         </div>
       </section>
       <section class="favourites-coffee-section" id="favourites-coffee">
@@ -44,7 +45,7 @@
           </div>
           <div class="favourite-coffee-container">
             <div class="favourite-coffee-image-container">
-              <img src="../../assets/images/coffee-frappuccino.png" alt="frappuccino">
+              <img src="../../assets/images/coffee-frappuccino.png" alt="frappuccino" class="favourite-coffee-image">
               <h4 class="favourite-name-coffee">S’mores Frappuccino</h4>
               <p class="favourite-coffee-description">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
               <p class="price-favourite-coffee">$5.50</p>
@@ -67,13 +68,13 @@
           </div>
         </div>
         <div class="favourite-button-slide-container">
-          <div class="favourite-button-slide"></div>
+          <div class="favourite-button-slide active-favourite-button"></div>
           <div class="favourite-button-slide"></div>
           <div class="favourite-button-slide"></div>
         </div>
       </section>
       <section class="about-section" id="about">
-        <h2>Resource <span class="hight-header">is the perfect and cozy place</span> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.</h2>
+        <h2>Resource is<span class="hight-header"> the perfect and cozy place</span> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.</h2>
         <div class="about-image-container">
           <div class="about-image-wrap-container">
             <div class="about-image-wrap1">
@@ -127,17 +128,25 @@
       <div class="footer-header-container">
         <h2 class="footer-heider">Sip, Savor, Smile.<span class="hight-header"> It’s coffee time!</span></h2>
         <div class="footer-icon-container">
-          <div class="footer-icon"><img src="../../assets/icons/twitter.svg" alt="footer-icon"></div>
-          <div class="footer-icon"><img src="../../assets/icons/footer-instagram.svg" alt="footer-icon"></div>
-          <div class="footer-icon"><img src="../../assets/icons/facebook.svg" alt="footer-icon"></div>
+          <div class="footer-icon"><a href="https://twitter.com/" target="_blank"><img src="../../assets/icons/twitter.svg" alt="footer-icon" class="social-img"></a></div>
+          <div class="footer-icon"><a href="https://instagram.com/" target="_blank"><img src="../../assets/icons/footer-instagram.svg" alt="footer-icon"></a></div>
+          <div class="footer-icon"><a href="https://facebook.com/" target="_blank"><img src="../../assets/icons/facebook.svg" alt="footer-icon"></a></div>
         </div>
       </div>
       <div class="footer-contact-container">
         <h3>Contact us</h3>
         <div class="contact-container">
-          <div><img src="../../assets/icons/point.svg" alt="icon"><a href="https://www.google.com/maps/place/8558+Greenleaf+Ave,+Whittier,+CA+90602,+%D0%A1%D0%A8%D0%90/@33.9621101,-118.0428671,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2d39861755abf:0xfcec1f0376f63bd4!8m2!3d33.9621101!4d-118.0402922?entry=ttu" target="_blank">8558 Green Rd.,  LA</a></div>
-          <div><img src="../../assets/icons/phone.svg" alt="icon"><a href="tel:16035550123">+1 (603) 555-0123</a></div>
-          <div><img src="../../assets/icons/clock.svg" alt="icon"><a href=""></a>Mon-Sat: 9:00 AM – 23:00 PM</div>
+          <div class="contact-link">
+            <img src="../../assets/icons/point.svg" alt="icon" class="footer-icon-link">
+            <a href="https://www.google.com/maps/place/8558+Greenleaf+Ave,+Whittier,+CA+90602,+%D0%A1%D0%A8%D0%90/@33.9621101,-118.0428671,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2d39861755abf:0xfcec1f0376f63bd4!8m2!3d33.9621101!4d-118.0402922?entry=ttu" target="_blank">8558 Green Rd.,  LA</a>
+          </div>
+          <div class="contact-link">
+            <img src="../../assets/icons/phone.svg" alt="icon">
+            <a href="tel:16035550123">+1 (603) 555-0123</a>
+          </div>
+          <div class="contact-link">
+            <img src="../../assets/icons/clock.svg" alt="icon">
+            <a href="#"></a>Mon-Sat: 9:00 AM - 23:00 PM</div>
         </div>
       </div>
     </footer>
