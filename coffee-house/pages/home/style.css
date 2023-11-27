@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   border: 0;
-  
+
 }
 
 *,*:before,*:after{
@@ -352,6 +352,10 @@ h2{
    position: absolute;
 }
 
+/* .about-image:hover{
+   scale: 1;
+} */
+
 .mobile-app-section{
    height: 830px;
    width: 100%;
@@ -440,6 +444,7 @@ footer{
    align-items: center;
    border-radius: 100%;
    border: 1px solid #C1B6AD;
+   transition: all 0.7s ease;
 }
 
 .footer-icon:hover{
@@ -461,7 +466,7 @@ footer{
 }
 
 .contact-link{
-  position: relative;  
+  position: relative;
 }
 
 .contact-link::before{
@@ -515,6 +520,10 @@ h3{
    max-width: 800px;
    text-align: center;
    margin: 20px 0 40px;
+   font-size: 60px;
+   font-weight: 600;
+   line-height: 125%;
+   color: var(--text-dark-color);
 }
 
 .button-navigation-container{
@@ -534,6 +543,7 @@ h3{
    border-radius: 100px;
    border: 1px solid #C1B6AD;
    padding-left: 8px;
+   transition: all 0.5s ease;
 }
 
 .button-navigation:hover{
@@ -576,6 +586,11 @@ h5{
    border: 1px solid #B0907A;
 }
 
+.coffee-content-container:hover .menu-image{
+   scale: 1;
+   cursor: pointer;
+}
+
 .coffee-content-wrap{
    width: 100%;
    max-width: 1360px;
@@ -591,6 +606,7 @@ h5{
 .menu-image{
    width: 100%;
    scale: 1.1;
+   transition: all 0.7s ease;
 }
 
 .menu-image-container{
