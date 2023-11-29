@@ -415,6 +415,12 @@ h2{
    padding: 20px;
    text-align: start;
    background-color: inherit;
+   transition: all 0.5s ease;
+}
+
+.mobile-button:hover{
+   cursor: pointer;
+   background-color: #665F55;
 }
 
 .mobile-text{
@@ -422,6 +428,11 @@ h2{
    font-weight: 400;
    line-height: 150%;
    color: #403F3D;
+}
+
+.mobile-button:hover .mobile-text,
+.mobile-button:hover p{
+   color: #E1D4C9;
 }
 
 .mobile-paragraph{
