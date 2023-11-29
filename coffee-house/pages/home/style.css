@@ -15,6 +15,10 @@ a:focus,a:active{outline: none;}
 
 nav,footer,header,aside{display: block;}
 
+html {
+   scroll-behavior: smooth;
+ }
+
 html,body{
    height: 100%;
    width: 100%;
@@ -109,10 +113,15 @@ header{
    height: 2px;
    background-color: #403F3D;
    transition: width 0.5s ease;
+   display: block;
 }
 
 .button-menu-container:hover::before{
    width: 100%;
+}
+
+.menu-header-button:hover::before{
+   display: none;
 }
 
 .link-element{
@@ -185,6 +194,18 @@ h1{
    font-size: 16px;
    font-weight: 600;
    line-height: 150%;
+}
+
+
+
+.cup-icon{
+   display: none;
+   margin-left: 8px;
+}
+
+.button-enjoy-menu:hover .cup-icon{
+   display: flex;
+   cursor: pointer;
 }
 
 /* favourites-section */
@@ -352,10 +373,6 @@ h2{
    position: absolute;
 }
 
-/* .about-image:hover{
-   scale: 1;
-} */
-
 .mobile-app-section{
    height: 830px;
    width: 100%;
@@ -398,6 +415,12 @@ h2{
    padding: 20px;
    text-align: start;
    background-color: inherit;
+   transition: all 0.5s ease;
+}
+
+.mobile-button:hover{
+   cursor: pointer;
+   background-color: #665F55;
 }
 
 .mobile-text{
@@ -405,6 +428,11 @@ h2{
    font-weight: 400;
    line-height: 150%;
    color: #403F3D;
+}
+
+.mobile-button:hover .mobile-text,
+.mobile-button:hover p{
+   color: #E1D4C9;
 }
 
 .mobile-paragraph{
