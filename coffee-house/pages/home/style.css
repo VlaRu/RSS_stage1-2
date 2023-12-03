@@ -84,7 +84,7 @@ header{
 
 .navigation-container{
    width: calc(1188 / 1360 * 100%);
-   padding: 0 366px;
+   padding: 0 calc(366 /1360 * 100%);
 }
 
 .navigation-container-menu{
@@ -144,6 +144,7 @@ header{
 }
 
 .enjoy-section{
+   width: 100%;
    max-width: 1360px;
    height: 644px;
    display: flex;
@@ -218,6 +219,7 @@ h1{
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
+   text-align: center;
 }
 
 .favourite-slide-container{
@@ -307,72 +309,54 @@ h2{
    background-color: #665F55;
 }
 
+/* about-section */
+
 .about-section{
-   height: 1325px;
    width: 100%;
+   height: 1325px;
 }
 
 .about-image-container{
-   width: 1360px;
-   height: 1060px;
-   display: inline-flex;
+   width: 100%;
+   height: calc(1160 / 1325 *100%);
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
    justify-content: flex-start;
-   align-items: flex-start;
    gap: 40px;
    margin-top: 40px;
+   overflow: hidden;
+   background-color: #fff;
 }
 
 .about-image-wrap-container{
-   display: inline-flex;
+   width: calc(660 /1360 *100%);
+   height: 92%;
+   display: flex;
    flex-direction: column;
-   justify-content: flex-start;
-   align-items: flex-start;
    gap: 40px;
+   background-color: yellow;
 }
 
-.about-image-wrap2{
-   width: 660px;
-   height: 430px;
-   position: relative;
-   border-radius: 20px;
+.about-image-wrap{
+   display: flex;
+   justify-content: center;
+   align-items: center;
    overflow: hidden;
+   width: 100%;
+   height: calc(590 / 1060 *100%);
+   border-radius: 20px;
+}
+
+.about-image-wrap img{
+   border-radius: 20px;
 }
 
 .about-image-wrap1{
-   width: 660px;
-   height: 590px;
-   position: relative;
-   border-radius: 20px;
-   overflow: hidden;
+   height: calc(430 / 1060 *100%);
 }
 
-.about-image-wrap3{
-   width: 660px;
-   height: 590px;
-   border-radius: 20px;
-   overflow: hidden;
-   justify-content: center;
-   align-items: center;
-   display: inline-flex;
-   position: relative;
-}
-
-.about-image1{
-   width: 726px;
-   height: 726px;
-   left: -33px;
-   top: -148px;
-   position: absolute;
-}
-
-.about-image{
-   width: 726px;
-   height: 726px;
-   left: -33px;
-   top: -68px;
-   position: absolute;
-}
-
+/* mobile-section */
 .mobile-app-section{
    height: 830px;
    width: 100%;
@@ -392,6 +376,11 @@ h2{
 
 .mobile-image-container{
    width: calc(1360 / 630 * 100%);
+   max-width: 630px;
+   max-height: 630px;
+   height: 75%;
+   display: flex;
+   justify-content: flex-end;
 }
 
 .mobile-button-container{
@@ -441,11 +430,7 @@ h2{
    line-height: 140%;
 }
 
-.mobile-image-container{
-   display: flex;
-   justify-content: flex-end;
-}
-
+/* footer */
 footer{
    height: 450px;
    display: flex;
@@ -482,11 +467,11 @@ footer{
 
 
 .footer-header-container{
-   width: 530px;
+   width: calc(530 / 1160 *100%);
 }
 
 .footer-contact-container{
-   width: 530px;
+   width: calc(530 / 1160 *100%);
 }
 
 .footer-icon-link{
@@ -693,3 +678,71 @@ h5{
    flex-wrap: wrap;
    gap: 40px;
 }
+
+/* responsive */
+
+@media (max-width: 1230px){
+   .enjoy-content-container{
+      width: 70%;
+      margin-left: 60px;
+   }
+
+   .navigation-container{
+      padding: 0 10%;
+   }
+
+   .menu-section{
+      overflow: hidden;
+   }
+}
+
+@media (max-width: 1150px){
+   .about-image-container{
+      width: 92vw;
+      gap: 0;
+      height: 67%;
+   }
+
+   .about-image-wrap-container{
+      height: 50%;
+      width: 100%;
+   }
+   .about-image-wrap{
+      width: 100%;
+      height: 100%;
+   }
+   .about-image-wrap1{
+      display: none;
+   }
+   .mobile-app-section{
+      height: 100%;
+      width: 92vw;
+      flex-direction: column;
+      background-color: #fff;
+   }
+   .mobile-text-container{
+      width: 100vw;
+      align-items: center;
+   }
+
+   .mobile-image-container{
+      width: 90vw;
+   }
+
+   footer{
+      padding: 40px;
+   }
+
+   .footer-heider{
+      line-height: 100%;
+   }
+}
+@media (max-width: 770px){
+   .navigation-container{
+      display: none;
+   }
+   .button-menu-container{
+      display: none;
+   }
+}
+@media (max-width: 380px){}
