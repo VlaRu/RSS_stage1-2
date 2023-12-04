@@ -143,6 +143,31 @@ header{
    width: 100%;
 }
 
+.burger-icon-container{
+   width: 44px;
+   height: 44px;
+   border: 1px solid #665F55;
+   border-radius: 100%;
+   display: none;
+   justify-content: center;
+   align-items: center;
+}
+
+.burger-line-wrapper{
+   width: 16px;
+   height: 8px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.burger-line{
+   width: 100%;
+   border: 1.5px solid #665F55;
+}
+
+/* enjoy */
+
 .enjoy-section{
    width: 100%;
    max-width: 1360px;
@@ -470,6 +495,8 @@ footer{
 }
 
 .footer-contact-container{
+   display: flex;
+   flex-direction: column;
    width: calc(530 / 1160 *100%);
 }
 
@@ -678,6 +705,23 @@ h5{
    gap: 40px;
 }
 
+.menu-more-container{
+   display: none;
+   justify-content: center;
+   align-items: center;
+   width: 60px;
+   height: 60px;
+   border: 1px solid #403f55;
+   border-radius: 100%;
+   margin-bottom: 100px;
+}
+
+.container-menu{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
 /* responsive */
 
 @media (max-width: 1230px){
@@ -721,12 +765,11 @@ h5{
    }
    .mobile-app-section{
       height: 100%;
-      width: 92vw;
+      width: 100%;
       flex-direction: column;
-      background-color: #fff;
    }
    .mobile-text-container{
-      width: 100vw;
+      width: 100%;
       align-items: center;
    }
 
@@ -746,12 +789,22 @@ h5{
    .container{
       height: 5516px;
    }
+
+   .burger-icon-container{
+      display: flex;
+   }
+
    .navigation-container{
       display: none;
    }
    .button-menu-container{
       display: none;
    }
+
+   .header-menu-section{
+      width: 100%;
+   }
+
    .enjoy-content-container{
       width: calc(760 / 530 *100%);
       height: 444px;
@@ -780,7 +833,6 @@ h5{
    .mobile-app-section{
       width: 100%;
       height: 1272px;
-      background-color: red;
       padding: 100px 0;
    }
 
@@ -817,5 +869,147 @@ h5{
    .footer-heider{
       line-height: 125%;
    }
+
+
+   .container-menu{
+      height: 2479px;
+   }
+
+   .menu-more-container{
+      display: flex;
+   }
+
+   .coffee-content-wrap{
+      justify-content: center;
+   }
+
+   .button-navigation{
+      height: 46px;
+   }
 }
-@media (max-width: 380px){}
+@media (max-width: 380px){
+   .container{
+      max-width: 380px;
+      height: 100%;
+      padding: 0 16px 16px;
+   }
+   main{
+      width: 100%;
+   }
+
+   .enjoy-section{
+      max-width: 380px;
+      height: 552px;
+   }
+
+   .enjoy-content-container{
+      margin: 60px 16px;
+   }
+
+   h1, .header-menu{
+      font-size: 42px;
+      line-height: 115%;
+   }
+
+   h2{
+      font-size: 32px;
+      line-height: 125%;
+   }
+
+   .favourite-arrow{
+      display: none;
+   }
+
+   .favourites-coffee-section{
+      height: 696px;
+   }
+
+   .favourite-coffee-container{
+      max-height: 532px;
+      align-items: start;
+   }
+
+   .favourite-coffee-image{
+      width: 348px;
+      height: 348px;
+   }
+
+   .favourite-coffee-description{
+      width: 100%;
+   }
+
+   .about-image-wrap{
+      max-width: 360px;
+      height: 590px;
+      overflow: hidden;
+   }
+   .about-section img{
+      width: 100%;
+      height: 100%;
+   }
+
+   .mobile-app-section{
+      width: 100%;
+      height: 768px;
+      padding: 0;
+      margin: 100px 0;
+   }
+
+   .mobile-text-container{
+      width: 100%;
+      height: 380px;
+   }
+
+   .mobile-button-container{
+      flex-direction: column;
+      width: 200px;
+      height: 148px;
+      align-content: space-between;
+   }
+
+   .mobile-image-container{
+      height: 348px;
+   }
+
+   .mobile-image-container img{
+      width: 348px;
+      height: 348px;
+   }
+
+   footer{
+      height: 526px;
+      padding: 60px 16px;
+   }
+
+   .footer-contact-container{
+      width: 100%;
+   }
+
+   .container-menu{
+      min-height: 3256px;
+   }
+
+   .header-menu-section{
+      align-items: center;
+   }
+
+   .button-navigation-container{
+      width: 100%;
+   }
+
+   .coffee-content-wrap{
+      height: 2144px;
+      flex-direction: column;
+      justify-content: center;
+
+   }
+
+   .menu-image{
+      height: 310px;
+      width: 310px;
+   }
+
+   .coffee-text{
+      margin-bottom: 12px;
+   }
+}
