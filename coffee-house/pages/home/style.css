@@ -84,7 +84,7 @@ header{
 
 .navigation-container{
    width: calc(1188 / 1360 * 100%);
-   padding: 0 366px;
+   padding: 0 calc(366 /1360 * 100%);
 }
 
 .navigation-container-menu{
@@ -143,7 +143,33 @@ header{
    width: 100%;
 }
 
+.burger-icon-container{
+   width: 44px;
+   height: 44px;
+   border: 1px solid #665F55;
+   border-radius: 100%;
+   display: none;
+   justify-content: center;
+   align-items: center;
+}
+
+.burger-line-wrapper{
+   width: 16px;
+   height: 8px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.burger-line{
+   width: 100%;
+   border: 1.5px solid #665F55;
+}
+
+/* enjoy */
+
 .enjoy-section{
+   width: 100%;
    max-width: 1360px;
    height: 644px;
    display: flex;
@@ -212,12 +238,13 @@ h1{
 
 .favourites-coffee-section{
    width: 100%;
-   height: 799px;
+   max-height: 799px;
    margin: 100px 0;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
+   text-align: center;
 }
 
 .favourite-slide-container{
@@ -225,6 +252,7 @@ h1{
    display: flex;
    justify-content: space-between;
    align-items: center;
+   margin: 40px 0;
 }
 
 h2{
@@ -307,72 +335,52 @@ h2{
    background-color: #665F55;
 }
 
+/* about-section */
+
 .about-section{
-   height: 1325px;
    width: 100%;
+   height: 100%;
 }
 
 .about-image-container{
-   width: 1360px;
-   height: 1060px;
-   display: inline-flex;
+   width: 100%;
+   height: calc(1160 / 1325 *100%);
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
    justify-content: flex-start;
-   align-items: flex-start;
    gap: 40px;
    margin-top: 40px;
+   overflow: hidden;
 }
 
 .about-image-wrap-container{
-   display: inline-flex;
+   width: calc(660 /1360 *100%);
+   height: 92%;
+   display: flex;
    flex-direction: column;
-   justify-content: flex-start;
-   align-items: flex-start;
    gap: 40px;
 }
 
-.about-image-wrap2{
-   width: 660px;
-   height: 430px;
-   position: relative;
-   border-radius: 20px;
+.about-image-wrap{
+   display: flex;
+   justify-content: center;
+   align-items: center;
    overflow: hidden;
+   width: 100%;
+   height: calc(590 / 1060 *100%);
+   border-radius: 20px;
+}
+
+.about-image-wrap img{
+   border-radius: 20px;
 }
 
 .about-image-wrap1{
-   width: 660px;
-   height: 590px;
-   position: relative;
-   border-radius: 20px;
-   overflow: hidden;
+   height: calc(430 / 1060 *100%);
 }
 
-.about-image-wrap3{
-   width: 660px;
-   height: 590px;
-   border-radius: 20px;
-   overflow: hidden;
-   justify-content: center;
-   align-items: center;
-   display: inline-flex;
-   position: relative;
-}
-
-.about-image1{
-   width: 726px;
-   height: 726px;
-   left: -33px;
-   top: -148px;
-   position: absolute;
-}
-
-.about-image{
-   width: 726px;
-   height: 726px;
-   left: -33px;
-   top: -68px;
-   position: absolute;
-}
-
+/* mobile-section */
 .mobile-app-section{
    height: 830px;
    width: 100%;
@@ -392,6 +400,11 @@ h2{
 
 .mobile-image-container{
    width: calc(1360 / 630 * 100%);
+   max-width: 630px;
+   max-height: 630px;
+   height: 75%;
+   display: flex;
+   justify-content: flex-end;
 }
 
 .mobile-button-container{
@@ -441,11 +454,7 @@ h2{
    line-height: 140%;
 }
 
-.mobile-image-container{
-   display: flex;
-   justify-content: flex-end;
-}
-
+/* footer */
 footer{
    height: 450px;
    display: flex;
@@ -482,11 +491,13 @@ footer{
 
 
 .footer-header-container{
-   width: 530px;
+   width: calc(530 / 1160 *100%);
 }
 
 .footer-contact-container{
-   width: 530px;
+   display: flex;
+   flex-direction: column;
+   width: calc(530 / 1160 *100%);
 }
 
 .footer-icon-link{
@@ -692,4 +703,313 @@ h5{
    align-items: flex-start;
    flex-wrap: wrap;
    gap: 40px;
+}
+
+.menu-more-container{
+   display: none;
+   justify-content: center;
+   align-items: center;
+   width: 60px;
+   height: 60px;
+   border: 1px solid #403f55;
+   border-radius: 100%;
+   margin-bottom: 100px;
+}
+
+.container-menu{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+/* responsive */
+
+@media (max-width: 1230px){
+   .enjoy-content-container{
+      width: 70%;
+      margin-left: 60px;
+   }
+
+   .navigation-container{
+      padding: 0 10%;
+   }
+
+   .menu-section{
+      overflow: hidden;
+   }
+}
+
+@media (max-width: 1150px){
+   .about-image-container{
+      gap: 0;
+      width: 100%;
+      height: 1220px;
+   }
+
+   .about-image-wrap-container{
+      height: 50%;
+      width: 100%;
+   }
+
+   .about-image-wrap-container:last-child{
+      justify-content: flex-end;
+   }
+
+   .about-image-wrap{
+      width: 100%;
+      height: 590px;
+      border-radius: 20px;
+   }
+   .about-image-wrap1{
+      display: none;
+   }
+   .mobile-app-section{
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+   }
+   .mobile-text-container{
+      width: 100%;
+      align-items: center;
+   }
+
+   .mobile-image-container{
+      width: 90vw;
+   }
+
+   footer{
+      padding: 40px;
+   }
+
+   .footer-heider{
+      line-height: 100%;
+   }
+}
+@media (max-width: 770px){
+   .container{
+      height: 5516px;
+   }
+
+   .burger-icon-container{
+      display: flex;
+   }
+
+   .navigation-container{
+      display: none;
+   }
+   .button-menu-container{
+      display: none;
+   }
+
+   .header-menu-section{
+      width: 100%;
+   }
+
+   .enjoy-content-container{
+      width: calc(760 / 530 *100%);
+      height: 444px;
+      max-height: 644px;
+      margin: 100px 60px;
+   }
+   .button-enjoy-menu{
+      width: 200px;
+   }
+   .favourites-coffee-section{
+      max-height: 100%;
+   }
+   .about-image-container{
+      width: 100%;
+      height: 1220px;
+   }
+
+   .about-image-wrap-container:last-child{
+      justify-content: flex-end;
+   }
+
+   .about-image-wrap{
+      height: 590px;
+   }
+
+   .mobile-app-section{
+      width: 100%;
+      height: 1272px;
+      padding: 100px 0;
+   }
+
+   .mobile-text-container{
+      width: 100%;
+      justify-content: start;
+      align-content: start;
+      align-items: start;
+   }
+
+   .mobile-text-container br{
+      display: none;
+   }
+
+   .mobile-text-container h2{
+      margin-bottom: 40px;
+   }
+
+   .mobile-button-container{
+      margin-top: 40px;
+   }
+
+   footer{
+      height: 736px;
+      flex-direction: column;
+      align-items: start;
+      padding: 100px 60px;
+   }
+
+   .footer-header-container{
+      width: 100%;
+   }
+
+   .footer-heider{
+      line-height: 125%;
+   }
+
+
+   .container-menu{
+      height: 2479px;
+   }
+
+   .menu-more-container{
+      display: flex;
+   }
+
+   .coffee-content-wrap{
+      justify-content: center;
+   }
+
+   .button-navigation{
+      height: 46px;
+   }
+}
+@media (max-width: 380px){
+   .container{
+      max-width: 380px;
+      height: 100%;
+      padding: 0 16px 16px;
+   }
+   main{
+      width: 100%;
+   }
+
+   .enjoy-section{
+      max-width: 380px;
+      height: 552px;
+   }
+
+   .enjoy-content-container{
+      margin: 60px 16px;
+   }
+
+   h1, .header-menu{
+      font-size: 42px;
+      line-height: 115%;
+   }
+
+   h2{
+      font-size: 32px;
+      line-height: 125%;
+   }
+
+   .favourite-arrow{
+      display: none;
+   }
+
+   .favourites-coffee-section{
+      height: 696px;
+   }
+
+   .favourite-coffee-container{
+      max-height: 532px;
+      align-items: start;
+   }
+
+   .favourite-coffee-image{
+      width: 348px;
+      height: 348px;
+   }
+
+   .favourite-coffee-description{
+      width: 100%;
+   }
+
+   .about-image-wrap{
+      max-width: 360px;
+      height: 590px;
+      overflow: hidden;
+   }
+   .about-section img{
+      width: 100%;
+      height: 100%;
+   }
+
+   .mobile-app-section{
+      width: 100%;
+      height: 768px;
+      padding: 0;
+      margin: 100px 0;
+   }
+
+   .mobile-text-container{
+      width: 100%;
+      height: 380px;
+   }
+
+   .mobile-button-container{
+      flex-direction: column;
+      width: 200px;
+      height: 148px;
+      align-content: space-between;
+   }
+
+   .mobile-image-container{
+      height: 348px;
+   }
+
+   .mobile-image-container img{
+      width: 348px;
+      height: 348px;
+   }
+
+   footer{
+      height: 526px;
+      padding: 60px 16px;
+   }
+
+   .footer-contact-container{
+      width: 100%;
+   }
+
+   .container-menu{
+      min-height: 3256px;
+   }
+
+   .header-menu-section{
+      align-items: center;
+   }
+
+   .button-navigation-container{
+      width: 100%;
+   }
+
+   .coffee-content-wrap{
+      height: 2144px;
+      flex-direction: column;
+      justify-content: center;
+
+   }
+
+   .menu-image{
+      height: 310px;
+      width: 310px;
+   }
+
+   .coffee-text{
+      margin-bottom: 12px;
+   }
 }
