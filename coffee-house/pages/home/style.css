@@ -79,6 +79,7 @@ header{
 }
 
 .header-menu-section{
+   width: 100%;
    align-items: flex-end;
 }
 
@@ -181,7 +182,7 @@ header{
 }
 
 .enjoy-content-container{
-   width: calc(530 / 1360 * 100%);
+   width: 530px;
    height: calc(444 / 644 * 100%);
    display: flex;
    flex-direction: column;
@@ -339,40 +340,35 @@ h2{
 
 .about-section{
    width: 100%;
-   height: 100%;
+   height: 1325px;
 }
 
 .about-image-container{
    width: 100%;
-   height: calc(1160 / 1325 *100%);
+   height: calc(1060 / 1325 *100%);
    display: flex;
    flex-wrap: wrap;
-   flex-direction: column;
-   justify-content: flex-start;
-   gap: 40px;
+   flex-direction: row;
+   justify-content: space-between;
    margin-top: 40px;
    overflow: hidden;
 }
 
 .about-image-wrap-container{
    width: calc(660 /1360 *100%);
-   height: 92%;
+   height: 100%;
    display: flex;
    flex-direction: column;
    gap: 40px;
 }
 
 .about-image-wrap{
+   width: 100%;
+   height: calc(590 / 1060 *100%);
    display: flex;
    justify-content: center;
    align-items: center;
    overflow: hidden;
-   width: 100%;
-   height: calc(590 / 1060 *100%);
-   border-radius: 20px;
-}
-
-.about-image-wrap img{
    border-radius: 20px;
 }
 
@@ -380,9 +376,15 @@ h2{
    height: calc(430 / 1060 *100%);
 }
 
+.about-image{
+   width: 100%;
+   height: 100%;
+   scale: 1.1;
+}
+
 /* mobile-section */
 .mobile-app-section{
-   height: 830px;
+   max-height: 830px;
    width: 100%;
    display: flex;
    flex-direction: row;
@@ -549,10 +551,11 @@ h3{
 /* menu page */
 
 .menu-section{
-   margin-bottom: 100px;
+   width: 100%;
    display: flex;
    flex-direction: column;
    align-items: center;
+   margin-bottom: 100px;
 }
 
 .header-menu{
@@ -640,6 +643,7 @@ h5{
    align-items: flex-start;
    flex-wrap: wrap;
    gap: 40px;
+   overflow: hidden;
 }
 
 .menu-image{
@@ -726,7 +730,6 @@ h5{
 
 @media (max-width: 1230px){
    .enjoy-content-container{
-      width: 70%;
       margin-left: 60px;
    }
 
@@ -734,35 +737,20 @@ h5{
       padding: 0 10%;
    }
 
-   .menu-section{
+   .coffee-content-wrap{
       overflow: hidden;
    }
 }
 
 @media (max-width: 1150px){
+   .about-section{
+      height: 100%;
+   }
+
    .about-image-container{
-      gap: 0;
-      width: 100%;
-      height: 1220px;
+      height: 100%;
    }
 
-   .about-image-wrap-container{
-      height: 50%;
-      width: 100%;
-   }
-
-   .about-image-wrap-container:last-child{
-      justify-content: flex-end;
-   }
-
-   .about-image-wrap{
-      width: 100%;
-      height: 590px;
-      border-radius: 20px;
-   }
-   .about-image-wrap1{
-      display: none;
-   }
    .mobile-app-section{
       height: 100%;
       width: 100%;
@@ -787,7 +775,7 @@ h5{
 }
 @media (max-width: 770px){
    .container{
-      height: 5516px;
+      height: 100vh;
    }
 
    .burger-icon-container{
@@ -807,32 +795,37 @@ h5{
 
    .enjoy-content-container{
       width: calc(760 / 530 *100%);
-      height: 444px;
-      max-height: 644px;
       margin: 100px 60px;
    }
+
    .button-enjoy-menu{
       width: 200px;
    }
    .favourites-coffee-section{
       max-height: 100%;
    }
+
    .about-image-container{
       width: 100%;
-      height: 1220px;
+      gap: 40px;
    }
 
-   .about-image-wrap-container:last-child{
-      justify-content: flex-end;
+   .about-image-wrap1{
+      display: none;
    }
 
    .about-image-wrap{
-      height: 590px;
+      max-height: 590px;
+   }
+
+   .about-image-wrap-container{
+      width: 100%;
+      max-height: 590px;
    }
 
    .mobile-app-section{
+      height: 100%;
       width: 100%;
-      height: 1272px;
       padding: 100px 0;
    }
 
@@ -841,6 +834,7 @@ h5{
       justify-content: start;
       align-content: start;
       align-items: start;
+      margin-bottom: 100px;
    }
 
    .mobile-text-container br{
@@ -860,6 +854,11 @@ h5{
       flex-direction: column;
       align-items: start;
       padding: 100px 60px;
+      margin-top: 450px;
+   }
+
+   .footer-menu{
+      margin-top: 0;
    }
 
    .footer-header-container{
@@ -870,23 +869,60 @@ h5{
       line-height: 125%;
    }
 
-
-   .container-menu{
-      height: 2479px;
-   }
-
    .menu-more-container{
       display: flex;
    }
 
    .coffee-content-wrap{
+      max-height: 1052px;
       justify-content: center;
+      overflow: hidden;
    }
 
    .button-navigation{
       height: 46px;
    }
+
+   .menu-section{
+      margin-bottom: 40px;
+   }
 }
+
+@media (max-width: 700px){
+   .mobile-image-container img{
+      width: 100%;
+   }
+   .container{
+      padding: 0 20px 40px;
+   }
+
+   footer{
+      margin-top: 300px;
+   }
+
+   h1{
+      font-size: 52px;
+   }
+
+   h2{
+      font-size: 32px;
+      line-height: 125%;
+   }
+
+   .enjoy-content-container{
+      margin: 20px 16px;
+   }
+
+   .mobile-button-container{
+      width: 100%;
+   }
+
+   .favourite-coffee-image{
+      width: 400px;
+      height: 400px;
+   }
+}
+
 @media (max-width: 380px){
    .container{
       max-width: 380px;
@@ -903,17 +939,18 @@ h5{
    }
 
    .enjoy-content-container{
+      height: 75%;
       margin: 60px 16px;
    }
 
-   h1, .header-menu{
-      font-size: 42px;
-      line-height: 115%;
-   }
-
-   h2{
+   .header-menu{
       font-size: 32px;
       line-height: 125%;
+      margin-top: 0;
+   }
+
+   h1{
+      font-size: 42px;
    }
 
    .favourite-arrow{
@@ -936,6 +973,7 @@ h5{
 
    .favourite-coffee-description{
       width: 100%;
+      padding: 0;
    }
 
    .about-image-wrap{
@@ -943,9 +981,10 @@ h5{
       height: 590px;
       overflow: hidden;
    }
+
    .about-section img{
-      width: 100%;
-      height: 100%;
+      width: 768px;
+      height: 768px;
    }
 
    .mobile-app-section{
@@ -958,6 +997,7 @@ h5{
    .mobile-text-container{
       width: 100%;
       height: 380px;
+      margin-bottom: 40px;
    }
 
    .mobile-button-container{
@@ -979,10 +1019,16 @@ h5{
    footer{
       height: 526px;
       padding: 60px 16px;
+      margin-top: 0;
    }
 
    .footer-contact-container{
       width: 100%;
+   }
+
+   .menu-section{
+      overflow: hidden;
+      margin-bottom: 40px;
    }
 
    .container-menu{
@@ -998,10 +1044,12 @@ h5{
    }
 
    .coffee-content-wrap{
-      height: 2144px;
-      flex-direction: column;
-      justify-content: center;
+      max-height: 2204px;
+      height: 2204px;
+   }
 
+   .coffee-content-container{
+      justify-content: center;
    }
 
    .menu-image{
