@@ -80,7 +80,7 @@ header{
 
 .header-menu-section{
    width: 100%;
-   align-items: flex-end;
+   margin-top: 20px;
 }
 
 .navigation-container{
@@ -89,7 +89,7 @@ header{
 }
 
 .navigation-container-menu{
-   margin-bottom: 20px;
+   align-items: end;
 }
 
 .navigation-list{
@@ -871,6 +871,10 @@ h5{
 
    .footer-heider{
       line-height: 125%;
+   }
+
+   .header-menu-section{
+      margin-top: 0;
    }
 
    .menu-more-container{
