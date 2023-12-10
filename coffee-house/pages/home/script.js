@@ -1,4 +1,14 @@
-function showAlert() {
-  alert('пожалуйста если у вас есть такая возможность не проверяйте мою работу до 6.12(из-за плотного графика нет возможности сделать нормальный адаптив)Спасибо!!!');
+const burger = document.querySelectorAll('.burger-icon-container');
+const burgerListBar = document.querySelector('.navigation-mobile-container');
+
+function toggleBurgerMenu() {
+  burgerListBar.style.display = burgerListBar.style.display === 'flex' ? 'none' : 'flex';
 }
-window.onload = showAlert;
+
+burger.forEach((item) => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('burger_active');
+    toggleBurgerMenu();
+  });
+});
+
