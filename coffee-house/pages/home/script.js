@@ -1,4 +1,4 @@
-const burger = document.querySelectorAll('.burger-icon-container');
+const burger = Array.from(document.querySelectorAll('.burger-icon-container'));
 const burgerListBar = document.querySelector('.navigation-mobile-container');
 
 function toggleBurgerMenu() {
@@ -18,8 +18,10 @@ const img = Array.from(document.querySelectorAll('.favourite-coffee-image-contai
 const btnNext = document.querySelector('.arrow-left');
 const btnPrev = document.querySelector('.arrow-right');
 let slideIndx = 1;
+let intervalId;
 
 showSlides(slideIndx)
+startAutoSlide();
 
 function showSlides(n) {
     if(n > img.length){
@@ -41,10 +43,23 @@ function addSlides(n) {
     showSlides(slideIndx += n)
 }
 
+function startAutoSlide() {
+  const intervalDuration = 5000;
+  intervalId = setInterval(() => {
+      addSlides(1);
+  }, intervalDuration);
+}
+
+function stopAutoSlide() {
+  clearInterval(intervalId);
+}
+
 btnNext.addEventListener('click', ()=>{
-    addSlides(1)
+    addSlides(1);
+    stopAutoSlide();
 })
 btnPrev.addEventListener('click', ()=>{
-    addSlides(-1)
+    addSlides(-1);
+    stopAutoSlide();
 })
 
