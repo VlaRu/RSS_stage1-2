@@ -1,3 +1,10 @@
+
+
+function showAlert() {
+  alert('Я бы хотела ещё что-нибудь добавить в функционал если у вас есть такая возможность отложить проверку до следующего дня буду благодарна!!!');
+}
+window.onload = showAlert;
+
 const burger = Array.from(document.querySelectorAll('.burger-icon-container'));
 const burgerListBar = document.querySelector('.navigation-mobile-container');
 
@@ -19,6 +26,8 @@ const btnNext = document.querySelector('.arrow-left');
 const btnPrev = document.querySelector('.arrow-right');
 let slideIndx = 1;
 let intervalId;
+let touchStartX = 0;
+let touchEndX = 0;
 
 showSlides(slideIndx)
 startAutoSlide();
@@ -52,6 +61,19 @@ function startAutoSlide() {
 
 function stopAutoSlide() {
   clearInterval(intervalId);
+}
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const swipeDistance = touchEndX - touchStartX;
+
+  if (swipeDistance > swipeThreshold) {
+      addSlides(-1);
+      stopAutoSlide();
+  } else if (swipeDistance < -swipeThreshold) {
+      addSlides(1);
+      stopAutoSlide();
+  }
 }
 
 btnNext.addEventListener('click', ()=>{
