@@ -1,25 +1,25 @@
-
-
-function showAlert() {
-  alert('Я бы хотела ещё что-нибудь добавить в функционал если у вас есть такая возможность отложить проверку до следующего дня буду благодарна!!!');
-}
-window.onload = showAlert;
 /* burger navigation */
-const burger = Array.from(document.querySelectorAll('.burger-icon-container'));
-const burgerListBar = document.querySelector('.navigation-mobile-container');
 
-function toggleBurgerMenu() {
-  burgerListBar.style.right = burgerListBar.style.right === '0%' ? '-100%' : '0%';
+const burgers = Array.from(document.querySelectorAll('.burger-icon-container'));
+const burgerMenus = Array.from(document.querySelectorAll('.navigation-mobile-container'));
+
+function toggleBurgerMenu(index) {
+  burgerMenus[index].style.right = burgerMenus[index].style.right === '0%' ? '-100%' : '0%';
 }
 
-
-burger.forEach((item) => {
+burgers.forEach((item, index) => {
   item.addEventListener('click', () => {
+    burgers.forEach((otherBurger, otherIndex) => {
+      if (otherIndex !== index) {
+        otherBurger.classList.remove('active');
+        toggleBurgerMenu(otherIndex);
+      }
+    });
+
     item.classList.toggle('active');
-    toggleBurgerMenu();
+    toggleBurgerMenu(index);
   });
 });
-
 
 /* Slide img */
 const img = Array.from(document.querySelectorAll('.favourite-coffee-image-container'))
