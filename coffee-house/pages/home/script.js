@@ -4,17 +4,18 @@ function showAlert() {
   alert('Я бы хотела ещё что-нибудь добавить в функционал если у вас есть такая возможность отложить проверку до следующего дня буду благодарна!!!');
 }
 window.onload = showAlert;
-
+/* burger navigation */
 const burger = Array.from(document.querySelectorAll('.burger-icon-container'));
 const burgerListBar = document.querySelector('.navigation-mobile-container');
 
 function toggleBurgerMenu() {
-  burgerListBar.style.display = burgerListBar.style.display === 'flex' ? 'none' : 'flex';
+  burgerListBar.style.right = burgerListBar.style.right === '0%' ? '-100%' : '0%';
 }
+
 
 burger.forEach((item) => {
   item.addEventListener('click', () => {
-    item.classList.toggle('burger_active');
+    item.classList.toggle('active');
     toggleBurgerMenu();
   });
 });
