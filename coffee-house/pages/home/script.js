@@ -64,7 +64,7 @@ function showSlides(n) {
         item.style.display = 'none';
     });
 
-    img[slideIndex - 1].style.display = 'block';
+    img[slideIndex - 1].style.display = 'flex';
 }
 
 function addSlides(n) {
@@ -135,8 +135,5 @@ function toggleClassOnTimer() {
 
     toggleClass();
 }
-
-
-
 
 
