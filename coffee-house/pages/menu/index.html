@@ -38,26 +38,26 @@
     <main class="menu-section">
       <h1 class="header-menu">Behind each of our cups hides an<span class="hight-header"> amazing surprise</span></h1>
       <div class="button-navigation-container">
-        <div class="button-navigation active-button-nav">
+        <div class="button-navigation active-button-nav" onclick="showContent('coffee-content')">
           <div class="wrap-image">
             <img src="../../assets/icons/coffee.png" alt="coffee-icon">
           </div>
           <h5>Coffee</h5>
         </div>
-        <div class="button-navigation tea-button">
+        <div class="button-navigation tea-button" onclick="showContent('tea-content')">
           <div class="wrap-image">
             <img src="../../assets/icons/tea.png" alt="tea-icon">
           </div>
           <h5>Tea</h5>
         </div>
-        <div class="button-navigation">
+        <div class="button-navigation" onclick="showContent('dessert-content')">
           <div class="wrap-image">
             <img src="../../assets/icons/dessert.png" alt="dessert-icon">
           </div>
           <h5>Dessert</h5>
         </div>
       </div>
-      <div class="coffee-content-wrap">
+      <div class="coffee-content-wrap content-wrap active-content-wrap" id="coffee-content">
         <div class="coffee-content-container">
           <div class="menu-image-container">
             <img src="../../assets/images/menu-coffe/coffee-1.png" alt="coffee-img" class="menu-image">
@@ -139,7 +139,7 @@
           </div>
         </div>
       </div>
-      <div class="tea-content-wrap">
+      <div class="tea-content-wrap content-wrap" id="tea-content">
         <div class="coffee-content-container">
           <div class="menu-image-container">
             <img src="../../assets/images/menu-coffe/tea-1.png" alt="tea-img" class="menu-image">
@@ -183,7 +183,7 @@
           </div>
         </div>
       </div>
-      <div class="dessert-content-wrap">
+      <div class="dessert-content-wrap content-wrap" id="dessert-content">
         <div class="coffee-content-container">
           <div class="menu-image-container">
             <img src="../../assets/images/menu-coffe/dessert-1.png" alt="coffee-img" class="menu-image">
@@ -383,6 +383,6 @@ Philadelphia cheese with lemon zest on a light sponge cake and red currant jam
       </div>
     </div>
   </div>
-  <script src="../../pages/home/script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>

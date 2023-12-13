@@ -669,6 +669,10 @@ h5{
    cursor: pointer;
 }
 
+.active-button-nav{
+   display: flex;
+}
+
 .coffee-content-wrap{
    width: 100%;
    max-width: 1360px;
