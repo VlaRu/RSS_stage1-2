@@ -3,7 +3,6 @@
 const burgers = Array.from(document.querySelectorAll('.burger-icon-container'));
 const burgerMenus = Array.from(document.querySelectorAll('.navigation-mobile-container'));
 const linkElements = Array.from(document.querySelectorAll('.link-element'));
-console.log(linkElements)
 
 linkElements.forEach((item, index) => {
   item.addEventListener('click', () => {
@@ -37,67 +36,107 @@ burgers.forEach((item, index) => {
 });
 
 /* Slide img */
-const img = Array.from(document.querySelectorAll('.favourite-coffee-image-container'))
+
+const img = Array.from(document.querySelectorAll('.favourite-coffee-image-container'));
 const btnNext = document.querySelector('.arrow-left');
 const btnPrev = document.querySelector('.arrow-right');
-let slideIndx = 1;
+const buttons = document.querySelectorAll('.favourite-button-slide');
+
+let slideIndex = 1;
 let intervalId;
 let touchStartX = 0;
 let touchEndX = 0;
 
-showSlides(slideIndx)
+showSlides(slideIndex);
 startAutoSlide();
+toggleClassOnTimer();
 
 function showSlides(n) {
-    if(n > img.length){
-        slideIndx = 1;
+    if (n > img.length) {
+        slideIndex = 1;
     }
 
-    if(n < 1){
-        slideIndx = img.length;
+    if (n < 1) {
+        slideIndex = img.length;
     }
 
     img.forEach(item => {
-        item.style.display = "none"
+        item.style.display = 'none';
     });
 
-    img[slideIndx -1].style.display = "block"
+    img[slideIndex - 1].style.display = 'block';
 }
 
 function addSlides(n) {
-    showSlides(slideIndx += n)
+    stopAutoSlide();
+    showSlides((slideIndex += n));
 }
 
 function startAutoSlide() {
-  const intervalDuration = 5000;
-  intervalId = setInterval(() => {
-      addSlides(1);
-  }, intervalDuration);
+    const intervalDuration = 5000;
+    intervalId = setInterval(() => {
+        addSlides(1);
+    }, intervalDuration);
 }
 
 function stopAutoSlide() {
-  clearInterval(intervalId);
+    clearInterval(intervalId);
 }
 
 function handleSwipe() {
-  const swipeThreshold = 50;
-  const swipeDistance = touchEndX - touchStartX;
+    const swipeThreshold = 50;
+    const swipeDistance = touchEndX - touchStartX;
 
-  if (swipeDistance > swipeThreshold) {
-      addSlides(-1);
-      stopAutoSlide();
-  } else if (swipeDistance < -swipeThreshold) {
-      addSlides(1);
-      stopAutoSlide();
-  }
+    if (swipeDistance > swipeThreshold) {
+        addSlides(-1);
+    } else if (swipeDistance < -swipeThreshold) {
+        addSlides(1);
+    }
 }
 
-btnNext.addEventListener('click', ()=>{
+document.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+btnNext.addEventListener('click', () => {
     addSlides(1);
-    stopAutoSlide();
-})
-btnPrev.addEventListener('click', ()=>{
+});
+
+btnPrev.addEventListener('click', () => {
     addSlides(-1);
-    stopAutoSlide();
-})
+});
+
+buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        addSlides(index + 1);
+    });
+});
+
+function toggleActiveClass(index) {
+    buttons[index].classList.add('active-favourite-button');
+    setTimeout(() => {
+        buttons[index].classList.remove('active-favourite-button');
+    }, 5000); // 5 seconds timeout
+}
+
+function toggleClassOnTimer() {
+    let currentIndex = 0;
+
+    function toggleClass() {
+        toggleActiveClass(currentIndex);
+        currentIndex = (currentIndex + 1) % buttons.length;
+        setTimeout(toggleClass, 5000);
+    }
+
+    toggleClass();
+}
+
+
+
+
 
