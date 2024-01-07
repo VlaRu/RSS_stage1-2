@@ -1,4 +1,6 @@
 import { createGallowsContainer } from "./gallows.js";
+import { createQuizContainer } from "./quiz.js";
+import { createModal } from "./modal.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   createContainers();
@@ -10,12 +12,10 @@ function createContainers() {
 
   const gallowsContainer = createGallowsContainer();
   //quiz container
-  const quizContainer = document.createElement("div");
-  quizContainer.classList.add("quiz-container");
+  const quizContainer = createQuizContainer();
 
   //modal container
-  const modalContainer =  document.createElement("div");
-  modalContainer.classList.add("modal-container");
+  const modalContainer =  createModal();
 
   mainContainer.appendChild(gallowsContainer);
   mainContainer.appendChild(quizContainer);
