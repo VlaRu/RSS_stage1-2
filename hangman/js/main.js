@@ -1,6 +1,10 @@
+import question from "./question.js";
 import { createGallowsContainer } from "./gallows.js";
 import { createQuizContainer } from "./quiz.js";
 import { createModal } from "./modal.js";
+
+let questionArr = question.map((i) => i);
+console.log(questionArr);
 
 document.addEventListener("DOMContentLoaded", function () {
   createContainers();
