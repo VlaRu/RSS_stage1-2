@@ -1,0 +1,79 @@
+@import "nullstyle.scss";
+@import "modules.scss";
+
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 40px;
+  position: relative;
+  background-color: pink;
+}
+
+.gallows-container{
+  width: 50%;
+  background-color: green;
+  position: relative;
+  @include flex($d: flex,$fd: row,$jc: center,$ai: center);
+}
+
+.gallows-image{
+  width: 58%;
+  height: 80%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.container__part-body-elements{
+  width: 40%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.head-container{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+
+  .head-element{
+    width: 30%;
+    border-radius: 100%;
+    border: 5px solid #000;
+  }
+}
+
+.body-container{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.body-element{
+  height: 90%;
+  width: 2%;
+  background-color: #000;
+}
+
+.left-hand,.right-hand{
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 100px;
+}
+
+.legs-container{
+  height: 50%;
+  width: 100%;
+  @include flex($d: flex,$fd: row,$jc: center,$ai: center);
+  align-content: center;
+}
+
+.left-leg, .right-leg{
+  font-size: 260px;
+}
