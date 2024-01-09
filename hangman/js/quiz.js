@@ -1,3 +1,6 @@
+import { renderKeyboard } from "./keyboard.js";
+
+
 function createQuizContainer(){
   const quizContainer = document.createElement("div");
   quizContainer.classList.add("quiz-container");
@@ -31,6 +34,8 @@ function createQuizContainer(){
 
   quizContainer.appendChild(keyboardContainer);
   keyboardContainer.appendChild(keyboardContainerLetter);
+  renderKeyboard(keyboardContainerLetter);
+
   return quizContainer;
 }
 
