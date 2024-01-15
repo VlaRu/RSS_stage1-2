@@ -14,6 +14,7 @@ function createModal() {
   const modalButtonPlay = document.createElement("button");
   modalButtonPlay.classList.add("btn-play");
   modalButtonPlay.textContent = "play again";
+  modalButtonPlay.addEventListener('click', function(){location.reload()})
 
   modalContainer.appendChild(modalWindow);
   modalWindow.appendChild(modalWindowText);
@@ -21,5 +22,7 @@ function createModal() {
   modalWindow.appendChild(modalButtonPlay);
   return modalContainer;
 }
+
+
 
 export { createModal };
