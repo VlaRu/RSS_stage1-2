@@ -1,5 +1,12 @@
 import { renderKeyboard } from "./keyboard.js";
+import question from "./question.js";
+import { generateHint, getIncorrectGuessCount } from "./generateHint.js";
 
+const randomIndex = Math.floor(Math.random() * question.length);
+const randomQuestion = question[randomIndex].question;
+export const correspondingAnswer = question[randomIndex].answer;
+console.log(randomQuestion);
+console.log(correspondingAnswer);
 
 function createQuizContainer(){
   const quizContainer = document.createElement("div");
@@ -13,12 +20,15 @@ function createQuizContainer(){
 
   const questionText = document.createElement("h2");
   questionText.classList.add("question-text");
+  questionText.textContent = randomQuestion;
 
   const numberHintIncorrect = document.createElement("p");
   numberHintIncorrect.classList.add("incorrect-guesses");
 
+
   const numberHint = document.createElement("span");
   numberHint.classList.add("number-hint");
+  numberHint.textContent = " 6";
 
   const keyboardContainer = document.createElement("div");
   keyboardContainer.classList.add("keyboard-container");
@@ -28,6 +38,8 @@ function createQuizContainer(){
 
   quizContainer.appendChild(quastionContainer);
   quastionContainer.appendChild(hintContainer);
+  generateHint(hintContainer)
+
   quastionContainer.appendChild(questionText);
   quastionContainer.appendChild(numberHintIncorrect);
   numberHintIncorrect.appendChild(numberHint);

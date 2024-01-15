@@ -1,12 +1,6 @@
-import question from "./question.js";
 import { createGallowsContainer } from "./gallows.js";
 import { createQuizContainer } from "./quiz.js";
 import { createModal } from "./modal.js";
-
-let questionArr = question.map((i) => i);
-const quizQuestion = question.map(item => item.question);
-const answers = question.map(item => item.answer);
-console.log([...quizQuestion]);
 
 document.addEventListener("DOMContentLoaded", function () {
   createContainers();
