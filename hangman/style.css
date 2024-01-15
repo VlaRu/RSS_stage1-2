@@ -74,12 +74,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   padding: 40px;
   position: relative;
-  background-color: pink;
+  background-color: rgb(219, 219, 174);
 }
 
 .gallows-container {
   width: 50%;
-  background-color: green;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -100,7 +99,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 60%;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
 }
 
 .head-container {
@@ -110,6 +108,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
 }
 .head-container .head-element {
+  display: none;
   width: 30%;
   border-radius: 100%;
   border: 5px solid #000;
@@ -118,19 +117,29 @@ h1, h2, h3, h4, h5, h6 {
 .body-container {
   width: 100%;
   height: 30%;
-  display: flex;
+  display: none;
+  justify-content: center;
   align-items: center;
 }
 
 .body-element {
+  display: none;
   height: 90%;
   width: 2%;
   background-color: #000;
 }
 
-.left-hand, .right-hand {
+.left-hand {
   width: 48%;
-  display: flex;
+  display: none;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 100px;
+}
+
+.right-hand {
+  width: 48%;
+  display: none;
   justify-content: center;
   font-weight: 800;
   font-size: 100px;
@@ -146,13 +155,18 @@ h1, h2, h3, h4, h5, h6 {
   align-content: center;
 }
 
-.left-leg, .right-leg {
+.left-leg {
+  display: none;
+  font-size: 260px;
+}
+
+.right-leg {
+  display: none;
   font-size: 260px;
 }
 
 .quiz-container {
   width: 50%;
-  background-color: blue;
 }
 
 .quastion-container {
@@ -162,15 +176,13 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   width: 100%;
   height: 50%;
-  background-color: yellow;
 }
 
 .hint-container {
-  width: 50%;
+  width: 80%;
   height: 25%;
   display: flex;
   gap: 10px;
-  background-color: #0bbae1;
   font-size: 40px;
 }
 
@@ -183,7 +195,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   text-align: center;
   border-bottom: 5px solid #000;
-  background-color: rgb(219, 219, 174);
+  color: rgb(219, 219, 174);
+}
+
+.guessed-letter {
+  color: rgb(0, 0, 0);
 }
 
 .keyboard-container {
@@ -192,16 +208,15 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: violet;
 }
 
 .keyboard-container-letter {
-  width: 75%;
+  width: 95%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: rgb(70, 70, 56);
   align-content: center;
   flex-wrap: wrap;
   padding: 10px;
@@ -218,12 +233,17 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #9d10aa;
+  background-color: #eae0eb;
   border-radius: 20px;
   translate: easy 0.3;
 }
 .keyboard-letter:hover {
   background-color: hsla(295, 83%, 36%, 0.5);
+}
+
+.disabled {
+  background-color: #999292;
+  cursor: not-allowed;
 }
 
 .modal-container {
@@ -242,12 +262,12 @@ h1, h2, h3, h4, h5, h6 {
   width: 60%;
   height: 50%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 50px;
-  background-color: pink;
+  background-color: rgb(219, 219, 174);
 }
 
 .modal-window__message {
@@ -263,7 +283,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 20%;
   padding: 5px;
   border-radius: 30px;
-  background-color: lightseagreen;
+  background-color: #fff;
+  color: #000;
   font-size: 30px;
   font-weight: 600;
   text-transform: uppercase;
@@ -278,15 +299,18 @@ h1, h2, h3, h4, h5, h6 {
     width: 80%;
     height: 60%;
   }
+  .keyboard-container-letter {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 0;
+  }
 }
 @media screen and (max-width: 768px) {
   .container {
     padding: 20px;
   }
-  .keyboard-container-letter {
+  .hint-container {
     width: 100%;
-    font-size: 20px;
-    padding: 10px 0;
   }
   .keyboard-letter {
     height: 35px;
@@ -298,6 +322,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .gallows-container, .quiz-container {
     width: 100%;
+    height: 50%;
   }
   .legs-container {
     height: 40%;

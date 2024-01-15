@@ -1,5 +1,6 @@
 @import "nullstyle.scss";
 @import "modules.scss";
+//npm run sass
 
 .container{
   width: 100%;
@@ -7,12 +8,11 @@
   display: flex;
   padding: 40px;
   position: relative;
-  background-color: pink;
+  background-color: rgb(219, 219, 174);
 }
 
 .gallows-container{
   width: 50%;
-  background-color: green;
   position: relative;
   @include flex($d: flex,$fd: row,$jc: center,$ai: center);
 }
@@ -30,7 +30,6 @@
   height: 60%;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
 }
 
 .head-container{
@@ -40,6 +39,7 @@
   justify-content: center;
 
   .head-element{
+    display: none;
     width: 30%;
     border-radius: 100%;
     border: 5px solid #000;
@@ -49,19 +49,29 @@
 .body-container{
   width: 100%;
   height: 30%;
-  display: flex;
+  display: none;
+  justify-content: center;
   align-items: center;
 }
 
 .body-element{
+  display: none;
   height: 90%;
   width: 2%;
   background-color: #000;
 }
 
-.left-hand,.right-hand{
+.left-hand {
   width: 48%;
-  display: flex;
+  display: none;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 100px;
+}
+
+.right-hand{
+  width: 48%;
+  display: none;
   justify-content: center;
   font-weight: 800;
   font-size: 100px;
@@ -74,28 +84,31 @@
   align-content: center;
 }
 
-.left-leg, .right-leg{
+.left-leg {
+  display: none;
+  font-size: 260px;
+}
+
+.right-leg {
+  display: none;
   font-size: 260px;
 }
 
 .quiz-container{
   width: 50%;
-  background-color: blue;
 }
 
 .quastion-container{
   @include flex($d: flex,$fd: column,$jc: center,$ai: center);
   width: 100%;
   height: 50%;
-  background-color: yellow;
 }
 
 .hint-container{
-  width: 50%;
+  width: 80%;
   height: 25%;
   display: flex;
   gap: 10px;
-  background-color: #0bbae1;
   font-size: 40px;
 }
 
@@ -105,19 +118,22 @@
   @include flex($d: flex,$fd: row,$jc: center,$ai: center);
   text-align: center;
   border-bottom: 5px solid #000;
-  background-color: rgb(219, 219, 174);
+  color: rgb(219, 219, 174);
+}
+
+.guessed-letter{
+  color: rgb(0, 0, 0);
 }
 
 .keyboard-container{
   height: 50%;
   @include flex($d: flex,$fd: row,$jc: center,$ai: center);
-  background-color: violet;
 }
 
 .keyboard-container-letter{
-  width: 75%;
+  width: 95%;
   @include flex($d: flex,$fd: row,$jc: center,$ai: center);
-  background-color: #fff;
+  background-color:rgb(70, 70, 56);
   align-content: center;
   flex-wrap: wrap;
   padding: 10px;
@@ -131,13 +147,18 @@
   width: 9%;
   height: 50px;
   @include flex($d: flex,$fd: row,$jc: center,$ai: center);
-  background-color: #9d10aa;
+  background-color: #eae0eb;
   border-radius: 20px;
   translate: easy 0.3;
 
   &:hover{
     background-color: hsl(295, 83%, 36%, 0.5);
   }
+}
+
+.disabled {
+  background-color: #999292;
+  cursor: not-allowed;
 }
 
 .modal-container{
@@ -152,10 +173,10 @@
 .modal-window{
   width: 60%;
   height: 50%;
-  @include flex($d: flex,$fd: row,$jc: center,$ai: center);
+  @include flex($d: flex,$fd: column,$jc: center,$ai: center);
   text-align: center;
   border-radius: 50px;
-  background-color: pink;
+  background-color: rgb(219, 219, 174);
 }
 
 .modal-window__message{
@@ -171,7 +192,8 @@
   height: 20%;
   padding: 5px;
   border-radius: 30px;
-  background-color: lightseagreen;
+  background-color: #fff;
+  color: #000;
   font-size: 30px;
   font-weight: 600;
   text-transform: uppercase;
@@ -187,6 +209,12 @@
     width: 80%;
     height: 60%;
   }
+
+  .keyboard-container-letter{
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -194,10 +222,8 @@
     padding: 20px;
   }
 
-  .keyboard-container-letter{
+  .hint-container{
     width: 100%;
-    font-size: 20px;
-    padding: 10px 0;
   }
 
   .keyboard-letter{
@@ -212,6 +238,7 @@
 
   .gallows-container, .quiz-container{
     width: 100%;
+    height: 50%;
   }
 
   .legs-container{
