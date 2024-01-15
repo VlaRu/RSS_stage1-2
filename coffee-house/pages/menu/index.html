@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="icon" href="../../assets/icons/logo-iso.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../home/style.css">
+</head>
+<body>
+  <div class="container container-menu">
+    <header class="header-menu-section">
+      <div class="logo">
+        <a href="../../pages/home/index.html"><img src="../../assets/images/logo.png" alt="logo-img"></a>
+      </div>
+      <nav class="navigation-container navigation-container-menu">
+        <ul class="navigation-list">
+          <li class="link-element"><a href="#favourites-coffee">Favorite coffee</a></li>
+          <li class="link-element"><a href="#about">About</a></li>
+          <li class="link-element"><a href="#mobile">Mobile app</a></li>
+          <li class="link-element"><a href="#footer">Contact us</a></li>
+        </ul>
+      </nav>
+      <a class="button-menu-container navigation-container-menu menu-header-button">
+        <p>Menu</p>
+        <img src="../../assets/icons/coffee-cup.png" alt="cup-icon">
+      </a>
+      <div class="burger-icon-container" id="burgerIcon2">
+        <div class="burger-line-wrapper">
+          <span class="nav-toggle__item"></span>
+          <span class="nav-toggle__item"></span>
+        </div>
+      </div>
+    </header>
+    <main class="menu-section">
+      <h1 class="header-menu">Behind each of our cups hides an<span class="hight-header"> amazing surprise</span></h1>
+      <div class="button-navigation-container">
+        <div class="button-navigation active-button-nav" onclick="showContent('coffee-content')">
+          <div class="wrap-image">
+            <img src="../../assets/icons/coffee.png" alt="coffee-icon">
+          </div>
+          <h5>Coffee</h5>
+        </div>
+        <div class="button-navigation tea-button" onclick="showContent('tea-content')">
+          <div class="wrap-image">
+            <img src="../../assets/icons/tea.png" alt="tea-icon">
+          </div>
+          <h5>Tea</h5>
+        </div>
+        <div class="button-navigation" onclick="showContent('dessert-content')">
+          <div class="wrap-image">
+            <img src="../../assets/icons/dessert.png" alt="dessert-icon">
+          </div>
+          <h5>Dessert</h5>
+        </div>
+      </div>
+      <div class="coffee-content-wrap content-wrap active-content-wrap" id="coffee-content">
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-1.png" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Irish coffee</h4>
+            <p class="coffee-text">Fragrant black coffee with<br> Jameson Irish whiskey and<br> whipped milk</p>
+            <p class="price">$7.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-2.jpg" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Kahlua coffee
+              </h4>
+            <p class="coffee-text">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
+            <p class="price">$7.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-3.jpg" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Honey raf
+              </h4>
+            <p class="coffee-text">Espresso with frothed milk, cream and aromatic honey</p>
+            <p class="price">$5.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-4.jpg" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Ice cappuccino</h4>
+            <p class="coffee-text">Cappuccino with soft thick foam in summer version with ice</p>
+            <p class="price">$5.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-5.jpg" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Espresso
+              </h4>
+            <p class="coffee-text">Classic black coffee
+            </p>
+            <p class="price">$4.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-6.jpg" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Latte</h4>
+            <p class="coffee-text">Espresso coffee with the addition<br> of steamed milk and dense milk<br> foam</p>
+            <p class="price">$5.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-7.jpg" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Latte macchiato</h4>
+            <p class="coffee-text">Espresso with frothed milk and chocolate</p>
+            <p class="price">$5.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/coffee-8.jpg" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Coffee with cognac
+              </h4>
+            <p class="coffee-text">Fragrant black coffee with cognac and whipped cream</p>
+            <p class="price">$6.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="tea-content-wrap content-wrap" id="tea-content">
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/tea-1.png" alt="tea-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Moroccan
+              </h4>
+            <p class="coffee-text">
+              Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint
+              </p>
+            <p class="price">$4.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/tea-2.png" alt="tea-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Ginger </h4>
+            <p class="coffee-text">Original black tea with fresh ginger, lemon and honey</p>
+            <p class="price">$5.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/tea-3.png" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Cranberry</h4>
+            <p class="coffee-text">Invigorating black tea with cranberry and honey</p>
+            <p class="price">$5.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/tea-4.png" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Sea buckthorn</h4>
+            <p class="coffee-text">Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon</p>
+            <p class="price">$5.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="dessert-content-wrap content-wrap" id="dessert-content">
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-1.png" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Marble cheesecake</h4>
+            <p class="coffee-text">
+
+Philadelphia cheese with lemon zest on a light sponge cake and red currant jam
+
+              </p>
+            <p class="price">$3.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-2.png" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Red velvet
+              </h4>
+            <p class="coffee-text">Red velvet
+              Layer cake with cream cheese frosting
+              </p>
+            <p class="price">$4.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-3.png" alt="coffee-img" class="menu-image">
+          </div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Cheesecakes
+
+
+              </h4>
+            <p class="coffee-text">Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar</p>
+            <p class="price">$4.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-4.png" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Creme brulee
+
+              </h4>
+            <p class="coffee-text">Delicate creamy dessert in a caramel basket with wild berries</p>
+            <p class="price">$4.00</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-5.png" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Pancakes
+
+
+              </h4>
+            <p class="coffee-text">Tender pancakes with strawberry jam and fresh strawberries
+            </p>
+            <p class="price">$4.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-6.png" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Honey cake
+
+              </h4>
+            <p class="coffee-text">Classic honey cake with delicate custard</p>
+            <p class="price">$4.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-7.png" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Chocolate cake</h4>
+            <p class="coffee-text">Cake with hot chocolate filling and nuts with dried apricots</p>
+            <p class="price">$5.50</p>
+          </div>
+        </div>
+        <div class="coffee-content-container">
+          <div class="menu-image-container">
+            <img src="../../assets/images/menu-coffe/dessert-8.png" alt="coffee-img" class="menu-image"></div>
+          <div class="coffee-text-container">
+            <h4 class="coffee-name">Black forest
+              </h4>
+            <p class="coffee-text">Black forest
+              A combination of thin sponge cake with cherry jam and light chocolate mousse
+              </p>
+            <p class="price">$6.50</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="menu-more-container">
+      <img src="../../assets/icons/refresh.png" alt="refresh">
+    </div>
+    <footer id="footer" class="footer-menu">
+      <div class="footer-header-container">
+        <h2 class="footer-heider">Sip, Savor, Smile.<span class="hight-header"> It’s coffee time!</span></h2>
+        <div class="footer-icon-container">
+          <div class="footer-icon"><a href="https://twitter.com/" target="_blank"><img src="../../assets/icons/twitter.svg" alt="footer-icon" class="social-img"></a></div>
+          <div class="footer-icon"><a href="https://instagram.com/" target="_blank"><img src="../../assets/icons/footer-instagram.svg" alt="footer-icon"></a></div>
+          <div class="footer-icon"><a href="https://facebook.com/" target="_blank"><img src="../../assets/icons/facebook.svg" alt="footer-icon"></a></div>
+        </div>
+      </div>
+      <div class="footer-contact-container">
+        <h3>Contact us</h3>
+        <div class="contact-container">
+          <div class="contact-link">
+            <a href="https://www.google.com/maps/place/8558+Greenleaf+Ave,+Whittier,+CA+90602,+%D0%A1%D0%A8%D0%90/@33.9621101,-118.0428671,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2d39861755abf:0xfcec1f0376f63bd4!8m2!3d33.9621101!4d-118.0402922?entry=ttu" target="_blank"><img src="../../assets/icons/point.svg" alt="icon" class="footer-icon-link"></a>
+            <a href="https://www.google.com/maps/place/8558+Greenleaf+Ave,+Whittier,+CA+90602,+%D0%A1%D0%A8%D0%90/@33.9621101,-118.0428671,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2d39861755abf:0xfcec1f0376f63bd4!8m2!3d33.9621101!4d-118.0402922?entry=ttu" target="_blank">8558 Green Rd.,  LA</a>
+          </div>
+          <div class="contact-link">
+            <a href="tel:16035550123"><img src="../../assets/icons/phone.svg" alt="icon"></a>
+            <a href="tel:16035550123">+1 (603) 555-0123</a>
+          </div>
+          <div class="contact-link">
+            <img src="../../assets/icons/clock.svg" alt="icon">
+            <a href="#"></a>Mon-Sat: 9:00 AM - 23:00 PM
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="navigation-mobile-container" id="mobileMenu2">
+      <nav>
+        <ul class="navigation-list">
+          <li class="link-element"><a href="#favourites-coffee">Favorite coffee</a></li>
+          <li class="link-element"><a href="#about">About</a></li>
+          <li class="link-element"><a href="#mobile">Mobile app</a></li>
+          <li class="link-element"><a href="#footer">Contact us</a></li>
+        </ul>
+        <div class="menu-btn-burger-container">
+          <a href="../menu/index.html" class="menu-btn-burger">
+            <p>Menu</p>
+            <img src="../../assets/icons/coffee-cup.svg" alt="cup-icon">
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="modal-container">
+      <div class="modal-contant-container">
+        <div class="modal-image-container">
+          <img src="../../assets/images/menu-coffe/coffee-1.png" alt="modal-img" class="modal-img">
+        </div>
+        <div class="modal-text-cantant-container">
+          <div class="modal-name-item">Irish-coffee</div>
+          <div class="modal-description-item">fgdcfbgdfcbgxh</div>
+          <p>Size</p>
+          <div class="select-prise-container">
+            <div class="select-container">
+              <div class="select-button">
+                <div class="select">S</div>
+                <p>200 ml</p>
+              </div>
+              <div class="select-button">
+                <div class="select">S</div>
+                <p>300 ml</p>
+              </div>
+              <div class="select-button">
+                <div class="select">S</div>
+                <p>400 ml</p>
+              </div>
+            </div>
+          </div>
+          <p>Additives</p>
+          <div class="additives-select-container">
+            <div class="select-container">
+              <div class="select-button">
+                <div class="select">1</div>
+                <p>Suggar</p>
+              </div>
+              <div class="select-button">
+                <div class="select">2</div>
+                <p>Cynnamon</p>
+              </div>
+              <div class="select-button">
+                <div class="select">3</div>
+                <p>Syrup</p>
+              </div>
+            </div>
+          </div>
+          <div class="total-price-container">
+            <p>Total:</p>
+            <p>$7.00</p>
+          </div>
+          <div class="cost-information">
+            <div class="icon-information"><p>i</p></div>
+            <p>The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</p>
+          </div>
+          <div class="button-close">Close</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
