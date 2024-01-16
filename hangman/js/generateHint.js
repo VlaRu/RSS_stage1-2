@@ -1,5 +1,4 @@
 import { correspondingAnswer } from "./quiz.js";
-import { disableKeyboard } from "./keyboard.js";
 
 let incorrectGuessCount = 0;
 
@@ -52,6 +51,14 @@ function updateBodyPartsDisplay() {
       element.style.visibility = (i < incorrectGuessCount) ? "inherit" : "hidden";
     }
   }
+}
+
+function disableKeyboard() {
+  const keyboardLetters = document.querySelectorAll(".keyboard-letter");
+  keyboardLetters.forEach(letter => {
+    letter.classList.add('disabled');
+  });
+  
 }
 
 export function getIncorrectGuessCount() {
