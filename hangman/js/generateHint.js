@@ -16,7 +16,7 @@ export function handleWin() {
   const modalContainer = document.querySelector('.modal-container');
   const modalScore = document.querySelector('.modal-window__meesage-score');
   modalContainer.style.display = "flex";
-  modalScore.textContent = `You win! Attempts used ${incorrectGuessCount} / 6`;
+  modalScore.textContent = `You win! Attempts used ${incorrectGuessCount} / 6, the sicret word is: "${correspondingAnswer}"`;
   disableKeyboard();
   console.log("Win");
 }
@@ -41,7 +41,7 @@ export function getInputLetter(letter) {
   }
 }
 
-const partBodyArrClasses = ["head-element", "body-element", "left-leg", "right-leg", "left-hand", "right-hand"];
+const partBodyArrClasses = ["head-element", "body-container", "body-element", "left-hand", "right-hand", "left-leg", "right-leg"];
 
 function updateBodyPartsDisplay() {
   for (let i = 0; i < partBodyArrClasses.length; i++) {
