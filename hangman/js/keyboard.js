@@ -10,6 +10,9 @@ function renderKeyboard(container) {
     container.appendChild(keyElement);
 
     keyElement.addEventListener('click', function () {
+      keyElement.classList.add('disabled');
+      keyElement.style.backgroundColor = 'initial';
+      
       getInputLetter(l);
       const count = getIncorrectGuessCount();
       const modalContainer = document.querySelector('.modal-container');
