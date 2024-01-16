@@ -24,6 +24,7 @@ function createGallowsContainer() {
   leftHand.textContent = "/";
   const bodyElement = document.createElement("div");
   bodyElement.classList.add("body-element");
+  bodyElement.textContent = "|";
   const rightHand = document.createElement("div");
   rightHand.classList.add("right-hand");
   rightHand.textContent = "\\";

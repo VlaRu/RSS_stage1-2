@@ -41,7 +41,7 @@ export function getInputLetter(letter) {
   }
 }
 
-const partBodyArrClasses = ["head-element", "body-container", "body-element", "left-hand", "right-hand", "left-leg", "right-leg"];
+const partBodyArrClasses = ["head-element", "body-element", "left-hand", "right-hand", "left-leg", "right-leg"];
 
 function updateBodyPartsDisplay() {
   for (let i = 0; i < partBodyArrClasses.length; i++) {
@@ -49,7 +49,7 @@ function updateBodyPartsDisplay() {
     const element = document.querySelector(`.${className}`);
 
     if (element) {
-      element.style.display = (i <= incorrectGuessCount) ? "flex" : "none";
+      element.style.visibility = (i < incorrectGuessCount) ? "inherit" : "hidden";
     }
   }
 }

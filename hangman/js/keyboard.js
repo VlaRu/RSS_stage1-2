@@ -1,7 +1,8 @@
 import { getInputLetter, getIncorrectGuessCount, handleWin } from "./generateHint.js";
 
 function renderKeyboard(container) {
-  const letters = "abcdefghijklmnopqrstuvwxyz";
+  /* const letters = "abcdefghijklmnopqrstuvwxyz"; */
+  const letters = "qwertyuiopasdfghjklzxcvbnm";
 
   letters.split('').forEach(l => {
     const keyElement = document.createElement("div");
@@ -12,7 +13,7 @@ function renderKeyboard(container) {
     keyElement.addEventListener('click', function () {
       keyElement.classList.add('disabled');
       keyElement.style.backgroundColor = 'initial';
-      
+
       getInputLetter(l);
       const count = getIncorrectGuessCount();
       const modalContainer = document.querySelector('.modal-container');

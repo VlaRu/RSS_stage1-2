@@ -5,7 +5,7 @@ import { generateHint, getIncorrectGuessCount } from "./generateHint.js";
 const randomIndex = Math.floor(Math.random() * question.length);
 const randomQuestion = question[randomIndex].question;
 export const correspondingAnswer = question[randomIndex].answer;
-console.log(randomQuestion);
+
 console.log(correspondingAnswer);
 alert(`the answer is - ${correspondingAnswer}`)
 
@@ -29,7 +29,7 @@ function createQuizContainer(){
 
   const numberHint = document.createElement("span");
   numberHint.classList.add("number-hint");
-  numberHint.textContent = " 6";
+  numberHint.textContent = "0 / 6";
 
   const keyboardContainer = document.createElement("div");
   keyboardContainer.classList.add("keyboard-container");
