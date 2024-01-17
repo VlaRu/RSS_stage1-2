@@ -1,9 +1,23 @@
-import { correspondingAnswer } from "./quiz.js";
+/* import { correspondingAnswer, randomQuestion, randomIndex} from "./quiz.js"; */
+import question from "./question.js";
+let indx;
+export let randomQuestion;
+export let correspondingAnswer;
+
+function getRandomValues() {
+  indx = Math.floor(Math.random() * question.length);
+  randomQuestion = question[indx].question;
+  correspondingAnswer = question[indx].answer;
+}
+getRandomValues()
+console.log(randomQuestion);
+console.log(correspondingAnswer);
 
 let incorrectGuessCount = 0;
 
-export function generateHint(container) {
-  correspondingAnswer.split('').forEach(l => {
+export function generateHint(container,answ) {
+  const lowercaseAnswer = answ.toLowerCase();
+  lowercaseAnswer.split('').forEach(l => {
     const hintLetter = document.createElement("div");
     hintLetter.classList.add("hint-letter");
     hintLetter.textContent = l;
@@ -17,7 +31,6 @@ export function handleWin() {
   modalContainer.style.display = "flex";
   modalScore.textContent = `You win! Attempts used ${incorrectGuessCount} / 6, the sicret word is: "${correspondingAnswer}"`;
   disableKeyboard();
-  console.log("Win");
 }
 
 export function getInputLetter(letter) {
@@ -85,4 +98,11 @@ export function resetGame() {
 
   const modalContainer = document.querySelector('.modal-container');
   modalContainer.style.display = "none";
+  const hintContainer = document.querySelector('.hint-container');
+  hintContainer.innerHTML = "";
+  getRandomValues()
+  let questionText = document.querySelector(".question-text");
+  questionText.textContent = randomQuestion;
+  generateHint(hintContainer,correspondingAnswer);
+  console.log(`current answer: ${correspondingAnswer}`);
 }

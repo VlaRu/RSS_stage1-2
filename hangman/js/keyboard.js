@@ -24,7 +24,6 @@ function renderKeyboard(container) {
           if (count === 6) {
             modalContainer.style.display = "flex";
             modalScore.textContent = `You lose! You've reached the maximum incorrect guesses. Attempts used 6 / 6`;
-            console.log("Game over!");
           }
 
           document.querySelector(".incorrect-guesses span").textContent = `${count} / 6`;

@@ -1,12 +1,6 @@
 import { renderKeyboard } from "./keyboard.js";
 import question from "./question.js";
-import { generateHint, getIncorrectGuessCount } from "./generateHint.js";
-
-const randomIndex = Math.floor(Math.random() * question.length);
-const randomQuestion = question[randomIndex].question;
-export const correspondingAnswer = question[randomIndex].answer;
-
-console.log(`the answer is - ${correspondingAnswer}`);
+import { generateHint, randomQuestion, correspondingAnswer } from "./generateHint.js";
 
 function createQuizContainer(){
   const quizContainer = document.createElement("div");
@@ -38,7 +32,7 @@ function createQuizContainer(){
 
   quizContainer.appendChild(quastionContainer);
   quastionContainer.appendChild(hintContainer);
-  generateHint(hintContainer)
+  generateHint(hintContainer, correspondingAnswer);
 
   quastionContainer.appendChild(questionText);
   quastionContainer.appendChild(numberHintIncorrect);
