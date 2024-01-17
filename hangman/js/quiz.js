@@ -6,8 +6,7 @@ const randomIndex = Math.floor(Math.random() * question.length);
 const randomQuestion = question[randomIndex].question;
 export const correspondingAnswer = question[randomIndex].answer;
 
-console.log(correspondingAnswer);
-alert(`the answer is - ${correspondingAnswer}`)
+console.log(`the answer is - ${correspondingAnswer}`);
 
 function createQuizContainer(){
   const quizContainer = document.createElement("div");

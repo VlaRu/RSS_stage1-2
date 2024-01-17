@@ -58,9 +58,31 @@ function disableKeyboard() {
   keyboardLetters.forEach(letter => {
     letter.classList.add('disabled');
   });
-  
+
 }
 
 export function getIncorrectGuessCount() {
   return incorrectGuessCount;
+}
+
+export function resetGame() {
+  incorrectGuessCount = 0;
+
+  const guessedLetters = document.querySelectorAll('.hint-letter');
+  guessedLetters.forEach(hintLetter => {
+    hintLetter.classList.remove('guessed-letter');
+    hintLetter.style.borderBottom = "5px solid #000";
+  });
+
+  updateBodyPartsDisplay();
+
+  const keyboardLetters = document.querySelectorAll(".keyboard-letter");
+  keyboardLetters.forEach(letter => {
+    letter.classList.remove('disabled');
+    letter.style.backgroundColor = "#dbdbae";
+    letter.classList.add('keyboard-letter');
+  });
+
+  const modalContainer = document.querySelector('.modal-container');
+  modalContainer.style.display = "none";
 }

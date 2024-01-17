@@ -1,3 +1,5 @@
+import { resetGame } from "./generateHint.js";
+
 function createModal() {
   const modalContainer =  document.createElement("div");
   modalContainer.classList.add("modal-container");
@@ -14,7 +16,7 @@ function createModal() {
   const modalButtonPlay = document.createElement("button");
   modalButtonPlay.classList.add("btn-play");
   modalButtonPlay.textContent = "play again";
-  modalButtonPlay.addEventListener('click', function(){location.reload()})
+  modalButtonPlay.addEventListener('click', resetGame)
 
   modalContainer.appendChild(modalWindow);
   modalWindow.appendChild(modalWindowText);
