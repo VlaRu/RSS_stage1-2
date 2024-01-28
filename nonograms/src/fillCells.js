@@ -1,6 +1,4 @@
-import nonogramData from './nonogramData';
-
-const answerGame = nonogramData.answer;
+import {answerGame} from './renderDataGame';
 
 function toggleFillCell(element) {
   if (element.classList.contains('fill-cell')) {

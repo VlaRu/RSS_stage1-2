@@ -1,8 +1,4 @@
-import nonogramData from './nonogramData';
-
-const cluesDataCol = nonogramData.clues.columns;
-const cluesDataRow = nonogramData.clues.rows;
-const gameFieldSize = nonogramData.gridSize;
+import { cluesDataCol, cluesDataRow, gameFieldSize, answerGame} from './randomDataGame';
 
 function renderRowClues(perentNode) {
   for (let i = 0; i < cluesDataCol.length; i += 1) {
@@ -45,4 +41,4 @@ function renderGameField(perentNode) {
   }
 }
 
-export { renderColClues, renderRowClues, renderGameField };
+export { renderColClues, renderRowClues, renderGameField, answerGame };
