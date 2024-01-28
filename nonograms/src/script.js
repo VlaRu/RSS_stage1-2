@@ -1,5 +1,6 @@
 import "../sass/style.scss";
 import { handleRowFieldClick } from "./fillCells";
+import {titleGame} from './randomDataGame';
 import {
   renderColClues,
   renderRowClues,
@@ -14,6 +15,15 @@ function createContainers() {
   gameToolsContainer.className = "container_game-tools";
   const heading = document.createElement("h1");
   heading.textContent = "nonogram game";
+  const nameGame = document.createElement("h2");
+  nameGame.textContent = `${titleGame}`;
+  const buttonContainer = document.createElement('div');
+  const randomGameButton = document.createElement('button');
+  randomGameButton.innerText = 'random game';
+  randomGameButton.className = 'random-game_button';
+  const chooseButton = document.createElement('button');
+  chooseButton.innerText = 'choose game';
+  chooseButton.className = 'choose-game_button';
 
   const gameContainer = document.createElement("div");
   gameContainer.className = "game-container";
@@ -39,6 +49,10 @@ function createContainers() {
   gameContainer.appendChild(cluesColumnContainer);
   gameContainer.appendChild(gameFieldFixing);
   gameToolsContainer.appendChild(heading);
+  gameToolsContainer.appendChild(nameGame);
+  gameToolsContainer.appendChild(buttonContainer);
+  buttonContainer.appendChild(randomGameButton);
+  buttonContainer.appendChild(chooseButton);
   mainContaner.appendChild(gameToolsContainer);
   mainContaner.appendChild(gameContainer);
   document.body.appendChild(mainContaner);
