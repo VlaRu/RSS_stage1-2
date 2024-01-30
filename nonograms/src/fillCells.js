@@ -1,4 +1,5 @@
-import {answerGame} from './renderDataGame';
+import { answerGame } from './script';
+
 
 function toggleFillCell(element) {
   if (element.classList.contains('fill-cell')) {
