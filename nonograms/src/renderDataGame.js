@@ -47,10 +47,16 @@ function renderGameField(perentNode, indx) {
     const columnField = document.createElement('div');
     columnField.className = 'column-field';
     perentNode.appendChild(columnField);
+    if ([i] % 5 === 0 && i !== 0) {
+      columnField.style.borderTop = '3px solid red';
+    }
     for (let j = 0; j < gameFieldSize[1]; j += 1) {
       const rowField = document.createElement('div');
       rowField.className = 'row-field';
       columnField.appendChild(rowField);
+      if ([j] % 5 === 0 && j !== 0) {
+        rowField.style.borderLeft = '3px solid red';
+      }
     }
   }
 }

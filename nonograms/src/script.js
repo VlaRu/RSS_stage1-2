@@ -1,7 +1,7 @@
 import "../sass/style.scss";
 import { getRandomIndex } from './randomIndex';
 import nonogramData from './nonogramData';
-import { handleRowFieldClick } from './fillCells';
+import { handleRowFieldClick, toggleCrossCell } from './fillCells';
 import { showDropList } from "./showDropList";
 import {
   renderColClues,
@@ -90,19 +90,25 @@ function createContainers() {
   gameFieldFixing.appendChild(gameFieldContainer);
   gameContainer.appendChild(cluesColumnContainer);
   gameContainer.appendChild(gameFieldFixing);
-  gameToolsContainer.appendChild(heading);
-  gameToolsContainer.appendChild(nameGame);
   gameToolsContainer.appendChild(buttonContainer);
   buttonContainer.appendChild(dropDawnContainer);
   dropDawnContainer.appendChild(chooseButton);
   dropDawnContainer.appendChild(dropDownContent);
   buttonContainer.appendChild(randomGameButton);
+  gameToolsContainer.appendChild(heading);
+  gameToolsContainer.appendChild(nameGame);
   mainContaner.appendChild(gameToolsContainer);
   mainContaner.appendChild(gameContainer);
   document.body.appendChild(mainContaner);
 }
 
 document.addEventListener("click", handleRowFieldClick);
+document.addEventListener('contextmenu', function(event) {
+  event.preventDefault();
+  if (event.target.classList.contains('row-field')) {
+    toggleCrossCell(event.target);
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   createContainers();
