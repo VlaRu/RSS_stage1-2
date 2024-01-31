@@ -9,6 +9,10 @@ function toggleFillCell(element) {
   }
 }
 
+function toggleCrossCell(element) {
+  element.innerText === '' ? element.innerText = 'X' : element.innerText = '';
+}
+
 function getHintUser() {
   const rowFieldElements = document.getElementsByClassName('row-field');
   const hintUser = [];
@@ -52,4 +56,4 @@ function handleRowFieldClick(event) {
   displayGreat(mutchResult)
 }
 
-export { handleRowFieldClick };
+export { handleRowFieldClick, toggleCrossCell };
