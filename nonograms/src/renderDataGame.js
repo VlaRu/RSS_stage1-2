@@ -61,10 +61,4 @@ function renderGameField(perentNode, indx) {
   }
 }
 
-function clearContainer(container) {
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
-  }
-}
-
-export { renderColClues, renderRowClues, renderGameField, renderDropElements, clearContainer};
+export { renderColClues, renderRowClues, renderGameField, renderDropElements};
