@@ -51,8 +51,6 @@ function handleRowFieldClick(event) {
   const hintUser = getHintUser();
   const result = compareResults(hintUser);
   const mutchResult = isTruResult(result);
-  console.log(hintUser);
-  console.log(mutchResult);
   displayGreat(mutchResult)
 }
 
