@@ -4,6 +4,7 @@ import { answerGame } from './script';
 function toggleFillCell(element) {
   if (element.classList.contains('fill-cell')) {
     element.classList.remove('fill-cell');
+    element.innerText = '';
   } else {
     element.classList.add('fill-cell');
   }
