@@ -10,7 +10,12 @@ function toggleFillCell(element) {
 }
 
 function toggleCrossCell(element) {
-  element.innerText === '' ? element.innerText = 'X' : element.innerText = '';
+  if (element.innerText === '') {
+    element.innerText = 'X';
+    element.classList.remove('fill-cell');
+  } else {
+    element.innerText = '';
+  }
 }
 
 function getHintUser() {
