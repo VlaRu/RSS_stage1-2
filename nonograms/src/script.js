@@ -1,14 +1,15 @@
 import "../sass/style.scss";
-import { getRandomIndex } from './randomIndex';
-import nonogramData from './nonogramData';
-import { handleRowFieldClick, toggleCrossCell } from './fillCells';
+import { getRandomIndex } from "./randomIndex";
+import nonogramData from "./nonogramData";
+import { handleRowFieldClick, toggleCrossCell } from "./fillCells";
 import { showDropList } from "./showDropList";
+import { clearField, clearContainer } from "./restoreGame";
+import { fillSolution } from "./fillSolutionField";
 import {
   renderColClues,
   renderRowClues,
   renderGameField,
   renderDropElements,
-  clearContainer,
 } from "./renderDataGame";
 let index = 0;
 let titleGame = nonogramData[index].title;
@@ -28,14 +29,20 @@ function createContainers() {
   buttonContainer.className = "button-container";
   const randomGameButton = document.createElement("button");
   randomGameButton.innerText = "random game";
-  randomGameButton.className = "random-game_button";
+  randomGameButton.classList.add("random-game_button", "button");
   const chooseButton = document.createElement("button");
   chooseButton.innerText = "choose game";
-  chooseButton.className = "choose-game_button";
+  chooseButton.classList.add("choose-game_button", "button");
   const dropDawnContainer = document.createElement("div");
   dropDawnContainer.className = "drop-down_container";
   const dropDownContent = document.createElement("ul");
   dropDownContent.className = "drop-down_content";
+  const restoreButton = document.createElement("button");
+  const solutionButton = document.createElement("button");
+  restoreButton.innerText = "restore";
+  restoreButton.classList.add("restore-game_button", "button");
+  solutionButton.innerText = "solution";
+  solutionButton.classList.add("solution-game_button", "button");
 
   const gameContainer = document.createElement("div");
   gameContainer.className = "game-container";
@@ -52,35 +59,37 @@ function createContainers() {
   const gameFieldContainer = document.createElement("div");
   gameFieldContainer.className = "game-field_container";
 
-
-  renderRowClues(cluesRowsContainer,index);
+  renderRowClues(cluesRowsContainer, index);
   renderColClues(cluesColumnContainer, index);
   renderGameField(gameFieldContainer, index);
-  document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('drop-element')) {
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("drop-element")) {
       index = parseInt(event.target.dataset.index, 10);
-      clearContainer(cluesRowsContainer);
-      clearContainer(cluesColumnContainer);
-      clearContainer(gameFieldContainer);
-      renderRowClues(cluesRowsContainer,index);
-      renderColClues(cluesColumnContainer, index);
-      renderGameField(gameFieldContainer, index);
-      titleGame = nonogramData[index].title;
-      nameGame.textContent = `${titleGame}`;
-      answerGame = nonogramData[index].answer;
-      console.log(index);
-    } else if (event.target.classList.contains('random-game_button')) {
-      index = getRandomIndex();
-      console.log(index);
       clearContainer(cluesRowsContainer);
       clearContainer(cluesColumnContainer);
       clearContainer(gameFieldContainer);
       renderRowClues(cluesRowsContainer, index);
       renderColClues(cluesColumnContainer, index);
-      renderGameField(gameFieldContainer,index);
+      renderGameField(gameFieldContainer, index);
       titleGame = nonogramData[index].title;
       nameGame.textContent = `${titleGame}`;
       answerGame = nonogramData[index].answer;
+    } else if (event.target.classList.contains("random-game_button")) {
+      index = getRandomIndex();
+      clearContainer(cluesRowsContainer);
+      clearContainer(cluesColumnContainer);
+      clearContainer(gameFieldContainer);
+      renderRowClues(cluesRowsContainer, index);
+      renderColClues(cluesColumnContainer, index);
+      renderGameField(gameFieldContainer, index);
+      titleGame = nonogramData[index].title;
+      nameGame.textContent = `${titleGame}`;
+      answerGame = nonogramData[index].answer;
+    } else if (event.target.classList.contains("restore-game_button")) {
+      clearField();
+    } else if (event.target.classList.contains("solution-game_button")) {
+      answerGame = nonogramData[index].answer;
+      fillSolution(answerGame);
     }
   });
 
@@ -95,6 +104,8 @@ function createContainers() {
   dropDawnContainer.appendChild(chooseButton);
   dropDawnContainer.appendChild(dropDownContent);
   buttonContainer.appendChild(randomGameButton);
+  buttonContainer.appendChild(restoreButton);
+  buttonContainer.appendChild(solutionButton);
   gameToolsContainer.appendChild(heading);
   gameToolsContainer.appendChild(nameGame);
   mainContaner.appendChild(gameToolsContainer);
@@ -103,14 +114,14 @@ function createContainers() {
 }
 
 document.addEventListener("click", handleRowFieldClick);
-document.addEventListener('contextmenu', function(event) {
+document.addEventListener("contextmenu", function (event) {
   event.preventDefault();
-  if (event.target.classList.contains('row-field')) {
+  if (event.target.classList.contains("row-field")) {
     toggleCrossCell(event.target);
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   createContainers();
   showDropList();
 });
