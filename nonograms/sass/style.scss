@@ -4,6 +4,8 @@
 body{
   font-size: 22px;
   box-sizing: border-box;
+  background-color: #b7eeb4ac;
+  transition: background-color 0.5s;
 }
 
 h1{
@@ -17,7 +19,6 @@ h1{
   width: 100%;
   height: 100%;
   @include flex($d: flex,$fd: column,$jc: center,$ai: center);
-  background-color: #b7eeb4ac;
 }
 
 .container_game-tools{
@@ -78,9 +79,6 @@ h1{
   &:hover{
     background-color: #f1f1f1;
   }
-}
-.random-game_button, .choose-game_button{
-
 }
 
 .drop-element{
@@ -202,4 +200,63 @@ h1{
 .fill-cell{
   background-color: #000;
   border: 1px solid #2c2b2b;
+}
+
+
+/* juhuhujhjhjhjj */
+.switch-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-wrapper .switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #c8bbbb;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+  border: 2px solid  #777070;
+}
+
+.switch-wrapper .switch-input:checked + .switch-slider {
+  background-color: #272529;
+}
+
+.switch-wrapper .switch-input:checked + .switch-slider:before {
+  transform: translateX(26px);
+}
+
+
+.switch-slider.switch-round {
+  border-radius: 34px;
+}
+
+.dark-mode{
+  background-color: #393e63;
 }

@@ -5,6 +5,7 @@ import { handleRowFieldClick, toggleCrossCell } from "./fillCells";
 import { showDropList } from "./showDropList";
 import { clearField, clearContainer } from "./restoreGame";
 import { fillSolution } from "./fillSolutionField";
+import { switchTheme } from './switchTheme';
 import {
   renderColClues,
   renderRowClues,
@@ -16,8 +17,17 @@ let titleGame = nonogramData[index].title;
 let answerGame = nonogramData[index].answer;
 
 function createContainers() {
-  const mainContaner = document.createElement("div");
-  mainContaner.className = "main-container";
+  const mainContaner = document.createElement('div');
+  mainContaner.className = 'main-container';
+
+  const labelForInput = document.createElement('label');
+  labelForInput.className = 'switch-wrapper';
+  const switchInput = document.createElement('input');
+  switchInput.className = 'switch-input';
+  switchInput.setAttribute('type', 'checkbox');
+  switchInput.setAttribute('id', 'darkModeToggle');
+  const switchSlider = document.createElement('span');
+  switchSlider.classList.add('switch-slider', 'switch-round');
 
   const gameToolsContainer = document.createElement("div");
   gameToolsContainer.className = "container_game-tools";
@@ -108,6 +118,9 @@ function createContainers() {
   buttonContainer.appendChild(solutionButton);
   gameToolsContainer.appendChild(heading);
   gameToolsContainer.appendChild(nameGame);
+  labelForInput.appendChild(switchInput);
+  labelForInput.appendChild(switchSlider);
+  mainContaner.appendChild(labelForInput);
   mainContaner.appendChild(gameToolsContainer);
   mainContaner.appendChild(gameContainer);
   document.body.appendChild(mainContaner);
@@ -124,6 +137,7 @@ document.addEventListener("contextmenu", function (event) {
 document.addEventListener("DOMContentLoaded", () => {
   createContainers();
   showDropList();
+  switchTheme();
 });
 
 export { answerGame };
