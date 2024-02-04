@@ -46,7 +46,7 @@ function isTruResult(result) {
 
 function displayGreat(result) {
   if (result) {
-    alert('Great!!!!')
+    document.querySelector('.modal-container').style.display = 'flex';
   }
 }
 
@@ -57,7 +57,9 @@ function handleRowFieldClick(event) {
   const hintUser = getHintUser();
   const result = compareResults(hintUser);
   const mutchResult = isTruResult(result);
-  displayGreat(mutchResult)
+  setTimeout(() => {
+    displayGreat(mutchResult);
+  }, 500);
 }
 
 export { handleRowFieldClick, toggleCrossCell };
