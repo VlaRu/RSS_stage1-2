@@ -1,65 +1,60 @@
 import { answerGame } from './script';
 
 
-function toggleFillCell(element) {
-  if (element.classList.contains('fill-cell')) {
-    element.classList.remove('fill-cell');
-    element.innerText = '';
+function toggleFillCell(cell) {
+  if (cell.classList.contains('fill-cell')) {
+    cell.classList.remove('fill-cell');
+    cell.innerText = '';
   } else {
-    element.classList.add('fill-cell');
+    cell.classList.add('fill-cell');
   }
 }
 
-function toggleCrossCell(element) {
-  if (element.innerText === '') {
-    element.innerText = 'X';
-    element.classList.remove('fill-cell');
+function toggleCrossCell(cell) {
+  if (cell.innerText === '') {
+    cell.innerText = 'X';
+    cell.classList.remove('fill-cell');
   } else {
-    element.innerText = '';
+    cell.innerText = '';
   }
 }
 
 function getHintUser() {
   const rowFieldElements = document.getElementsByClassName('row-field');
-  const hintUser = [];
-  Array.from(rowFieldElements).forEach(el => {
-    if (el.classList.contains('fill-cell')) {
-      hintUser.push(1);
-    } else {
-      hintUser.push(0);
-    }
-  });
+  const hintUser = Array.from(rowFieldElements).map((cell) => (cell.classList.contains('fill-cell') ? 1 : 0));
   return hintUser;
 }
 
 function compareResults(hintUser) {
-  const result = [];
-  for (let i = 0; i < hintUser.length; i++) {
-    result.push(hintUser[i] === answerGame[i]);
-  }
-  return result;
+  return hintUser.map((value, index) => value === answerGame[index]);
 }
 
-function isTruResult(result) {
-  return result.every((value) => value === true);
+function areAllResultsTrue(results) {
+  return results.every((value) => value === true);
 }
 
-function displayGreat(result) {
-  if (result) {
-    document.querySelector('.modal-container').style.display = 'flex';
+function displayGreat(isMatch) {
+  const modalContainer = document.querySelector('.modal-container');
+  if (isMatch) {
+    modalContainer.style.display = 'flex';
   }
+}
+
+function checkUserInputAndDisplayResult() {
+  const hintUser = getHintUser();
+  const results = compareResults(hintUser);
+  const isMatch = areAllResultsTrue(results);
+
+  setTimeout(() => {
+    displayGreat(isMatch);
+  }, 500);
 }
 
 function handleRowFieldClick(event) {
   if (event.target.classList.contains('row-field')) {
     toggleFillCell(event.target);
+    checkUserInputAndDisplayResult();
   }
-  const hintUser = getHintUser();
-  const result = compareResults(hintUser);
-  const mutchResult = isTruResult(result);
-  setTimeout(() => {
-    displayGreat(mutchResult);
-  }, 500);
 }
 
 export { handleRowFieldClick, toggleCrossCell };
