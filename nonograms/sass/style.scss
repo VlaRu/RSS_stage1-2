@@ -26,20 +26,18 @@ h2{
 }
 
 .container_game-tools{
-  width: 70%;
-  height: 20%;
-  background-color: #c8bbbb;
+  width: 80%;
+  height: 25%;
+  background-color: #40c2aa;
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
   position: relative;
   @include flex($d: flex,$fd: column,$jc: space-between,$ai: center);
   @media (max-width: 780px){
-    width: 80%;
     height: 30%;
   }
   @media (max-width: 580px){
-    width: 80%;
     height: 40%;
   }
 }
@@ -148,6 +146,7 @@ h2{
   width: 80%;
   height: 100%;
   @include flex($d: flex,$fd: column,$jc: flex-start,$ai: flex-end);
+  border: 2px solid #000;
 }
 
 .game-field-fixing{
@@ -194,7 +193,6 @@ h2{
 .column-field{
   width: 100%;
   flex: 1;
-  border: 1px solid #000;
   @include flex($d: flex,$fd: row,$jc: flex-end,$ai: flex-start);
 }
 
@@ -257,7 +255,7 @@ h2{
 }
 
 .switch-wrapper .switch-input:checked + .switch-slider {
-  background-color: #272529;
+  background-color: #010001;
 }
 
 .switch-wrapper .switch-input:checked + .switch-slider:before {
@@ -270,7 +268,16 @@ h2{
 }
 
 .dark-mode{
-  background-color: #393e63;
+  background-color: #16322d;
+}
+
+.dark-mode-bg{
+  background-color: #27927e;
+}
+
+.dark-clues{
+  background-color: #045457;
+  color: #fff;
 }
 
 .modal-container{
