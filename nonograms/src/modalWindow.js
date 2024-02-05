@@ -13,7 +13,7 @@ function createModal(parent) {
   modalWindow.appendChild(closeModalButton);
   const modalWindowText = document.createElement("h2");
   modalWindowText.classList.add("modal-window__message");
-  modalWindowText.innerText = 'Great! You have solved the nonogram!';
+  modalWindowText.innerText = 'Congratulations!!!!';
   const winGameTime = document.createElement("h3");
   winGameTime.className = 'win-game-time';
   modalWindow.appendChild(modalWindowText);

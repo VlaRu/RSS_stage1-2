@@ -17,6 +17,9 @@ function renderRowClues(perentNode,indx) {
     const cluesRowsElementContainer = document.createElement('div');
     perentNode.appendChild(cluesRowsElementContainer);
     cluesRowsElementContainer.className = 'clues-rows__element-container';
+    if ([i] % 5 === 0 && i !== 0) {
+      cluesRowsElementContainer.style.borderTop = '3px solid #000';
+    }
     for (let j = 0; j < cluesDataCol[i].length; j += 1) {
       const clueRowsElement = document.createElement('div');
       cluesRowsElementContainer.appendChild(clueRowsElement);
@@ -32,6 +35,9 @@ function renderColClues(perentNode, indx) {
     const cluesColumnElementContainer = document.createElement('div');
     perentNode.appendChild(cluesColumnElementContainer);
     cluesColumnElementContainer.className = 'clues-columns__element-container';
+    if ([i] % 5 === 0 && i !== 0) {
+      cluesColumnElementContainer.style.borderLeft = '3px solid #000';
+    }
     for (let j = 0; j < cluesDataRow[i].length; j += 1) {
       const clueColumnElement = document.createElement('div');
       cluesColumnElementContainer.appendChild(clueColumnElement);
@@ -48,14 +54,14 @@ function renderGameField(perentNode, indx) {
     columnField.className = 'column-field';
     perentNode.appendChild(columnField);
     if ([i] % 5 === 0 && i !== 0) {
-      columnField.style.borderTop = '3px solid red';
+      columnField.style.borderTop = '3px solid #000';
     }
     for (let j = 0; j < gameFieldSize[1]; j += 1) {
       const rowField = document.createElement('div');
       rowField.className = 'row-field';
       columnField.appendChild(rowField);
       if ([j] % 5 === 0 && j !== 0) {
-        rowField.style.borderLeft = '3px solid red';
+        rowField.style.borderLeft = '3px solid #000';
       }
     }
   }
