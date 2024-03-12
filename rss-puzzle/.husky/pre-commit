@@ -1,2 +1,2 @@
-npm test
-"prepare": "cd .. && husky frontend/.husky"
+cd rss-puzzle
+npm run ci:format

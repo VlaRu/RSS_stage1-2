@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const eslintPluginPrettier = require('eslint-plugin-prettier');
 
 module.exports = {
   mode: 'production',
@@ -10,11 +9,12 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
+    open: true,
     static: {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 9000,
+    port: 5502,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -30,15 +30,10 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(jsx?$)/,
         exclude: /node_modules/,
         enforce: 'pre',
         use: ['babel-loader'],
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
