@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(241, 155, 155);
+}
+
+.form {
+  width: 500px;
+  display: flex;
+  justify-content: left;
+  background-color: rgb(194, 217, 194);
+}
+
+.label-input {
+  width: 100px;
+  font-size: 22px;
+}

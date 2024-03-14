@@ -14,7 +14,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 5502,
+    port: 3000,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],

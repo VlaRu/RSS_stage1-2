@@ -19,5 +19,11 @@
     "browser": true,
     "node": true
   },
-  "ignorePatterns": ["webpack.config.js", "dist", "node_modules"]
+  "ignorePatterns": ["webpack.config.js", "dist", "node_modules"],
+  "rules": {
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": "error",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/lines-between-class-members": "error"
+  }
 }
