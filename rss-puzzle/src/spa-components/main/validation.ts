@@ -1,3 +1,4 @@
+import LocalStorage from '../localStorage/localStorage';
 const restriction: RegExp = /^[A-Z][a-zA-Z-]+$/;
 
 const minChar = {
@@ -58,6 +59,8 @@ export function validateForm(form: HTMLFormElement) {
     }
 
     if (!errorFound) {
+      LocalStorage.save('firstName', firstNameInput.value);
+      LocalStorage.save('lastName', lastNameInput.value);
       form.submit();
     }
   });
