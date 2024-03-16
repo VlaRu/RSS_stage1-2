@@ -1,7 +1,7 @@
 import './form.css';
 import PageTemplate from '../core/template';
 import InputTemplate from './inputTemplate';
-
+import { validateForm } from './validation';
 export default class MainLoginPage extends PageTemplate {
   static TextObject = {
     MainTitle: 'Login',
@@ -18,6 +18,8 @@ export default class MainLoginPage extends PageTemplate {
     form.appendChild(firstNameInput);
     form.appendChild(lastNameInput);
     form.appendChild(submitButton);
+
+    validateForm(form);
 
     this.container.appendChild(form);
 
