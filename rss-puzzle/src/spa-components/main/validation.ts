@@ -1,4 +1,6 @@
 import LocalStorage from '../localStorage/localStorage';
+import { PageIds } from '../app/app';
+
 const restriction: RegExp = /^[A-Z][a-zA-Z-]+$/;
 
 const minChar = {
@@ -31,12 +33,9 @@ export function validateForm(form: HTMLFormElement) {
   form.addEventListener('submit', (event): void => {
     event.preventDefault();
     clearErrorMessages();
-
     const firstNameInput = document.getElementById('fname') as HTMLInputElement;
     const lastNameInput = document.getElementById('lname') as HTMLInputElement;
-
     let errorFound = false;
-
     if (!/^[A-Z]/.test(firstNameInput.value)) {
       displayError(firstNameInput, errorMsg.uppercaseFirstLetter);
       errorFound = true;
@@ -61,7 +60,12 @@ export function validateForm(form: HTMLFormElement) {
     if (!errorFound) {
       LocalStorage.save('firstName', firstNameInput.value);
       LocalStorage.save('lastName', lastNameInput.value);
-      form.submit();
+      document.body.style.transition = 'opacity 0.5s';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.hash = PageIds.StartPage;
+        document.body.style.opacity = '1';
+      }, 1000);
     }
   });
 }

@@ -5,23 +5,36 @@ function isLocalData(value: unknown): value is LocalData {
   return false;
 }
 
-type LocalData = {
-  [key: string]: string;
-};
+type LocalData = string;
 
 export default class LocalStorage {
-  static save(key: string, data: string) {
+  static save(key: string, data: unknown) {
     const JSONdata = JSON.stringify(data);
     window.localStorage.setItem(key, JSONdata);
   }
 
   static get(key: string): LocalData | null {
-    const data = localStorage.getItem(key);
-    if (isLocalData(data)) {
-      return JSON.parse(data);
+    const strData = localStorage.getItem(key);
+
+    if (!strData) {
+      return null;
     }
 
-    return null;
+    try {
+      const unknownData: unknown = JSON.parse(strData);
+
+      if (!isLocalData(unknownData)) {
+        return null;
+      }
+
+      return unknownData;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  static has(key: string): boolean {
+    return Boolean(LocalStorage.get(key));
   }
 
   static clear() {
