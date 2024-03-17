@@ -36,6 +36,7 @@ body {
   align-items: center;
   color: #fff;
   background-image: url('https://cdn.pixabay.com/photo/2023/01/04/12/21/puzzle-pieces-7696621_1280.jpg');
+  background-size: cover;
   font-size: 22px;
   padding: 0 40px;
 }

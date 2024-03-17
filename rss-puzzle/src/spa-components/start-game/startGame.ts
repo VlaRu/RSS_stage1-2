@@ -1,3 +1,4 @@
+import LocalStorage from '../localStorage/localStorage';
 import PageTemplate from '../core/template';
 
 const descriptionText = {
@@ -16,6 +17,12 @@ export default class GameDescription extends PageTemplate {
 
     const tittle = this.createHeaderTitle(GameDescription.TextObject.MainTitle);
     descriptionContainer.append(tittle);
+
+    const name = LocalStorage.get('lastName') || '';
+    const surname = LocalStorage.get('firstName') || '';
+    const greeting = document.createElement('p');
+    greeting.innerText = `Hello ${name} ${surname}`;
+    descriptionContainer.append(greeting);
 
     const gameDescriptionHeader = document.createElement('h2');
     gameDescriptionHeader.innerText = descriptionText.header;
