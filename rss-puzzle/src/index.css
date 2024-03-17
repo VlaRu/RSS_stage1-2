@@ -1,5 +1,5 @@
 body {
-  background-color: #edf2ed;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(55, 29, 4, 1) 35%, rgba(0, 0, 0, 1) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 26px;
-  background-color: rgb(98, 112, 98);
+  background-color: rgb(98, 112, 98, 0.3);
 }
 
 .header a {
@@ -27,4 +27,15 @@ body {
 .header a:hover {
   color: rgb(207, 216, 200);
   text-decoration: none;
+}
+
+.description-game_container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background-image: url('https://cdn.pixabay.com/photo/2023/01/04/12/21/puzzle-pieces-7696621_1280.jpg');
+  font-size: 22px;
+  padding: 0 40px;
 }

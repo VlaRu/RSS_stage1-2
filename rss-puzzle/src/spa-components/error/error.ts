@@ -1,10 +1,10 @@
-import Page from '../core/template';
+import PageTemplate from '../core/template';
 
 export const enum ErrorTypes {
   Error_404 = 404,
 }
 
-export default class ErrorPage extends Page {
+export default class ErrorPage extends PageTemplate {
   private errorType: ErrorTypes | string;
 
   static TextObject: { [prop: string]: string } = {
