@@ -1,6 +1,7 @@
 import Component from '../core/components';
 import { PageIds } from '../app/app';
 import LocalStorage from '../localStorage/localStorage';
+import createButtonEngine from '../core/btnCreatedTemplate';
 
 const Buttons = [
   {
@@ -31,9 +32,7 @@ export default class Header extends Component {
 
   renderLogoutButton() {
     const logoutButtonContainer = document.createElement('div');
-    const logoutButton = document.createElement('button');
-    logoutButton.className = 'logout-btn';
-    logoutButton.innerText = 'Logout';
+    const logoutButton = createButtonEngine('logout-btn', 'Logout', logoutButtonContainer);
     logoutButton.addEventListener('click', () => {
       LocalStorage.clear();
       document.body.style.transition = 'opacity 0.5s';
@@ -43,7 +42,6 @@ export default class Header extends Component {
         document.body.style.opacity = '1';
       }, 1000);
     });
-    logoutButtonContainer.appendChild(logoutButton);
     this.container.appendChild(logoutButtonContainer);
   }
 

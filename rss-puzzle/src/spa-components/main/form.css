@@ -7,6 +7,10 @@
   z-index: 1;
 }
 
+form {
+  margin-top: 100px;
+}
+
 .label-input {
   width: 100px;
   font-size: 22px;
@@ -24,6 +28,9 @@
 }
 
 .logout-btn {
+  position: absolute;
+  right: 20px;
+  top: 5px;
   width: 100px;
   height: 35px;
   font-size: 20px;

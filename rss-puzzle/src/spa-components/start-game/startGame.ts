@@ -1,5 +1,7 @@
 import LocalStorage from '../localStorage/localStorage';
 import PageTemplate from '../core/template';
+import { PageIds } from '../app/app';
+import createButtonEngine from '../core/btnCreatedTemplate';
 
 const descriptionText = {
   header: 'Game description',
@@ -31,6 +33,11 @@ export default class GameDescription extends PageTemplate {
     const gameDescriptionParagraph = document.createElement('p');
     gameDescriptionParagraph.innerText = descriptionText.description;
     descriptionContainer.appendChild(gameDescriptionParagraph);
+
+    const startGameButton = createButtonEngine('start-game_button', 'Start game', descriptionContainer);
+    startGameButton.addEventListener('click', () => {
+      window.location.hash = PageIds.StartGamePage;
+    });
 
     this.container.appendChild(descriptionContainer);
     return this.container;
