@@ -23,6 +23,10 @@ export default class App {
     this.header = new Header('header', 'header');
   }
 
+  private static isUserLoggedIn(): boolean {
+    return LocalStorage.has('firstName') && LocalStorage.has('lastName');
+  }
+
   renderPage(idPage: string) {
     const currentPage = document.querySelector(`#${this.defaultPageId}`);
     if (currentPage) {
@@ -30,21 +34,19 @@ export default class App {
     }
     let page: PageTemplate | null = null;
 
-    const isUserLoggedIn = () => LocalStorage.has('firstName') && LocalStorage.has('lastName');
-
     switch (idPage) {
       case PageIds.MainPage:
         page = new MainLoginPage(idPage);
         break;
       case PageIds.StartPage:
-        if (isUserLoggedIn()) {
+        if (App.isUserLoggedIn()) {
           page = new GameDescription(idPage);
         } else {
           page = new MainLoginPage(idPage);
         }
         break;
       case PageIds.StartGamePage:
-        if (isUserLoggedIn()) {
+        if (App.isUserLoggedIn()) {
           page = new GamePage(idPage);
         } else {
           page = new MainLoginPage(idPage);
@@ -71,7 +73,11 @@ export default class App {
 
   run() {
     this.container.append(this.header.render());
-    this.renderPage(PageIds.MainPage);
+    if (App.isUserLoggedIn()) {
+      this.renderPage(PageIds.StartPage);
+    } else {
+      this.renderPage(PageIds.MainPage);
+    }
     this.enableRouteChange();
   }
 }
