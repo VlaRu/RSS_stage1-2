@@ -57,3 +57,16 @@ body {
   cursor: pointer;
   background-color: rgb(98, 112, 98);
 }
+
+@media screen and (max-width: 950px) {
+  .header {
+    justify-content: left;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .header a {
+    display: none;
+  }
+}

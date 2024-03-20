@@ -53,3 +53,9 @@ form {
   color: red;
   font-size: 15px;
 }
+
+@media screen and (max-width: 950px) {
+  .form {
+    width: 90%;
+  }
+}
