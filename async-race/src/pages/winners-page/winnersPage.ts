@@ -1,4 +1,5 @@
-import './winnersPage.css'
+import './winnersPage.css';
+import NavigatePage from '../main-page/navigatePage';
 
 export default class WinnersPage {
   container: HTMLElement;
@@ -17,7 +18,9 @@ export default class WinnersPage {
 
   render(){
     const tittlePage = this.createHeaderTitle('Hello to the winners page');
+    const navigatePage = new NavigatePage();
     this.container.append(tittlePage);
+    this.container.append(navigatePage.render());
     return this.container;
   }
 }
