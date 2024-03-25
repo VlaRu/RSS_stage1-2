@@ -1,3 +1,4 @@
+import NavigatePage from "./navigatePage";
 export default class MainPage {
   container: HTMLElement;
 
@@ -14,8 +15,10 @@ export default class MainPage {
   }
 
   render(){
-    const tittlePage = this.createHeaderTitle('Hello to the main page');
+    const tittlePage = this.createHeaderTitle('Hello to the main page of the Async-race game');
+    const navigatePage = new NavigatePage();
     this.container.append(tittlePage);
+    this.container.append(navigatePage.render());
     return this.container;
   }
 }

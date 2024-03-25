@@ -1,0 +1,9 @@
+.to-garage_btn, .to-winners_btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+}
