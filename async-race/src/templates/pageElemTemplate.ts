@@ -1,4 +1,4 @@
-export default abstract class RenderPageElements {
+export default class RenderPageElements {
   protected container: HTMLElement;
 
   protected tagName: string;
@@ -21,8 +21,8 @@ export default abstract class RenderPageElements {
     return headerTitle;
   }
 
-  protected createElements(className?: string, text?: string): HTMLElement {
-    const element = document.createElement(this.tagName);
+  protected createElements(tag: string, className?: string, text?: string): HTMLElement {
+    const element = document.createElement(tag);
     if (className) {
       element.className = className;
     } else {
