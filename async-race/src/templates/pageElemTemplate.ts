@@ -14,10 +14,9 @@ export default class RenderPageElements {
     this.className = className;
   }
 
-  protected createHeaderTitle(text: string): HTMLHeadingElement {
+   static createHeaderTitle(text: string): HTMLHeadingElement {
     const headerTitle = document.createElement('h1');
     headerTitle.innerText = text;
-    this.container.appendChild(headerTitle);
     return headerTitle;
   }
 

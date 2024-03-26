@@ -1,4 +1,6 @@
 import NavigatePage from "./navigatePage";
+import ContainerCreateCar from "./creatingCar";
+import RenderPageElements from "../../templates/pageElemTemplate";
 export default class MainPage {
   container: HTMLElement;
 
@@ -7,18 +9,12 @@ export default class MainPage {
     this.container.id = id;
   }
 
-  createHeaderTitle(text: string): HTMLHeadingElement {
-    const headerTitle = document.createElement('h1');
-    headerTitle.innerText = text;
-    this.container.appendChild(headerTitle);
-    return headerTitle;
-  }
-
   render(){
-    const tittlePage = this.createHeaderTitle('Hello to the main page of the Async-race game');
+    const titlePage = RenderPageElements.createHeaderTitle('Hello to the main page of the Async-race game');
+    this.container.append(titlePage);
     const navigatePage = new NavigatePage();
-    this.container.append(tittlePage);
     this.container.append(navigatePage.render());
+    this.container.append(ContainerCreateCar.formContainer());
     return this.container;
   }
 }
