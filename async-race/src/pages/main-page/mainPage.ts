@@ -1,6 +1,7 @@
 import NavigatePage from "./navigatePage";
 import ContainerCreateCar from "./creatingCar";
 import RenderPageElements from "../../templates/pageElemTemplate";
+import PaginationPage from "./pagination";
 export default class MainPage {
   container: HTMLElement;
 
@@ -15,6 +16,8 @@ export default class MainPage {
     const navigatePage = new NavigatePage();
     this.container.append(navigatePage.render());
     this.container.append(ContainerCreateCar.formContainer());
+    const paginationPage = new PaginationPage('div', '');
+    this.container.append(paginationPage.createPaginationContainer());
     return this.container;
   }
 }
