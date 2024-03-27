@@ -1,4 +1,4 @@
-import InputTemplate from "../../templates/inputTemplate";
+import InputTemplate from "../../../templates/inputTemplate";
 
 export default class ContainerCreateCar {
   static createFormForCreatingCar(): HTMLFormElement {

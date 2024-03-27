@@ -1,19 +1,18 @@
-import './mainPage.css';
-import ButtonTemplate from "../../templates/buttonTemplate";
-import RenderPageElements from "../../templates/pageElemTemplate";
-import { PageIds } from '../../router/router';
+import '../mainPage.css';
+import ButtonTemplate from '../../../templates/buttonTemplate';
+import RenderPageElements from '../../../templates/pageElemTemplate';
+import { PageIds } from '../../../router/router';
 
 const buttonsNavigate = [
   {
     id: PageIds.MainPageId,
-    text: 'to Garage'
+    text: 'to Garage',
   },
   {
     id: PageIds.WinnersPageId,
     text: 'to Winners',
   },
 ];
-
 
 export default class NavigatePage extends RenderPageElements {
   constructor() {
