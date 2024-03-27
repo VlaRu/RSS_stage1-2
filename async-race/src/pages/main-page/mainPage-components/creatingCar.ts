@@ -1,13 +1,13 @@
-import InputTemplate from "../../../templates/inputTemplate";
+import FormTemplate from "../../../templates/inputTemplate";
 
 export default class ContainerCreateCar {
   static createFormForCreatingCar(): HTMLFormElement {
-    const form = InputTemplate.createInput('text', 'created_name-car', 'Create new car');
+    const form = FormTemplate.createForm('text', 'created_name-car', 'Create new car');
     return form;
   }
 
   static createFormForModifyingCar(): HTMLFormElement {
-    const form = InputTemplate.createInput('text', 'modified_name-car', 'Modify selected car');
+    const form = FormTemplate.createForm('text', 'modified_name-car', 'Modify selected car');
     return form;
   }
 

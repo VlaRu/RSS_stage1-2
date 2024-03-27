@@ -14,13 +14,13 @@ export default class RenderPageElements {
     this.className = className;
   }
 
-  static createHeaderTitle(text: string): HTMLHeadingElement {
-    const headerTitle = document.createElement('h1');
+  static createHeaderTitle(text: string, tag = 'h1'): HTMLElement {
+    const headerTitle = document.createElement(tag);
     headerTitle.innerText = text;
     return headerTitle;
   }
 
-  protected createElements(tag: string, className?: string, text?: string): HTMLElement {
+  protected createPageElement(tag: string, className?: string, text?: string): HTMLElement {
     const element = document.createElement(tag);
     if (className) {
       element.className = className;

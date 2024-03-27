@@ -1,5 +1,5 @@
-export default class InputTemplate {
-  static createInput(type: string, id: string, labelText: string, className?: string): HTMLFormElement {
+export default class FormTemplate {
+  static createForm(type: string, id: string, labelText: string, className?: string): HTMLFormElement {
     const label = document.createElement('label');
     label.textContent = labelText;
     label.className = 'label-input';
