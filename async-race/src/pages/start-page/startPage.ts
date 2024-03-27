@@ -16,7 +16,7 @@ export default class StartPage {
   }
 
   render(){
-    const tittlePage = this.createHeaderTitle('Hello to the start page');
+    const tittlePage = this.createHeaderTitle('start');
     this.container.append(tittlePage);
     return this.container;
   }
