@@ -7,3 +7,9 @@
   background-color: #000;
   border: none;
 }
+
+.race-container {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
