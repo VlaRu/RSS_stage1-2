@@ -1,3 +1,5 @@
+const idCar: number = 2;
+
 export default class ButtonTemplate {
   tagName: string;
 
@@ -5,9 +7,9 @@ export default class ButtonTemplate {
 
   className?: string;
 
-  onClick?: () => void;
+  onClick?: (carId: number) => void;
 
-  constructor(tagName: string, name: string, className?: string, onClick?: () => void) {
+  constructor(tagName: string, name: string, className?: string, onClick?: (carId: number) => void) {
     this.tagName = tagName;
     this.name = name;
     this.className = className;
@@ -21,7 +23,7 @@ export default class ButtonTemplate {
       button.className = this.className;
     }
     if (this.onClick) {
-      button.addEventListener('click', this.onClick);
+      button.addEventListener('click', () => this.onClick?.(idCar));
     }
     return button;
   }
