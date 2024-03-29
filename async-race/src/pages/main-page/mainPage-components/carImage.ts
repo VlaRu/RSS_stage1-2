@@ -1,6 +1,6 @@
 export const renderCarImage =  (color: string): string => `
   <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280.000000 640.000000" preserveAspectRatio="xMidYMid meet"
-  width="150" height="80">
+  width="130" height="60">
     <g transform="translate(0.000000,640.000000) scale(0.100000,-0.100000)" style:"fill=${color}" stroke="none">
       <path fill=${color} d="M3525 5341 c-72 -18 -79 -28 -90 -121 -4 -30 -11 -62 -16 -71 -4 -9 -97 -51 -206 -94 -774 -304 -1348 -540
       -1603 -661 -163 -77 -222 -91 -421 -104 -85 -5 -170 -14 -189 -20 -101 -32 -362 -58 -620 -63 l-115 -2 -47 -80 c-47 -78 -47 -80 -29
