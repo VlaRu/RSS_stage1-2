@@ -30,4 +30,8 @@ export default class NavigatePage extends RenderPageElements {
       this.container.appendChild(buttonElement);
     });
   }
+
+  render(): Promise<HTMLElement> {
+    return Promise.resolve(this.container);
+  }
 }

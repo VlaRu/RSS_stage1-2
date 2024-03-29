@@ -12,18 +12,21 @@ export default class MainPage {
     this.container.id = id;
   }
 
-  render() {
+  async render() {
     const titlePage = RenderPageElements.createHeaderTitle('Hello to the main page of the Async-race game');
     const navigatePage = new NavigatePage();
     const paginationPage = new PaginationPage('div', '');
     const raceContainer = new RaceContainer('div', 'race-container');
+    const paginationContainer = await paginationPage.createPaginationContainer();
+    const navigateContainer = await navigatePage.render();
+    const raceContainerRender = await raceContainer.render();
 
     this.container.append(
       titlePage,
-      navigatePage.render(),
+      navigateContainer,
       ContainerCreateCar.formContainer(),
-      paginationPage.createPaginationContainer(),
-      raceContainer.render()
+      paginationContainer,
+      raceContainerRender
     );
 
     return this.container;

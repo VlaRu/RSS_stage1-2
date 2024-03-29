@@ -14,7 +14,7 @@ export default class Router {
 
   private defaultPageId: string = 'current-page';
 
-  renderPage(idPage: string){
+async  renderPage(idPage: string){
     const currentPage = document.querySelector(`#${this.defaultPageId}`);
     if (currentPage) {
       currentPage.remove();
@@ -37,7 +37,7 @@ export default class Router {
     }
 
     if (page) {
-      const pageHTML = page.render();
+      const pageHTML = await page.render();
       pageHTML.id = this.defaultPageId;
       this.container.append(pageHTML);
     }

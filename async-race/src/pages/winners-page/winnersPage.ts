@@ -16,11 +16,12 @@ export default class WinnersPage {
     return headerTitle;
   }
 
-  render() {
+  async render() {
     const tittlePage = this.createHeaderTitle('Hello to the winners page');
     const navigatePage = new NavigatePage();
     this.container.append(tittlePage);
-    this.container.append(navigatePage.render());
+    const navigateContainer = await navigatePage.render();
+    this.container.append(navigateContainer);
     return this.container;
   }
 }

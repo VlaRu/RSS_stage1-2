@@ -2,9 +2,9 @@ import RenderPageElements from '../../../templates/pageElemTemplate';
 import RaceLine from './raceLine';
 
 export default class RaceContainer extends RenderPageElements {
-  render() {
+  async render(): Promise<HTMLElement> {
     const raceLine = new RaceLine('div', 'race-line');
-    const raceLineContainer = raceLine.render();
+    const raceLineContainer = await raceLine.render();
     this.container.appendChild(raceLineContainer);
     return this.container;
   }
