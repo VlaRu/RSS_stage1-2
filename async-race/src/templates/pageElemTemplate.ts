@@ -20,7 +20,7 @@ export default class RenderPageElements {
     return headerTitle;
   }
 
-  protected createPageElement(tag: string, className?: string, text?: string): HTMLElement {
+  protected async createPageElement(tag: string, className?: string, text?: string, id?: string): Promise<HTMLElement> {
     const element = document.createElement(tag);
     if (className) {
       element.className = className;
@@ -30,11 +30,14 @@ export default class RenderPageElements {
     if (text) {
       element.innerText = text;
     }
+    if (id) {
+      element.id = id;
+    }
     this.container.appendChild(element);
     return element;
   }
 
-  render() {
+  async render(): Promise<HTMLElement> {
     return this.container;
   }
 }
