@@ -8,9 +8,39 @@
   border: none;
 }
 
-.race-container {
+.car-container {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
   background: linear-gradient(180deg, rgba(35,213,217,1) 0%, rgba(99,204,175,1) 34%, rgba(51,162,33,1) 63%, rgba(98,125,92,1) 72%, rgba(52,43,43,1) 100%);
+  overflow: hidden;
+}
+
+.car-container::before,
+.car-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(../../sources/images/spring-clouds.svg);
+  background-repeat: repeat-x;
+  animation: animateBackground 100s linear forwards infinite;
+}
+
+.car-container::before {
+  animation: animateBackground 150s linear forwards infinite;
+  animation-delay: -100s;
+}
+
+@keyframes animateBackground {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
