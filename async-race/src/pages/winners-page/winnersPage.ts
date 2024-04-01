@@ -1,5 +1,6 @@
 import './winnersPage.css';
 import NavigatePage from '../main-page/mainPage-components/navigatePage';
+import { renderWinners } from './winnersTableElements';
 
 export default class WinnersPage {
   container: HTMLElement;
@@ -19,9 +20,10 @@ export default class WinnersPage {
   async render() {
     const tittlePage = this.createHeaderTitle('Hello to the winners page');
     const navigatePage = new NavigatePage();
-    this.container.append(tittlePage);
     const navigateContainer = await navigatePage.render();
-    this.container.append(navigateContainer);
+    const winnersContainer = document.createElement('div');
+    winnersContainer.innerHTML = renderWinners();
+    this.container.append(tittlePage, navigateContainer, winnersContainer);
     return this.container;
   }
 }
