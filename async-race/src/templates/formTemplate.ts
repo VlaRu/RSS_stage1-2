@@ -40,4 +40,15 @@ export default class FormTemplate {
     }
     return submitButton;
   }
+
+  static handleFormSubmit(form: HTMLFormElement, onSubmit: (formData: { text: string, color: string }) => void) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const inputText = (form.querySelector('input[type="text"]') as HTMLInputElement).value;
+      const inputColor = (form.querySelector('input[type="color"]') as HTMLInputElement).value;
+
+      onSubmit({ text: inputText, color: inputColor });
+      form.reset();
+    });
+  }
 }
