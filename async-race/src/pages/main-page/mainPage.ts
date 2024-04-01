@@ -4,6 +4,9 @@ import RenderPageElements from '../../templates/pageElemTemplate';
 import PaginationPage from './mainPage-components/pagination';
 import RaceContainer from './mainPage-components/raceContainer';
 
+const navigatePage = new NavigatePage();
+const paginationPage = new PaginationPage('div', '');
+export const raceContainer = new RaceContainer('div', 'race-container');
 export default class MainPage {
   container: HTMLElement;
 
@@ -14,9 +17,7 @@ export default class MainPage {
 
   async render() {
     const titlePage = RenderPageElements.createHeaderTitle('Hello to the main page of the Async-race game');
-    const navigatePage = new NavigatePage();
-    const paginationPage = new PaginationPage('div', '');
-    const raceContainer = new RaceContainer('div', 'race-container');
+
     const paginationContainer = await paginationPage.createPaginationContainer();
     const navigateContainer = await navigatePage.render();
     const raceContainerRender = await raceContainer.render();
