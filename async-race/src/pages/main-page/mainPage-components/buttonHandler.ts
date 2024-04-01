@@ -1,4 +1,14 @@
-const onSelectClick = (carId: number) => { console.log(carId);};
-const onRemoveClick = (carId: number) => { console.log(carId);};
+import { deleteCar } from "../../../api/api";
 
-export { onSelectClick, onRemoveClick}
+const onSelectClick = (carId: number) => { console.log(carId);};
+
+const onRemoveClick = async (carId: number) => {
+  try {
+    const removeCar = await deleteCar(carId);
+    console.log('Car deleted:', removeCar);
+  } catch (error) {
+    console.error('Error delete car:', error);
+  }
+};
+
+export { onSelectClick, onRemoveClick }
