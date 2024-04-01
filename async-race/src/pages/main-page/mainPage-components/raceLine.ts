@@ -9,18 +9,21 @@ export interface Car {
   color: string,
   id: number,
 }
+
 export default class RaceLine extends RenderPageElements {
-  async render(): Promise<HTMLElement> {
-    const { items: cars } = await getCars();
+
+  async render(pageNumber = 1): Promise<HTMLElement> {
+    const { items: cars } = await getCars(pageNumber);
 
     cars.forEach((car: Car) => {
       const montainCar = new MontainCar(this.container, car.id);
       const montainRace = new MontainRace(this.container, car.id);
       const raceTrack = new RaceTrack(this.container, car.color, car.name);
+      raceTrack.render();
       montainCar.render();
       montainRace.render();
-      raceTrack.render();
     });
+
     return this.container;
   }
 }
