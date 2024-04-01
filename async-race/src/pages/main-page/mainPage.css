@@ -8,6 +8,74 @@
   border: none;
 }
 
+.to-garage_btn {
+  margin-right: 20px;
+}
+
+.navigate-page_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container_modify-car {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  font-size: 19px;
+  font-weight: 600;
+  background-color: rgb(117, 184, 123);
+  margin-top: 20px;
+}
+
+input[type = 'submit'] {
+  width: 100px;
+  height: 40px;
+  background-color: #273e28; /* Green */
+  border: none;
+  color: white;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0 10px 0 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+input[type = 'submit']:hover {
+  background-color: #395b3b;
+}
+
+input[type = "color"]{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input[type = "color"]::-webkit-color-swatch {
+  border-radius: 15px;
+  border: 2px solid #fb60ca;
+}
+input[type = "color"]::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+
+.race-line {
+  margin-top: 40px;
+}
+
 .car-container {
   position: relative;
   width: 100%;
@@ -42,5 +110,12 @@
   }
   100% {
     transform: translateX(100%);
+  }
+}
+
+@media screen and (max-width: 600px){
+  input[type = 'submit'] {
+    margin: 0;
+    width: 60px;
   }
 }
