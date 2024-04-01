@@ -1,5 +1,5 @@
 import ButtonRenderer from '../../../templates/buttonRenderer';
-import { onSelectClick, onRemoveClick } from './buttonHandler';
+import { onSelectClick } from './buttonHandler';
 
 export default class MontainRace extends ButtonRenderer {
   constructor(container: HTMLElement, carId: number) {
@@ -12,7 +12,7 @@ export default class MontainRace extends ButtonRenderer {
       {
         text: 'Reset Race',
         class: 'reset-race',
-        onClick: () => onRemoveClick(carId),
+        onClick: () => onSelectClick(carId),
       },
     ];
 
