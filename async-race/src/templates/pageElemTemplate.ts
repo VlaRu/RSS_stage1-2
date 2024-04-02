@@ -1,5 +1,5 @@
 export default class RenderPageElements {
-  protected container: HTMLElement;
+  public container: HTMLElement;
 
   protected tagName: string;
 
