@@ -1,3 +1,36 @@
+.prev-button, .next-button {
+  width: 90px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  font-size: 19px;
+  background-color: #157671;
+  color: #89d4d5;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: #33cccf;
+}
+
+.prev-button {
+  margin-right: 20px;
+}
+
+.select-car, .remove-car {
+  width: 90px;
+  height: 40px;
+  border: 2px solid #031b2f;
+  background-color: #052c4e;
+  color: #fff;
+  font-size: 18px;
+}
+
+.select-car:hover,
+.remove-car:hover {
+  background-color: #0d477a;
+}
+
 .to-garage_btn, .to-winners_btn {
   width: 150px;
   height: 50px;
@@ -34,7 +67,7 @@
 input[type = 'submit'] {
   width: 100px;
   height: 40px;
-  background-color: #273e28; /* Green */
+  background-color: #157671;
   border: none;
   color: white;
   padding: 0;
@@ -49,7 +82,7 @@ input[type = 'submit'] {
 }
 
 input[type = 'submit']:hover {
-  background-color: #395b3b;
+  background-color: #33cccf;
 }
 
 input[type = "color"]{
@@ -72,21 +105,22 @@ input[type = "color"]::-moz-color-swatch {
   border: none;
 }
 
-.race-line {
+.race-container {
   margin-top: 40px;
 }
 
-.car-container {
+.race-car {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  padding-left: 10px;
   background: linear-gradient(180deg, rgba(35,213,217,1) 0%, rgba(99,204,175,1) 34%, rgba(51,162,33,1) 63%, rgba(98,125,92,1) 72%, rgba(52,43,43,1) 100%);
   overflow: hidden;
 }
 
-.car-container::before,
-.car-container::after {
+.race-car::before,
+.race-car::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -99,7 +133,7 @@ input[type = "color"]::-moz-color-swatch {
   animation: animateBackground 100s linear forwards infinite;
 }
 
-.car-container::before {
+.race-car::before {
   animation: animateBackground 150s linear forwards infinite;
   animation-delay: -100s;
 }

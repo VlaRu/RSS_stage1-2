@@ -1,9 +1,12 @@
 body {
-  background-color: rgb(241, 202, 202);
+  background-color: #031b29;
+  margin: 0;
+  padding: 0;
 }
 
 button {
   cursor: pointer;
+  transition: 0.5s ease;
 }
 
 h1 {
@@ -16,7 +19,8 @@ p {
 }
 
 #current-page {
-  background-color: #c0cfaa ;
+  background-color: #c0cfaa;
+  padding: 10px;
 }
 
 .table-winners{
