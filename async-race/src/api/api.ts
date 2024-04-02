@@ -30,7 +30,7 @@ export const createCar = async (body: Car) => (await fetch(garageUrl, {
 })).json();
 
 
-export const deleteCar = async (carId: number) => (await fetch(`${garageUrl}/${carId}` , {method: 'DELETE'})).json();
+export const deleteCar = async (carId: number) => (await fetch(`${garageUrl}/${carId}`, {method: 'DELETE'})).json();
 
 export const updateCar = async (id: number, body: Car) => (await fetch(`${garageUrl}/${id}`, {
   method: 'PATCH',
