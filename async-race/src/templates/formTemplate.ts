@@ -1,3 +1,5 @@
+import { raceContainer } from '../pages/main-page/mainPage';
+
 export default class FormTemplate {
   static createForm(type: string, id: string, labelText: string, className?: string): HTMLFormElement {
     const label = document.createElement('label');
@@ -20,12 +22,12 @@ export default class FormTemplate {
 
     const colorInput = document.createElement('input');
     colorInput.type = 'color';
-    colorInput.id = (id === 'created_name-car') ? 'choice-color' : 'choice-color_new';
+    colorInput.id = id === 'created_name-car' ? 'choice-color' : 'choice-color_new';
     colorInput.required = true;
 
     form.appendChild(colorInput);
 
-    const submitButton = this.createSubmitButton((id === 'created_name-car') ? 'create' : 'save');
+    const submitButton = this.createSubmitButton(id === 'created_name-car' ? 'create' : 'save');
     form.appendChild(submitButton);
 
     return form;
@@ -41,13 +43,15 @@ export default class FormTemplate {
     return submitButton;
   }
 
-  static handleFormSubmit(form: HTMLFormElement, onSubmit: (formData: { text: string, color: string }) => void) {
+  static handleFormSubmit(form: HTMLFormElement, onSubmit: (formData: { text: string; color: string }) => void) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const inputText = (form.querySelector('input[type="text"]') as HTMLInputElement).value;
       const inputColor = (form.querySelector('input[type="color"]') as HTMLInputElement).value;
 
       onSubmit({ text: inputText, color: inputColor });
+      raceContainer.container.innerHTML = '';
+      raceContainer.render();
       form.reset();
     });
   }
