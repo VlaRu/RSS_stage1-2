@@ -1,4 +1,4 @@
-import { carsCount } from "./pagination";
+import { cars } from "./pagination";
 import { raceContainer } from "../mainPage";
 
 export const carsPerPage: number = 7;
@@ -6,7 +6,6 @@ export const carsPerPage: number = 7;
 export const pageNumber = {
   number: 1
 }
-
 
 const prevButton = {
   text: 'Previous',
@@ -27,7 +26,7 @@ const nextButton = {
   text: 'Next',
   class: 'next-button',
   onClick: async () => {
-    const totalPages = Math.ceil(carsCount / carsPerPage);
+    const totalPages = Math.ceil(cars.count / carsPerPage);
     if (pageNumber.number < totalPages) {
       pageNumber.number += 1;
       raceContainer.container.innerHTML = '';

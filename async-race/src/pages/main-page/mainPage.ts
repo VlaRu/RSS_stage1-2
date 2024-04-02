@@ -5,7 +5,7 @@ import PaginationPage from './mainPage-components/pagination';
 import RaceContainer from './mainPage-components/raceContainer';
 
 const navigatePage = new NavigatePage();
-const paginationPage = new PaginationPage('div', '');
+export const paginationPage = new PaginationPage('div', '');
 export const raceContainer = new RaceContainer('div', 'race-container');
 export default class MainPage {
   container: HTMLElement;

@@ -1,7 +1,9 @@
 import { raceContainer } from '../pages/main-page/mainPage';
+import { paginationPage } from '../pages/main-page/mainPage';
+import { cars } from '../pages/main-page/mainPage-components/pagination';
 
 export default class FormTemplate {
-  static createForm(type: string, id: string, labelText: string, className?: string): HTMLFormElement {
+  static createForm(type: string, id: string, labelText: string, className?: string, value?: string): HTMLFormElement {
     const label = document.createElement('label');
     label.textContent = labelText;
     label.className = 'label-input';
@@ -11,6 +13,9 @@ export default class FormTemplate {
     input.type = type;
     input.id = id;
     input.required = true;
+    if(value) {
+      input.value = value;
+    }
     if (className) {
       input.className = className;
     }
@@ -24,6 +29,7 @@ export default class FormTemplate {
     colorInput.type = 'color';
     colorInput.id = id === 'created_name-car' ? 'choice-color' : 'choice-color_new';
     colorInput.required = true;
+    colorInput.value = '#FFB8F2';
 
     form.appendChild(colorInput);
 
@@ -50,6 +56,10 @@ export default class FormTemplate {
       const inputColor = (form.querySelector('input[type="color"]') as HTMLInputElement).value;
 
       onSubmit({ text: inputText, color: inputColor });
+      paginationPage.container.innerHTML = '';
+      paginationPage.createPaginationContainer();
+      const countCarRefreshRender = document.querySelector('.count-car_garage') as HTMLElement;
+      countCarRefreshRender.textContent = `Garage: ${cars.count}`;
       raceContainer.container.innerHTML = '';
       raceContainer.render();
       form.reset();
