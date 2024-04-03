@@ -4,9 +4,8 @@ import ButtonRenderer from '../../../templates/buttonRenderer';
 import { prevButton, nextButton } from './paginationButton';
 import { pageNumber } from './paginationButton';
 
-//export let carsCount: number = 0;
 export const cars = {
-  count: 1
+  count: 0
 }
 export default class PaginationPage extends RenderPageElements {
   async createPaginationContainer(): Promise<HTMLElement> {

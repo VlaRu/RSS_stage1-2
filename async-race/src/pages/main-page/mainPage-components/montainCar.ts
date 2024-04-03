@@ -1,7 +1,6 @@
 import ButtonRenderer from '../../../templates/buttonRenderer';
 import { onSelectClick, onRemoveClick } from './buttonHandler';
 
-// Maintain
 export default class MontainCar extends ButtonRenderer {
   constructor(container: HTMLElement, carId: number) {
     const buttonsMontainCar = [
