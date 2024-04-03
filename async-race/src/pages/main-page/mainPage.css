@@ -45,6 +45,20 @@
   margin-right: 20px;
 }
 
+.random-car_button {
+  width: 120px;
+  height: 40px;
+  border: 2px solid #031b2f;
+  background-color: #052c4e;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.random-car_button:hover {
+  background-color: #0d477a;
+}
+
 .navigate-page_container {
   width: 100%;
   display: flex;
