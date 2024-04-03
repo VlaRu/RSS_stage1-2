@@ -1,6 +1,4 @@
-import { raceContainer } from '../pages/main-page/mainPage';
-import { paginationPage } from '../pages/main-page/mainPage';
-import { cars } from '../pages/main-page/mainPage-components/pagination';
+import resetData from '../pages/main-page/mainPage-components/resetData';
 
 export default class FormTemplate {
   static createForm(type: string, id: string, labelText: string, className?: string, value?: string): HTMLFormElement {
@@ -56,12 +54,7 @@ export default class FormTemplate {
       const inputColor = (form.querySelector('input[type="color"]') as HTMLInputElement).value;
 
       onSubmit({ text: inputText, color: inputColor });
-      paginationPage.container.innerHTML = '';
-      paginationPage.createPaginationContainer();
-      const countCarRefreshRender = document.querySelector('.count-car_garage') as HTMLElement;
-      countCarRefreshRender.textContent = `Garage: ${cars.count}`;
-      raceContainer.container.innerHTML = '';
-      raceContainer.render();
+      resetData();
       form.reset();
     });
   }

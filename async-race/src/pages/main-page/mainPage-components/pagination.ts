@@ -3,6 +3,7 @@ import { getCars } from '../../../api/api';
 import ButtonRenderer from '../../../templates/buttonRenderer';
 import { prevButton, nextButton } from './paginationButton';
 import { pageNumber } from './paginationButton';
+import { getRundomCars } from './renderaRandom';
 
 export const cars = {
   count: 0
@@ -17,7 +18,7 @@ export default class PaginationPage extends RenderPageElements {
     paginationContainer.appendChild(garageParagraph);
     paginationContainer.appendChild(pageParagraph);
 
-    const buttonRenderer = new ButtonRenderer(paginationContainer, [prevButton, nextButton]);
+    const buttonRenderer = new ButtonRenderer(paginationContainer, [prevButton, nextButton, getRundomCars]);
     buttonRenderer.render();
     return paginationContainer;
   }
