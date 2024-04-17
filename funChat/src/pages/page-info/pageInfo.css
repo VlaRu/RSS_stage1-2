@@ -1,0 +1,18 @@
+.container-info {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.infologinBtn, .to_info-btn {
+  width: 100px;
+  height: 30px;
+  background-color: #00aeae;
+}
+
+.rss-logo_img {
+  width: 80px;
+  height: 40px;
+}
