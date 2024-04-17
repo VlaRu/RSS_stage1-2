@@ -1,0 +1,12 @@
+.login-form_container {
+  width: 350px;
+  border:  2px solid black;
+  background-color: #e7e0e0;
+}
+
+.button_submit {
+  width: 100px;
+  height: 30px;
+  background-color: #a1e36b;
+  cursor: pointer;
+}
