@@ -1,0 +1,4 @@
+{
+  "pattern": "/^(doc|feat|fix|refactor): .+$/",
+  "errorMsg": "Commit name does not match!"
+}
