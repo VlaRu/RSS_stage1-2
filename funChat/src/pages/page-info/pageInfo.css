@@ -2,14 +2,25 @@
   width: 90%;
   display: flex;
   flex-direction: column;
+  justify-content: sp;
   align-items: center;
+  font-size: 22px;
+  font-weight: 600;
   border: 2px solid black;
+  padding: 20px;
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
 .infologinBtn, .to_info-btn {
-  width: 100px;
-  height: 30px;
-  background-color: #00aeae;
+  padding: 10px 20px;
+  margin: 20px 0;
+  color: #010a00;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #2cbbe7;
 }
 
 .rss-logo_img {

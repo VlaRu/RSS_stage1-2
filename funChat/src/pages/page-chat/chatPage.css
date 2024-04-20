@@ -1,44 +1,63 @@
 #chat-container {
   width: 70%;
-  height: 100%;
-  border: 2px solid black;
-  margin-bottom: 150px;
+  height: 60%;
+  margin-top: 40px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 15px 15px rgba(0,0,0,0.5);
 }
 
 .container-header-chat {
+  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  background-color: yellow;
+  border-radius: 15px;
+  background-color: rgb(244, 244, 218);
 }
 
 #main_message-container {
+  max-height: 400px;
+  height: 90%;
   display: flex;
 }
 
 .list_users-container {
-  width: 50%;
-  background-color: #fff;
+  width: 30%;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(3, 43, 43);
+  background-color: rgb(244, 244, 218);
+  overflow-y: scroll;
+}
+
+li::marker {
+  color: rgb(13, 255, 0);
+}
+
+.user-offLine::marker {
+  color: red;
 }
 
 .message_chat-container{
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
   background-color: pink;
 }
 
 .user_chat-container {
-  height: 30px;
-  background-color: rgb(33, 51, 186);
+  height: 40px;
+  background-color: #fff;
 }
 
 .message-text-container{
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   overflow-y: scroll;
-  height: 80%;
-  background-color: #abc778;
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
 .text-container {
@@ -57,14 +76,54 @@
 }
 
 .send-message-form {
-  height: 40px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: #d8c0c0;
+  align-content: center;
+  background-color: rgb(244, 244, 218);
+}
+
+#message {
+  border-radius: 8px;
+  padding: 5px;
+  width: 250px;
+  margin-right: 20px;
+}
+
+.button_submit {
+  padding: 10px 20px;
+  margin: 10px 0;
+  color: #010a00;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #9dff81;
 }
 
 @media screen and (max-width: 750px){
   #chat-container {
     width: 90%;
+  }
+
+  .text-container {
+    width: 70%;
+  }
+
+  #message {
+    width: 200px;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 500px){
+  #message {
+    width: 150px;
+    margin-right: 5px;
+  }
+
+  .button_submit {
+    padding: 10px 5px;
   }
 }
