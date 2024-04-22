@@ -4,9 +4,9 @@ import LoginPage from "../pages/page-login/pageLogin";
 // import ErrorPage, {ErrorTypes} from "./error";
 
 export const enum PageIds {
-  InfoPageId = 'start-page',
-  ChatPageId = 'chat-page',
+  InfoPageId = 'info-page',
   LoginPageId = 'login-page',
+  ChatPageId = 'chat-page',
 }
 
 export default class Router {
