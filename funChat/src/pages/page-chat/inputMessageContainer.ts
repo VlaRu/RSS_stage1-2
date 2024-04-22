@@ -1,5 +1,7 @@
 import RenderPageElement from "../../templates/createElementsTemplate";
 import InputTemplate from "../../templates/inputTemplate";
+import { sendMessage } from "../../server/websocket";
+
 
 function createMessageTextCont(text: string) {
   const dateMessage = new Date();
@@ -9,22 +11,32 @@ function createMessageTextCont(text: string) {
   dateInfoMessage.innerText = formattedDate;
   const chatText = RenderPageElement.createPageElement({tag: 'p', className: 'chat-text'});
   chatText.innerText = text;
+  /* const deleteMsg = RenderPageElement.createPageElement({tag: 'img', className: 'trash'});
+  deleteMsg.setAttribute('src', ''); */
   textContainer.append(dateInfoMessage, chatText);
+  // deleteMsg.addEventListener('click', () => 'delete msg');
   return textContainer
 }
 
-function submitMessage(event: Event) {
+function submitMessage(event: Event, loggin: string) {
   event.preventDefault();
   const nameInput = document.getElementById('message') as HTMLInputElement;
-  const nameValue = nameInput.value;
-  const messageContainer = document.querySelector('.message-text-container') as HTMLElement;
-  messageContainer.append(createMessageTextCont(nameValue));
-  console.log(`message: ${nameValue}`);
+  const message = nameInput.value;
+  nameInput.value = '';
+
+  if (message) {
+    const messageContainer = document.querySelector('.message-text-container') as HTMLElement;
+    messageContainer.append(createMessageTextCont(message));
+    console.log(`I send message: ${message} for ${loggin}`);
+    sendMessage(loggin, message);
+  }
 }
 
 export default class InputMessage {
 
   container: HTMLElement;
+
+  selectedUser: string | null = null;
 
   constructor(id: string) {
     this.container = document.createElement('div');
@@ -33,8 +45,16 @@ export default class InputMessage {
 
   renderMessage() {
     const listUsersContainer = RenderPageElement.createPageElement({tag: 'div', className: 'list_users-container'});
+    const searchUserInList = RenderPageElement.createPageElement({tag: 'input', className: 'search_user'});
     const usersContainer = RenderPageElement.createPageElement({tag: 'ul', className: 'users-container'});
-    listUsersContainer.append(usersContainer);
+    usersContainer.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLElement) {
+        console.log(`I choosed user: ${event.target.textContent} for sennging msg`);
+        this.selectedUser = event.target.textContent;
+        this.updateUserChatContainer();
+      }
+    });
+    listUsersContainer.append(searchUserInList, usersContainer);
 
     const messageChatContaner = RenderPageElement.createPageElement({tag: 'div', className: 'message_chat-container'});
 
@@ -46,12 +66,25 @@ export default class InputMessage {
     const inputMessageForm = RenderPageElement.createPageElement({tag: 'form',className:'send-message-form'});
     const inputText = inputMessage.createInput('message', '');
     const submitText = InputTemplate.createSubmitButton();
-    inputMessageForm.addEventListener('submit', submitMessage);
-
+    inputMessageForm.addEventListener('submit', (event) => {
+      if (this.selectedUser) {
+        submitMessage(event, this.selectedUser);
+      } else {
+        console.log('Please select a user.');
+      }
+    });
     inputMessageForm.append(inputText, submitText);
     messageChatContaner.append(userChatContaner, messageTextContainer, inputMessageForm);
 
     this.container.append(listUsersContainer, messageChatContaner);
     return this.container;
   }
+
+  updateUserChatContainer() {
+    const userChatContainer = document.querySelector('.user_chat-container');
+    if (userChatContainer instanceof HTMLElement) {
+      userChatContainer.innerText = this.selectedUser || '';
+    }
+  }
 }
+

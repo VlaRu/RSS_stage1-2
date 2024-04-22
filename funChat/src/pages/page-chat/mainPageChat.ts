@@ -12,9 +12,9 @@ export default class ChatPage {
   }
 
   render(){
-    const tittlePage = RenderPageElement.createPageElement({tag: 'h1', text: 'ChatPage'});
+    const tittlePage = RenderPageElement.createPageElement({tag: 'h1', text: 'Welcome to Chat'});
+    const chatContainer = new ChatContainer('chat-container');
     const footerCont = new FooterContainer('footer');
-    const chatContainer = new ChatContainer('chat-container')
     this.container.append(tittlePage, chatContainer.renderContainer(), footerCont.render());
     return this.container;
   }
