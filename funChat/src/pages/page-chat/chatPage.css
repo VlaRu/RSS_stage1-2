@@ -1,7 +1,7 @@
 #chat-container {
   width: 70%;
   height: 60%;
-  margin-top: 40px;
+  margin: 40px 0;
   border-radius: 15px;
   box-shadow: 1px 1px 15px 15px rgba(0,0,0,0.5);
 }
@@ -22,6 +22,11 @@
   display: flex;
 }
 
+.search-user {
+  width: 90%;
+  margin: 5px;
+}
+
 .list_users-container {
   width: 30%;
   font-size: 18px;
@@ -31,7 +36,15 @@
   overflow-y: scroll;
 }
 
-li::marker {
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #c2b9b962;
+}
+
+.user-name::marker {
   color: rgb(13, 255, 0);
 }
 
@@ -47,7 +60,13 @@ li::marker {
 }
 
 .user_chat-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
   height: 40px;
+  font-size: 22px;
+  font-weight: 600;
   background-color: #fff;
 }
 

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Droid+Sans');
 *{
 margin: 0;
-padding: 0;
 box-sizing: border-box;
 font-family: 'Inconsolata', sans-serif;
 scrollbar-width: thin;
@@ -39,7 +38,8 @@ button {
   align-items: center;
   padding: 0 10px;
   background-color: #373434;
-  color: #fff;
+  font-weight: 600;
+  color: #000;
 }
 
 .footer-paragraph {
