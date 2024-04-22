@@ -10,7 +10,7 @@ export default class FooterContainer {
 
   render(){
     const footerParagraph = RenderPageElement.createPageElement({tag: 'p', className: 'footer-paragraph',
-    text: 'Created by Vladyslava Nikitchenko, 2024 for RSS-school cours'});
+    text: 'Created by Vladyslava Nikitchenko, 2024 for RSS-school courses'});
     const logoLink = RenderPageElement.createPageElement({tag: 'a', href: 'https://rs.school/'});
     const logoImg = RenderPageElement.createPageElement({tag: 'img', className: 'rss-logo_img', src: 'https://rolling-scopes-school.github.io/vlaru-JSFE2022Q3/songbird/assets/rs_school_js.svg'});
     logoLink.append(logoImg);
