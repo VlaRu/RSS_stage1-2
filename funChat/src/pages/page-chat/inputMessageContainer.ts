@@ -61,16 +61,18 @@ export default class InputMessage {
     const userChatContaner = RenderPageElement.createPageElement({tag: 'div', className: 'user_chat-container'});
 
     const messageTextContainer = RenderPageElement.createPageElement({tag: 'div',className:'message-text-container'});
-
+    messageTextContainer.innerText = 'Please choose the user for beginning of the dialogue.';
     const inputMessage = new InputTemplate('input-message_container');
     const inputMessageForm = RenderPageElement.createPageElement({tag: 'form',className:'send-message-form'});
     const inputText = inputMessage.createInput('message', '');
     const submitText = InputTemplate.createSubmitButton();
     inputMessageForm.addEventListener('submit', (event) => {
       if (this.selectedUser) {
+        messageTextContainer.innerText = '';
         submitMessage(event, this.selectedUser);
+        inputMessageForm.removeAttribute('disabled');
       } else {
-        console.log('Please select a user.');
+        inputMessageForm.setAttribute('disabled', 'true');
       }
     });
     inputMessageForm.append(inputText, submitText);
