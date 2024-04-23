@@ -1,7 +1,8 @@
+/* eslint-disable no-param-reassign */
 import RenderPageElement from "../../templates/createElementsTemplate";
 import InputTemplate from "../../templates/inputTemplate";
 import { sendMessage } from "../../server/websocket";
-import { getListUsers } from "../../server/websocket";
+import { getListUsers } from "./displayListUsers";
 
 
 function createMessageTextCont(text: string) {
@@ -39,6 +40,8 @@ export default class InputMessage {
 
   selectedUser: string | null = null;
 
+  selectedClassName!: string | null;
+
   constructor(id: string) {
     this.container = document.createElement('div');
     this.container.id = id;
@@ -48,20 +51,11 @@ export default class InputMessage {
     const listUsersContainer = RenderPageElement.createPageElement({tag: 'div', className: 'list_users-container'});
     const searchUserInList = RenderPageElement.createPageElement({tag: 'input', className: 'search_user'});
     const usersContainer = RenderPageElement.createPageElement({tag: 'ul', className: 'users-container'});
-    usersContainer.addEventListener('click', (event) => {
-      if (event.target instanceof HTMLElement) {
-        console.log(`I choosed user: ${event.target.textContent} for sennging msg`);
-        this.selectedUser = event.target.textContent;
-        this.updateUserChatContainer();
-      }
-    });
-    getListUsers(usersContainer);
-    listUsersContainer.append(searchUserInList, usersContainer);
 
     const messageChatContaner = RenderPageElement.createPageElement({tag: 'div', className: 'message_chat-container'});
-
-    const userChatContaner = RenderPageElement.createPageElement({tag: 'div', className: 'user_chat-container'});
-
+    const userChatContaner = RenderPageElement.createPageElement({tag: 'ul', className: 'user_chat-container'});
+    const currentRecipient = RenderPageElement.createPageElement({tag: 'li', className: 'current-recipient'});
+    userChatContaner.append(currentRecipient);
     const messageTextContainer = RenderPageElement.createPageElement({tag: 'div',className:'message-text-container'});
     messageTextContainer.innerText = 'Please choose the user for beginning of the dialogue.';
     const inputMessage = new InputTemplate('input-message_container');
@@ -79,17 +73,26 @@ export default class InputMessage {
     });
     inputMessageForm.append(inputText, submitText);
     messageChatContaner.append(userChatContaner, messageTextContainer, inputMessageForm);
+    usersContainer.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLElement) {
+        console.log(`I choosed user: ${event.target.className} for sennging msg`);
+        this.selectedUser = event.target.textContent;
+        this.selectedClassName = event.target.className;
+        this.updateUserChatContainer(messageTextContainer, currentRecipient);
+      }
+    });
+    getListUsers(usersContainer);
+    listUsersContainer.append(searchUserInList, usersContainer);
 
     this.container.append(listUsersContainer, messageChatContaner);
     return this.container;
   }
 
-  updateUserChatContainer() {
-    const userChatContainer = document.querySelector('.user_chat-container');
-    const messageTextContainer = document.querySelector('.message-text-container') as HTMLElement;
-    if (userChatContainer instanceof HTMLElement) {
-      userChatContainer.innerText = this.selectedUser || '';
-      messageTextContainer.innerText = 'is the beginning of the dialogue'
+  updateUserChatContainer(container: HTMLElement, recipient: HTMLElement) {
+    if (recipient instanceof HTMLElement) {
+      recipient.innerText = this.selectedUser || '';
+      recipient.className = this.selectedClassName|| '';
+      container.innerText = 'is the beginning of the dialogue'
     }
   }
 }
