@@ -84,8 +84,10 @@ export default class InputMessage {
 
   updateUserChatContainer() {
     const userChatContainer = document.querySelector('.user_chat-container');
+    const messageTextContainer = document.querySelector('.message-text-container') as HTMLElement;
     if (userChatContainer instanceof HTMLElement) {
       userChatContainer.innerText = this.selectedUser || '';
+      messageTextContainer.innerText = 'is the beginning of the dialogue'
     }
   }
 }
