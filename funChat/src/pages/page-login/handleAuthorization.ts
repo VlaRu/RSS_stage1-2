@@ -1,5 +1,4 @@
 import UserSession from '../../server/userAuthentication';
-import { getActiveUsers } from '../../server/websocket';
 import { errorMsg, displayError, validateInput, clearErrorMessages } from './validation';
 import { PageIds } from '../../router/router';
 
@@ -39,8 +38,6 @@ export function submitLoginForm(event: Event) {
     sessionStorage.setItem('password', passwordValue);
     userCredentials.push({ username: nameValue, password: passwordValue });
     window.location.hash = PageIds.ChatPageId;
-    getActiveUsers('USER_ACTIVE');
-    getActiveUsers('USER_INACTIVE');
   }
 }
 

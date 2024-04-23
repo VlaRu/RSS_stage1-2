@@ -1,6 +1,7 @@
 import RenderPageElement from "../../templates/createElementsTemplate";
 import InputTemplate from "../../templates/inputTemplate";
 import { sendMessage } from "../../server/websocket";
+import { getListUsers } from "../../server/websocket";
 
 
 function createMessageTextCont(text: string) {
@@ -54,6 +55,7 @@ export default class InputMessage {
         this.updateUserChatContainer();
       }
     });
+    getListUsers(usersContainer);
     listUsersContainer.append(searchUserInList, usersContainer);
 
     const messageChatContaner = RenderPageElement.createPageElement({tag: 'div', className: 'message_chat-container'});
