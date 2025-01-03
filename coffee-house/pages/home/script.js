@@ -73,10 +73,9 @@ function addSlides(n) {
 }
 
 function startAutoSlide() {
-    const intervalDuration = 5000;
     intervalId = setInterval(() => {
         addSlides(1);
-    }, intervalDuration);
+    }, 5000);
 }
 
 function stopAutoSlide() {
