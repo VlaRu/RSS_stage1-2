@@ -1,8 +1,4 @@
-/* burger navigation */
-
-
-
-/* Slide imageContainer */
+//import {startAutoSlide, stopAutoSlide, showSlides, removeClass, intervalId} from "././modules/slideHomePage.js";
 
 const imageContainer = Array.from(document.querySelectorAll('.favorite-coffee-image-container'));
 const btnNext = document.querySelector('.arrow-left');
@@ -38,8 +34,10 @@ function showSlides(index) {
 
 btnNext.addEventListener('click', () => {
     stopAutoSlide();
-    showSlides((slideIndex -= 1))
+    showSlides((slideIndex -= 1));
     removeClass();
+    blockSlide[slideIndex].classList.add("active_favorite-button-slide");
+    startAutoSlide();
 });
 
 btnPrev.addEventListener('click', () => {
@@ -95,4 +93,3 @@ document.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].clientX;
     handleSwipe();
 });
-
