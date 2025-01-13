@@ -691,7 +691,7 @@ h5{
    display: flex;
 }
 
-.coffee-content-wrap{
+.content-wrap{
    width: 100%;
    max-width: 1360px;
    height: 1052px;
@@ -742,29 +742,6 @@ h5{
    font-size: 24px;
    font-weight: 600;
    line-height: 125%;
-}
-
-/* tea */
-.tea-content-wrap{
-   width: 100%;
-   max-width: 1360px;
-   display: none;
-   flex-direction: row;
-   justify-content: flex-start;
-   align-items: flex-start;
-   flex-wrap: wrap;
-   gap: 40px;
-}
-/* dessert */
-.dessert-content-wrap{
-   width: 100%;
-   max-width: 1360px;
-   display: none;
-   flex-direction: row;
-   justify-content: flex-start;
-   align-items: flex-start;
-   flex-wrap: wrap;
-   gap: 40px;
 }
 
 .menu-more-container{
