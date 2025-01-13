@@ -188,15 +188,36 @@ header{
 /* enjoy */
 
 .enjoy-section{
+   position: relative;
    width: 100%;
    max-width: 1360px;
    height: 644px;
+   max-height: 644px;
    display: flex;
    align-items: center;
    border-radius: 40px;
-   background-image: url(../../assets/images/desktop-bg-enjoy.png);
    background-position: center;
    color: var(--background-color);
+   overflow: hidden;
+}
+
+.video-background {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 644px;
+   z-index: -1;
+   object-fit: cover;
+}
+
+.video-background video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }
 
 .enjoy-content-container{
@@ -206,19 +227,6 @@ header{
    flex-direction: column;
    justify-content: space-between;
    margin-left: 100px;
-}
-
-.background-video{
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   border-radius: 40px;
-   position: absolute;
-   z-index: 1;
-   overflow: hidden;
-   top: 0;
-   left: 0;
-   max-width: 1360px;
 }
 
 h1{
