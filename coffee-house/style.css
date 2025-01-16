@@ -148,43 +148,37 @@ header{
 .link-element:hover::before{
    width: 100%;
 }
-
-.burger-icon-container{
+/* burger */
+.burger-line-wrapper{
    width: 44px;
    height: 44px;
-   border: 1px solid #665F55;
-   border-radius: 100%;
    display: none;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-}
-
-.burger-line-wrapper{
-   width: 16px;
-   height: 12px;
-   margin: 2px 0;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
+   gap: 7px;
    transition: transform .3s linear;
-   position: relative;
+   border: 1px solid #665F55;
+   border-radius: 100%;
 }
 
-.nav-toggle__item {
-   display: block;
-   width: 100%;
-   height: 2px;
+.burger-line {
+   width: 16px;
+   height: 1.5px;
    background-color: #403F3D;
    transition: transform 0.3s linear;
+   transform: translateY(0px) rotate(0deg);
  }
 
- .burger-icon-container.active .nav-toggle__item:first-child {
-   transform: rotate(-25deg) translateY(140%)
+ .burger-line-wrapper.active .burger-line:first-child {
+   transform: translateY(4.2px) rotate(45deg);
  }
 
- .burger-icon-container.active .nav-toggle__item:last-child {
-   transform: rotate(25deg) translateY(-140%);
+ .burger-line-wrapper.active .burger-line:last-child {
+   transform: translateY(-4.2px) rotate(-45deg);
  }
+
+
 
 /* enjoy */
 
@@ -228,19 +222,6 @@ header{
    flex-direction: column;
    justify-content: space-between;
    margin-left: 100px;
-}
-
-.background-video{
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   border-radius: 40px;
-   position: absolute;
-   z-index: 1;
-   overflow: hidden;
-   top: 0;
-   left: 0;
-   max-width: 1360px;
 }
 
 h1{
@@ -288,9 +269,9 @@ h1{
    cursor: pointer;
 }
 
-/* favourites-section */
+/* favorites-section */
 
-.favourites-coffee-section{
+.favorites-coffee-section{
    width: 100%;
    max-height: 799px;
    margin: 100px 0;
@@ -301,7 +282,7 @@ h1{
    text-align: center;
 }
 
-.favourite-slide-container{
+.favorite-slide-container{
    width: 100%;
    display: flex;
    justify-content: space-between;
@@ -316,7 +297,7 @@ h2{
    color: var(--text-dark-color);
 }
 
-.favourite-coffee-container{
+.favorite-coffee-container{
    width: 480px;
    height: 640px;
    display: flex;
@@ -325,22 +306,28 @@ h2{
    text-align: center;
 }
 
-.favourite-coffee-image{
+.favorite-coffee-image-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.favorite-coffee-image{
    height: calc( 480 / 640 *100%);
    width: 480px;
 }
 
-.favourite-name-coffee,.price-favourite-coffee{
+.favorite-name-coffee,.price-favorite-coffee{
    font-size: 24px;
    font-weight: 600;
    line-height: 125%
 }
 
-.favourite-name-coffee{
+.favorite-name-coffee{
    margin-top: 20px;
 }
 
-.favourite-coffee-description{
+.favorite-coffee-description{
    padding: 0 15px;
    font-size: 16px;
    font-weight: 400;
@@ -348,7 +335,7 @@ h2{
    margin: 16px 0;
 }
 
-.favourite-arrow{
+.favorite-arrow{
    width: 60px;
    height: 60px;
    display: flex;
@@ -359,7 +346,7 @@ h2{
    transition: 0.7s;
 }
 
-.favourite-arrow:hover{
+.favorite-arrow:hover{
    background-color: #665F55;
 }
 
@@ -367,27 +354,40 @@ h2{
    transform: rotate(180deg);
 }
 
-.favourite-button-slide-container{
+.favorite-button-slide-container{
    width: 144px;
    height: 4px;
    display: flex;
    justify-content: space-between;
 }
 
-.favourite-button-slide{
+.favorite-button-slide{
    width: 40px;
    border-radius: 100px;
    background-color: #C1B6AD;
-   transition: background-color 0.5s;
    position: relative;
 }
 
-.favourite-button-slide:hover{
-   cursor: pointer;
-   background-color: #665F55;
+.animate_favorite-button-slide {
+   background-image: linear-gradient(to right, #665F55 0%, #665F55 100%);
+   background-size: 0% 100%;
+   background-repeat: no-repeat;
+   animation: 3s fill-bg ease-in forwards;
 }
 
-.active-favourite-button{
+@keyframes fill-bg{
+   from {
+      background-size: 0% 100%;
+      background-color: #C1B6AD;
+    }
+
+    to {
+      background-size: 100% 100%;
+      background-color: #665F55;
+    }
+}
+
+.active_favorite-button-slide{
    background-color: #665F55;
 }
 
@@ -694,13 +694,13 @@ h5{
    display: flex;
 }
 
-.coffee-content-wrap{
+.content-wrap{
    width: 100%;
    max-width: 1360px;
-   height: 1052px;
+   height: fit-content;
    display: flex;
    flex-direction: row;
-   justify-content: flex-start;
+   justify-content: center;
    align-items: flex-start;
    flex-wrap: wrap;
    gap: 40px;
@@ -745,29 +745,6 @@ h5{
    font-size: 24px;
    font-weight: 600;
    line-height: 125%;
-}
-
-/* tea */
-.tea-content-wrap{
-   width: 100%;
-   max-width: 1360px;
-   display: none;
-   flex-direction: row;
-   justify-content: flex-start;
-   align-items: flex-start;
-   flex-wrap: wrap;
-   gap: 40px;
-}
-/* dessert */
-.dessert-content-wrap{
-   width: 100%;
-   max-width: 1360px;
-   display: none;
-   flex-direction: row;
-   justify-content: flex-start;
-   align-items: flex-start;
-   flex-wrap: wrap;
-   gap: 40px;
 }
 
 .menu-more-container{
@@ -959,7 +936,7 @@ h5{
       height: 100vh;
    }
 
-   .burger-icon-container{
+   .burger-line-wrapper{
       display: flex;
    }
 
@@ -969,14 +946,13 @@ h5{
 
    .navigation-mobile-container {
       position: fixed;
-      top: 90px;
+      top: 80px;
       right: -100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       z-index: 2;
       width: 100%;
-      height: 100%;
+      height: calc(100vh - 80px);
       padding: 60px 40px;
       background-color: #E1D4C9;
       color: #403F3D;
@@ -1026,7 +1002,7 @@ h5{
    .button-enjoy-menu{
       width: 200px;
    }
-   .favourites-coffee-section{
+   .favorites-coffee-section{
       max-height: 100%;
    }
 
@@ -1157,7 +1133,7 @@ h5{
       width: 100%;
    }
 
-   .favourite-coffee-image{
+   .favorite-coffee-image{
       width: 400px;
       height: 400px;
    }
@@ -1176,7 +1152,7 @@ h5{
 }
 
 @media (max-width: 480px){
-   .favourite-arrow{
+   .favorite-arrow{
       display: none;
    }
 }
@@ -1211,21 +1187,21 @@ h5{
       font-size: 42px;
    }
 
-   .favourites-coffee-section{
+   .favorites-coffee-section{
       height: 696px;
    }
 
-   .favourite-coffee-container{
+   .favorite-coffee-container{
       max-height: 532px;
       align-items: start;
    }
 
-   .favourite-coffee-image{
+   .favorite-coffee-image{
       width: 348px;
       height: 348px;
    }
 
-   .favourite-coffee-description{
+   .favorite-coffee-description{
       width: 100%;
       padding: 0;
    }
