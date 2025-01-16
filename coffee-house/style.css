@@ -148,42 +148,37 @@ header{
 .link-element:hover::before{
    width: 100%;
 }
-
-.burger-icon-container{
+/* burger */
+.burger-line-wrapper{
    width: 44px;
    height: 44px;
-   border: 1px solid #665F55;
-   border-radius: 100%;
    display: none;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-}
-
-.burger-line-wrapper{
-   width: 16px;
-   height: 12px;
-   margin: 2px 0;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
+   gap: 7px;
    transition: transform .3s linear;
-   position: relative;
+   border: 1px solid #665F55;
+   border-radius: 100%;
 }
 
-.nav-toggle__item {
-   width: 100%;
-   height: 1px;
+.burger-line {
+   width: 16px;
+   height: 1.5px;
    background-color: #403F3D;
    transition: transform 0.3s linear;
+   transform: translateY(0px) rotate(0deg);
  }
 
- .burger-icon-container.active .nav-toggle__item:first-child {
-   transform: rotate(-25deg) translateY(140%)
+ .burger-line-wrapper.active .burger-line:first-child {
+   transform: translateY(4.2px) rotate(45deg);
  }
 
- .burger-icon-container.active .nav-toggle__item:last-child {
-   transform: rotate(25deg) translateY(-140%);
+ .burger-line-wrapper.active .burger-line:last-child {
+   transform: translateY(-4.2px) rotate(-45deg);
  }
+
+
 
 /* enjoy */
 
@@ -702,10 +697,10 @@ h5{
 .content-wrap{
    width: 100%;
    max-width: 1360px;
-   height: 1052px;
+   height: fit-content;
    display: flex;
    flex-direction: row;
-   justify-content: flex-start;
+   justify-content: center;
    align-items: flex-start;
    flex-wrap: wrap;
    gap: 40px;
@@ -941,7 +936,7 @@ h5{
       height: 100vh;
    }
 
-   .burger-icon-container{
+   .burger-line-wrapper{
       display: flex;
    }
 
@@ -951,14 +946,13 @@ h5{
 
    .navigation-mobile-container {
       position: fixed;
-      top: 90px;
+      top: 80px;
       right: -100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       z-index: 2;
       width: 100%;
-      height: 100%;
+      height: calc(100vh - 80px);
       padding: 60px 40px;
       background-color: #E1D4C9;
       color: #403F3D;
