@@ -15,29 +15,29 @@ module.exports = {
     hot: true,
     port: 8080,
   },
-  entry: "./nonograms/src/script.js", // your entry file
+  entry: "./nonograms/src/script.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js", // name of the bundled file
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // match JavaScript files
-        exclude: /node_modules/, // exclude node_modules
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: {
-          loader: "babel-loader", // use babel-loader for JavaScript files
+          loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"], // use preset-env for modern JavaScript
+            presets: ["@babel/preset-env"],
           },
         },
       },
       {
-        test: /\.(scss|css)$/, // match Sass files
+        test: /\.(scss|css)$/,
         use: [
-          "style-loader", // inject CSS into the DOM
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader", // compiles Sass to CSS
+          "style-loader",
+          "css-loader",
+          "sass-loader",
         ],
       },
     ],
@@ -45,8 +45,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "webpack Boilerplate",
-      template: path.resolve(__dirname, "./nonograms/index.html"), // шаблон
-      filename: "index.html", // название выходного файла
+      template: path.resolve(__dirname, "./nonograms/index.html"),
+      filename: "index.html",
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
