@@ -1,4 +1,4 @@
-import createNewElement from './builderDomElements';
+import createNewElement from '../dom/builderDomElements';
 
 function createModal(parent) {
   const modalContainer = createNewElement('div', 'modal-container', parent);

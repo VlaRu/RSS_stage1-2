@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { answerGame } from './logicGame';
-import { toggleFillCell } from './cellFilling';
+import { toggleFillCell } from '../game/cellFilling';
 
 function getHintUser() {
   const rowFieldElements = document.getElementsByClassName('row-field');

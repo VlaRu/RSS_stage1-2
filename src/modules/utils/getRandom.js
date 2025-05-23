@@ -1,4 +1,4 @@
-import gameData from './gameData';
+import gameData from '../core/gameData';
 
 function getRandomIndex() {
   return Math.floor(Math.random() * gameData.length);

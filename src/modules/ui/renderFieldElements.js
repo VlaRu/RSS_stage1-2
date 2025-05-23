@@ -1,5 +1,5 @@
-import gameData from './gameData';
-import createNewElement from './builderDomElements';
+import gameData from '../core/gameData';
+import createNewElement from '../dom/builderDomElements';
 
 function renderDropElements(parentNode) {
   for (let i = 0; i < gameData.length; i += 1) {

@@ -1,16 +1,16 @@
-import getRandomIndex from './getRandom';
+import getRandomIndex from '../utils/getRandom';
 import gameData from './gameData';
-import { clearField, clearContainer } from './restoreGame';
-import createModal from './modalWindow';
-import createNewElement from './builderDomElements';
-import { startGameTimer, clearGameTimer, timerID } from './timer';
-import { fillSolution } from './cellFilling';
+import { clearField, clearContainer } from '../game/restoreGame';
+import createModal from '../ui/modalWindow';
+import createNewElement from '../dom/builderDomElements';
+import { startGameTimer, clearGameTimer, timerID } from '../game/timer';
+import { fillSolution } from '../game/cellFilling';
 import {
   renderColClues,
   renderRowClues,
   renderGameField,
   renderDropElements,
-} from './renderFieldElements';
+} from '../ui/renderFieldElements';
 
 let index = 0;
 let titleGame = gameData[index].title;
@@ -29,15 +29,16 @@ function createLogicGame() {
   createNewElement('span', ['switch-slider', 'switch-round'], labelForInput);
   const gameToolsContainer = createNewElement('div', 'container_game-tools', mainContaner);
   const burgerContainer = createNewElement('div', 'burger-container', gameToolsContainer);
+  const buttonContainer = createNewElement('div', 'nav-elements-container', gameToolsContainer);
+  createNewElement('div', 'counter', gameToolsContainer, '00:00');
   createNewElement('h1', null, gameToolsContainer, 'nonogram game');
-  const buttonContainer = createNewElement('div', 'button-container', gameToolsContainer);
-  createNewElement('button', ['random-game_button', 'button'], buttonContainer, 'random game');
+  createNewElement('button', ['random-game_button', 'nav-elements'], buttonContainer, 'random game');
   const dropDawnContainer = createNewElement('div', 'drop-down_container', buttonContainer);
   const nameGame = createNewElement('h2', null, gameToolsContainer, `${titleGame}`);
-  createNewElement('button', ['choose-game_button', 'button'], dropDawnContainer, 'choose game');
+  createNewElement('button', ['choose-game_button', 'nav-elements'], dropDawnContainer, 'choose game');
   const dropDownContent = createNewElement('ul', 'drop-down_content', dropDawnContainer);
-  createNewElement('button', ['restore-game_button', 'button'], buttonContainer, 'restore');
-  createNewElement('button', ['solution-game_button', 'button'], buttonContainer, 'solution');
+  createNewElement('button', ['restore-game_button', 'nav-elements'], buttonContainer, 'restore');
+  createNewElement('button', ['solution-game_button', 'nav-elements'], buttonContainer, 'solution');
   createNewElement('div', 'burger-element', burgerContainer);
   createNewElement('div', 'burger-element', burgerContainer);
   const gameContainer = createNewElement('div', 'game-container', mainContaner);
@@ -45,7 +46,6 @@ function createLogicGame() {
   const gameFieldFixing = createNewElement('div', 'game-field-fixing', gameContainer);
   const cluesRowsContainer = createNewElement('div', 'clues-rows_container', gameFieldFixing);
   const gameFieldContainer = createNewElement('div', 'game-field_container', gameFieldFixing);
-  createNewElement('span', 'counter', gameToolsContainer, '00:00');
   createModal(mainContaner);
 
   renderDropElements(dropDownContent);
