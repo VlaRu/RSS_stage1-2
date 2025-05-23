@@ -1,0 +1,14 @@
+//@include font($ff,$fw,$fs)
+@mixin font($ff,$fw,$fs) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-size: $fs;
+}
+
+// @include flex($d,$fd,$jc,$ai: flex-start)
+@mixin flex($d,$fd,$jc,$ai: flex-start) {
+  display: $d;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
