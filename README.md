@@ -2,15 +2,16 @@
 
 ## Deploy: [link](https://vlaru.github.io/RSS_stage1-2/nonograms/)
 ## Task 
-implement a classic game — [Nonograms](https://en.wikipedia.org/wiki/Nonogram)  
+implement a classic game — [Nonogram](https://en.wikipedia.org/wiki/Nonogram)  
 ## Stack 
 - JS
 - HTML
-- CSS / SASS
+- CSS / SCSS
 - Prettier
 - Linter
 - Webpack
 ## Features
+### The main feature of project is that it works entirely with the DOM, generating all page elements using vanilla JS
 - all necessary elements are generated using JS, body is empthy
 - adaptive and responsive design.
 - a player is able to fill in a cell in the grid (changing the color dark), using left mouse-click.
