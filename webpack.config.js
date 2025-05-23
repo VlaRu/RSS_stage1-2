@@ -1,10 +1,10 @@
-const path = require("path");
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   devServer: {
     historyApiFallback: true,
     static: {
@@ -13,12 +13,12 @@ module.exports = {
     open: true,
     compress: true,
     hot: true,
-    port: 8080,
+    port: 'auto',
   },
-  entry: "./nonograms/src/script.js",
+  entry: './src/script.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -26,27 +26,33 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              api: 'modern',
+            },
+          },
         ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "webpack Boilerplate",
-      template: path.resolve(__dirname, "./nonograms/index.html"),
-      filename: "index.html",
+      title: 'webpack Boilerplate',
+      template: path.resolve(__dirname, './src/index.html'),
+      filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),

@@ -1,14 +1,15 @@
 {
-  "name": "vlaru-jsfe2023q4",
+  "name": "nonograms",
   "version": "1.0.0",
-  "description": "",
+  "description": "nonograms game",
   "private": true,
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "webpack serve",
-    "sass": "sass nonograms/sass/style.scss style.css",
-    "sass-w": "npm run sass -- --watch"
+    "sass": "sass src/sass/style.scss src/style.css",
+    "sass:w": "npm run sass -- --watch",
+    "lint": "eslint . --fix"
   },
   "author": "",
   "license": "ISC",
