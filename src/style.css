@@ -43,6 +43,8 @@ input ::-ms-clear {
 
 button {
   cursor: pointer;
+  background-color: transparent;
+  color: inherit;
 }
 
 button::-moz-focus-inner {
@@ -68,16 +70,35 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+:root {
+  --main-bg: url(../assets/images/bg-japan-light.webp);
+  --dark-bg: url(../assets/images/bg-japan-dark.webp);
+  --main-color: #103c53;
+  --light-bg-color: #d9dac7;
+  --dark-bg-color: #2c4352;
+}
+
 body {
+  background-image: var(--main-bg);
   font-size: 22px;
   box-sizing: border-box;
+  transition: background-image 0.5s;
+  color: #000;
+}
+body.dark-mode {
+  background-image: var(--dark-bg);
+  color: var(--light-bg-color);
 }
 
 h1 {
+  font-family: "Cinzel Decorative", cursive;
   font-size: 35px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--main-color);
+}
+h1.dark-mode {
+  color: var(--light-bg-color);
 }
 
 h2 {
@@ -87,21 +108,16 @@ h2 {
 .main-container {
   width: 100%;
   height: 100%;
-  background-image: url(../assets/bg-japan-light.webp);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: background-image 0.5s;
-}
-.main-container.dark-mode-bg {
-  background-image: url(../assets/bg-japan-dark.webp);
 }
 
 .container_game-tools {
-  width: 80%;
+  width: 85%;
   height: 25%;
-  background-color: rgba(169, 77, 142, 0.4392156863);
+  background-color: #d9dac7;
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
@@ -112,8 +128,8 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
-.container_game-tools.dark-theme {
-  background-color: rgba(169, 77, 142, 0.4392156863);
+.container_game-tools.dark-mode {
+  background-color: #2c4352;
 }
 @media (max-width: 780px) {
   .container_game-tools {
@@ -126,45 +142,61 @@ h2 {
   }
 }
 
-.button-container {
+.nav-elements-container {
   width: 100%;
+  height: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  color: var(--main-color);
+}
+.nav-elements-container.dark-mode {
+  color: var(--light-bg-color);
 }
 @media (max-width: 780px) {
-  .button-container {
+  .nav-elements-container {
     width: 80vw;
     height: 100%;
     position: absolute;
     top: 0;
     z-index: 2;
     padding-top: 30px;
-    background-color: transparent;
+    background-color: var(--light-bg-color);
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
   }
-  .button-containerbutton {
-    color: #fff;
+}
+@media (max-width: 780px) {
+  .nav-elements-container.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--light-bg-color);
   }
 }
 
-.button {
-  background-color: transparent;
-  width: 200px;
-  height: 50px;
+.nav-elements {
+  width: 25%;
   font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
   transition: all 0.7s;
   cursor: pointer;
 }
-.button:hover {
-  background-color: #000;
-  color: #7b7474;
+.nav-elements:hover {
+  letter-spacing: 3px;
+}
+@media (max-width: 780px) {
+  .nav-elements {
+    width: 100%;
+  }
+}
+.nav-elements.drop-down_container:hover {
+  letter-spacing: normal;
+}
+.nav-elements.drop-down_container:hover .drop-down_content {
+  display: block;
 }
 
 .hide {
@@ -172,7 +204,6 @@ h2 {
 }
 
 .drop-down_container {
-  width: 200px;
   position: relative;
   display: inline-block;
 }
@@ -181,29 +212,32 @@ h2 {
   width: 100%;
   height: 300px;
   position: absolute;
+  top: 25px;
   display: none;
   text-align: left;
-  background-color: #f1f1f1;
+  background-color: var(--light-bg-color);
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   transition: all 0.7s;
 }
+.drop-down_content.dark-mode {
+  background-color: var(--dark-bg-color);
+}
 
 .drop-element {
   width: 100%;
   height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
   padding-left: 20px;
-  color: #534545;
+  color: var(--main-color);
   cursor: pointer;
 }
 .drop-element:hover {
-  background-color: #726e6e;
-  width: 100%;
-}
-
-.show-drop-list {
-  display: block;
+  background-color: var(--main-color);
+  color: var(--light-bg-color);
 }
 
 .counter {
@@ -248,7 +282,7 @@ h2 {
 }
 
 .clues-column_container {
-  background-color: rgb(172, 172, 172);
+  background-color: rgb(214, 162, 162);
   width: 80%;
   height: 30%;
   display: flex;
@@ -256,14 +290,21 @@ h2 {
   justify-content: flex-end;
   align-items: flex-end;
 }
+.clues-column_container.dark-mode {
+  background-color: var(--dark-bg-color);
+}
 
 .clues-rows_container {
+  background-color: rgb(214, 162, 162);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
   width: 20%;
   height: 100%;
+}
+.clues-rows_container.dark-mode {
+  background-color: var(--dark-bg-color);
 }
 
 .game-field_container {
@@ -287,7 +328,6 @@ h2 {
 
 .clues-rows__element-container {
   flex: 1;
-  background-color: rgb(214, 162, 162);
   border: 1px solid #000;
   width: 100%;
   display: flex;
@@ -310,7 +350,6 @@ h2 {
 }
 
 .clues-columns__element-container {
-  background-color: rgb(214, 162, 162);
   border: 1px solid #000;
   flex: 1;
   height: 100%;
@@ -410,7 +449,7 @@ h2 {
 }
 
 .switch-wrapper .switch-input:checked + .switch-slider {
-  background-color: #010001;
+  background-color: var(--dark-bg-color);
 }
 
 .switch-wrapper .switch-input:checked + .switch-slider:before {
@@ -419,15 +458,6 @@ h2 {
 
 .switch-slider.switch-round {
   border-radius: 34px;
-}
-
-.dark-mode {
-  background-color: #16322d;
-}
-
-.dark-clues {
-  background-color: #045457;
-  color: #fff;
 }
 
 .modal-container {
@@ -493,7 +523,10 @@ h2 {
     width: 100%;
     height: 40%;
     border-radius: 20px;
-    background-color: #a94d8ec2;
+    background-color: var(--main-color);
+  }
+  .burger-element.dark-mode {
+    background-color: var(--light-bg-color);
   }
 }
 

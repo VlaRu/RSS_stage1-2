@@ -1,9 +1,25 @@
 @use "nullstyles.scss";
 @use "modules.scss";
 
+
+:root {
+  --main-bg: url(../assets/images/bg-japan-light.webp);
+  --dark-bg: url(../assets/images/bg-japan-dark.webp);
+  --main-color: #103c53;
+  --light-bg-color: #d9dac7;
+  --dark-bg-color: #2c4352;
+}
+
 body{
+  background-image: var(--main-bg);
   font-size: 22px;
   box-sizing: border-box;
+  transition: background-image 0.5s;
+  color: #000;
+  &.dark-mode{
+    background-image: var(--dark-bg);
+    color: var(--light-bg-color);
+  }
 }
 
 h1{
@@ -11,7 +27,10 @@ h1{
   font-size: 35px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--main-color);
+  &.dark-mode {
+    color: var(--light-bg-color);
+  }
 }
 
 h2{
@@ -21,26 +40,20 @@ h2{
 .main-container{
   width: 100%;
   height: 100%;
-  background-image: url(../assets/images/bg-japan-light.webp);
   @include modules.flex($d: flex,$fd: column,$jc: center,$ai: center);
-  transition: background-image 0.5s;
-  &.dark-mode-bg{
-    background-image: url(../assets/images/bg-japan-dark.webp);
-  }
 }
 
 .container_game-tools{
   width: 85%;
   height: 25%;
   background-color: #d9dac7;
-  color: #fff;
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
   position: relative;
   border-radius: 20px;
   @include modules.flex($d: flex,$fd: column,$jc: space-between,$ai: center);
-  &.dark-theme{
+  &.dark-mode {
     background-color: #2c4352;
   }
   @media (max-width: 780px){
@@ -53,7 +66,12 @@ h2{
 
 .nav-elements-container{
   width: 100%;
+  height: 50px;
   @include modules.flex($d: flex,$fd: row,$jc: center,$ai: center);
+  color: var(--main-color);
+  &.dark-mode{
+    color: var(--light-bg-color);
+  }
   @media (max-width: 780px){
     width: 80vw;
     height: 100%;
@@ -61,30 +79,40 @@ h2{
     top: 0;
     z-index: 2;
     padding-top: 30px;
-    background-color: transparent;
+    background-color: var(--light-bg-color);
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    &nav-elements{
-      color: #fff;
+  }
+  &.dark-mode {
+    @media (max-width: 780px) {
+      background-color: var(--dark-bg-color);
+      color: var(--light-bg-color);
     }
   }
 }
 
 .nav-elements{
-  background-color: transparent;
-  color: #7b7474;
-  width: 200px;
-  height: 50px;
+  width: 25%;
   font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
   transition: all 0.7s;
   cursor: pointer;
-  &:hover{
-    background-color: #000;
-    color: #7b7474;
+  &:hover {
+    letter-spacing: 3px;
+  }
+  @media (max-width: 780px){
+    width: 100%;
+  }
+  &.drop-down_container {
+    &:hover {
+      letter-spacing: normal;
+      .drop-down_content {
+        display: block;
+      }
+    }
   }
 }
 
@@ -93,7 +121,6 @@ h2{
 }
 
 .drop-down_container{
-  width: 200px;
   position: relative;
   display: inline-block;
 }
@@ -102,30 +129,32 @@ h2{
   width: 100%;
   height: 300px;
   position: absolute;
+  top: 25px;
   display: none;
   text-align: left;
-  background-color: #f1f1f1;
+  background-color: var(--light-bg-color);
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   transition: all 0.7s;
+  &.dark-mode {
+    background-color: var(--dark-bg-color);
+  }
 }
 
 .drop-element{
   width: 100%;
   height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
   padding-left: 20px;
-  color: #534545;
+  color: var(--main-color);
   cursor: pointer;
   &:hover{
-    background-color: #726e6e;
-    width: 100%;
-
+    background-color: var(--main-color);
+    color: var(--light-bg-color);
   }
-}
-
-.show-drop-list{
-  display: block;
 }
 
 .counter{
@@ -159,16 +188,23 @@ h2{
 }
 
 .clues-column_container{
-  background-color: rgb(172, 172, 172);
+  background-color: rgb(214, 162, 162);
   width: 80%;
   height: 30%;
   @include modules.flex($d: flex,$fd: row,$jc: flex-end,$ai: flex-end);
+  &.dark-mode{
+    background-color: var(--dark-bg-color);
+  }
 }
 
 .clues-rows_container{
+  background-color: rgb(214, 162, 162);
   @include modules.flex($d: flex,$fd: column,$jc: flex-start,$ai: flex-end);
   width: 20%;
   height: 100%;
+  &.dark-mode{
+    background-color: var(--dark-bg-color);
+  }
 }
 
 .game-field_container{
@@ -186,7 +222,6 @@ h2{
 
 .clues-rows__element-container{
   flex: 1;
-  background-color: rgb(214, 162, 162);
   border: 1px solid #000;
   width: 100%;
   @include modules.flex($d: flex,$fd: row,$jc: center,$ai: center);
@@ -203,7 +238,6 @@ h2{
 }
 
 .clues-columns__element-container{
-  background-color: rgb(214, 162, 162);
   border: 1px solid #000;
   flex: 1;
   height: 100%;
@@ -288,7 +322,7 @@ h2{
 }
 
 .switch-wrapper .switch-input:checked + .switch-slider {
-  background-color: #010001;
+  background-color: var(--dark-bg-color);
 }
 
 .switch-wrapper .switch-input:checked + .switch-slider:before {
@@ -298,15 +332,6 @@ h2{
 
 .switch-slider.switch-round {
   border-radius: 34px;
-}
-
-.dark-mode{
-  background-color: #16322d;
-}
-
-.dark-clues{
-  background-color: #045457;
-  color: #fff;
 }
 
 .modal-container{
@@ -366,6 +391,9 @@ h2{
     width: 100%;
     height: 40%;
     border-radius: 20px;
-    background-color: #573a5a;
+    background-color: var(--main-color);
+    &.dark-mode {
+      background-color: var(--light-bg-color);
+    }
   }
 }
