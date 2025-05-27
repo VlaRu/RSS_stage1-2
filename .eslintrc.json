@@ -8,6 +8,8 @@
       "code": 500,
       "tabWidth": 2,
       "ignoreUrls": true
-    }]
+    }],
+    "no-unused-expressions": "off",
+    "import/no-mutable-exports": "off"
   }
 }
