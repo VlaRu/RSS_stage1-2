@@ -14,39 +14,38 @@ import {
 
 let index = 0;
 let titleGame = gameData[index].title;
-// eslint-disable-next-line import/no-mutable-exports
 let answerGame = gameData[index].answer;
 
 function createLogicGame() {
   // example: createNewElement(tag, className, parent, textContent, attributes = {})
-  const mainContaner = createNewElement('div', 'main-container', document.body);
-  const switchWrapperContainer = createNewElement('div', 'switch-wrapper-container', mainContaner);
+  const mainContainer = createNewElement('div', 'main-container', document.body);
+  const switchWrapperContainer = createNewElement('div', 'switch-wrapper-container', mainContainer);
   const labelForInput = createNewElement('label', 'switch-wrapper', switchWrapperContainer);
   createNewElement('input', 'switch-input', labelForInput, null, {
     type: 'checkbox',
     id: 'darkModeToggle',
   });
   createNewElement('span', ['switch-slider', 'switch-round'], labelForInput);
-  const gameToolsContainer = createNewElement('div', 'container_game-tools', mainContaner);
+  const gameToolsContainer = createNewElement('div', 'container_game-tools', mainContainer);
   const burgerContainer = createNewElement('div', 'burger-container', gameToolsContainer);
   const buttonContainer = createNewElement('div', 'nav-elements-container', gameToolsContainer);
   createNewElement('div', 'counter', gameToolsContainer, '00:00');
   createNewElement('h1', null, gameToolsContainer, 'nonogram game');
   createNewElement('button', ['random-game_button', 'nav-elements'], buttonContainer, 'random game');
-  const dropDawnContainer = createNewElement('div', 'drop-down_container', buttonContainer);
+  const dropDawnContainer = createNewElement('ul', ['drop-down_container','nav-elements'], buttonContainer);
   const nameGame = createNewElement('h2', null, gameToolsContainer, `${titleGame}`);
-  createNewElement('button', ['choose-game_button', 'nav-elements'], dropDawnContainer, 'choose game');
-  const dropDownContent = createNewElement('ul', 'drop-down_content', dropDawnContainer);
+  const chooseButton = createNewElement('li', ['choose-game_button'], dropDawnContainer, 'choose game');
+  const dropDownContent = createNewElement('ul', 'drop-down_content', chooseButton);
   createNewElement('button', ['restore-game_button', 'nav-elements'], buttonContainer, 'restore');
   createNewElement('button', ['solution-game_button', 'nav-elements'], buttonContainer, 'solution');
   createNewElement('div', 'burger-element', burgerContainer);
   createNewElement('div', 'burger-element', burgerContainer);
-  const gameContainer = createNewElement('div', 'game-container', mainContaner);
+  const gameContainer = createNewElement('div', 'game-container', mainContainer);
   const cluesColumnContainer = createNewElement('div', 'clues-column_container', gameContainer);
   const gameFieldFixing = createNewElement('div', 'game-field-fixing', gameContainer);
   const cluesRowsContainer = createNewElement('div', 'clues-rows_container', gameFieldFixing);
   const gameFieldContainer = createNewElement('div', 'game-field_container', gameFieldFixing);
-  createModal(mainContaner);
+  createModal(mainContainer);
 
   renderDropElements(dropDownContent);
   renderRowClues(cluesRowsContainer, index);
@@ -94,7 +93,6 @@ function createLogicGame() {
     ) {
       document.querySelector('.modal-container').style.display = 'none';
       event.stopPropagation();
-      // eslint-disable-next-line no-unused-expressions
       index < gameData.length - 1 ? index += 1 : index = 0;
       clearGameTimer();
       startGameTimer();
