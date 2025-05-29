@@ -1,5 +1,4 @@
-import { toggleCrossCell, toggleCellState } from '../game/cellFilling';
-import isMobileDevice from '../utils/device';
+import { toggleCrossCell } from '../game/cellFilling';
 import handleRowFieldClick from '../core/solutionChecker';
 
 export default function initializeEventHandlers() {
@@ -9,12 +8,6 @@ export default function initializeEventHandlers() {
     event.preventDefault();
     if (event.target.classList.contains('row-field')) {
       toggleCrossCell(event.target);
-    }
-  });
-
-  document.addEventListener('touchend', (event) => {
-    if (isMobileDevice() && event.target.classList.contains('row-field')) {
-      toggleCellState(event.target);
     }
   });
 }

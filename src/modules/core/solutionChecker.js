@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { answerGame } from './logicGame';
-import { toggleFillCell } from '../game/cellFilling';
+import { toggleFillCell, toggleCellState } from '../game/cellFilling';
+import isMobileDevice from '../utils/device';
 
 function getHintUser() {
   const rowFieldElements = document.getElementsByClassName('row-field');
@@ -30,7 +31,11 @@ function checkUserInputAndDisplayResult() {
 
 function handleRowFieldClick(event) {
   if (event.target.classList.contains('row-field')) {
-    toggleFillCell(event.target);
+    if (isMobileDevice()) {
+      toggleCellState(event.target);
+    } else {
+      toggleFillCell(event.target);
+    }
     checkUserInputAndDisplayResult();
   }
 }
