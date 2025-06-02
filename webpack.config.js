@@ -46,6 +46,17 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(mp3|wav|ogg)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/icons/[name][ext]',
+        },
+      },
     ],
   },
   plugins: [
