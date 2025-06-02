@@ -51,5 +51,5 @@ function renderGameField(parentNode, indx) {
 }
 
 export {
-  renderColClues, renderRowClues, renderGameField, renderDropElements,
+  renderColClues, renderRowClues, renderGameField, renderDropElements
 };

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
-import { answerGame } from './logicGame';
+import { answerGame, mainContainer, index } from './logicGame';
 import { toggleFillCell, toggleCellState } from '../game/cellFilling';
+import createModal from '../ui/modalWindow';
 import isMobileDevice from '../utils/device';
 
 function getHintUser() {
@@ -10,14 +11,7 @@ function getHintUser() {
 }
 
 function compareResults(hintUser) {
-  return hintUser.every((value, index) => value === answerGame[index]);
-}
-
-function displayGreat(isMatch) {
-  const modalContainer = document.querySelector('.modal-container');
-  if (isMatch) {
-    modalContainer.style.display = 'flex';
-  }
+  return hintUser.every((value, idx) => value === answerGame[idx]);
 }
 
 function checkUserInputAndDisplayResult() {

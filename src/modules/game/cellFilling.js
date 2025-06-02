@@ -1,17 +1,16 @@
 /* eslint-disable no-param-reassign */
 
-function fillSolution(answ) {
+function fillSolution(answer) {
   const fieldEl = document.querySelectorAll('.row-field');
-  if (fieldEl.length === answ.length) {
+  if (fieldEl.length === answer.length) {
     fieldEl.forEach((el, i) => {
-      if (answ[i] === 1) {
+      if (answer[i] === 1) {
         el.classList.add('fill-cell');
       }
     });
   } else {
     console.error('Field and answer array lengths do not match.');
   }
-  console.log('fill');
 }
 
 function toggleFillCell(cell) {
