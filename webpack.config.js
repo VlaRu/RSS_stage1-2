@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -19,6 +20,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'assets/[name][ext]',
   },
   module: {
     rules: [
@@ -49,6 +51,9 @@ module.exports = {
       {
         test: /\.(mp3|wav|ogg)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/sounds/[name][ext]',
+        },
       },
       {
         test: /\.svg$/,
@@ -68,5 +73,13 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProgressPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/icons',
+          to: 'assets/icons',
+        },
+      ],
+    }),
   ],
 };
