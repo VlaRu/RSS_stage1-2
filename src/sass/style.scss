@@ -85,6 +85,10 @@ h2{
     justify-content: center;
     gap: 20px;
   }
+  @media (max-width: 550px){
+    height: fit-content;
+    width: 100%;
+  }
   &.dark-mode {
     @media (max-width: 780px) {
       background-color: var(--dark-bg-color);
@@ -183,7 +187,7 @@ h2{
   }
   @media (max-width: 680px){
     width: 85%;
-    height: 55%;
+    height: 100%;
   }
 }
 
@@ -212,6 +216,15 @@ h2{
   height: 100%;
   @include modules.flex($d: flex,$fd: column,$jc: flex-start,$ai: flex-end);
   border: 2px solid #000;
+}
+
+.result-container {
+  width: 40%;
+  height: 60%;
+  @include modules.flex($d: flex,$fd: column,$jc: flex-start,$ai: flex-end);
+  @media screen and (max-width: 650px) {
+    width: 80%;
+  }
 }
 
 .game-field-fixing{
@@ -259,15 +272,23 @@ h2{
   @include modules.flex($d: flex,$fd: row,$jc: flex-end,$ai: flex-start);
 }
 
-.row-field{
+.row-field, .row-field-result{
   width: 100%;
   height: 100%;
   @include modules.flex($d: flex,$fd: row,$jc: center,$ai: center);
-  border: 1px solid #000;
+  background-color: transparent;
   flex: 1;
   font-size: 16px;
-  background-color: #fff;
   cursor: pointer;
+}
+
+.row-field-result.fill-cell {
+  border: none;
+}
+
+.row-field {
+  border: 1px solid #000;
+  background-color: #fff;
 }
 
 .fill-cell{
@@ -337,7 +358,7 @@ h2{
 .modal-container{
   width: 100%;
   height: 100%;
-  @include modules.flex($d: none,$fd: row,$jc: center,$ai: center);
+  @include modules.flex($d: flex,$fd: row,$jc: center,$ai: center);
   position: fixed;
   top: 0;
   left: 0;
@@ -355,7 +376,7 @@ h2{
   text-align: center;
   border-radius: 50px;
   padding: 30px;
-  background-color: #2f4f4f;
+  background-color: #7b676b;
   color: #b3b3b3;
   padding: 30px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
@@ -364,6 +385,26 @@ h2{
   transform: perspective(800px) translateZ(10px);
   transform-style: preserve-3d;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--light-bg-color);
+  }
+  @media screen and (max-width: 550px) {
+    height: 90%;
+    width: 90%;
+  }
+}
+
+.button_next-game {
+  font-size: 35px;
+  text-transform: uppercase;
+  &:hover {
+    letter-spacing: 0.3;
+  }
+}
+
+.modal-window__message {
+  font-size: 35px;
 }
 
 .close-modal{
@@ -383,7 +424,7 @@ h2{
   .burger-container {
     width: 100px;
     height: 15px;
-    z-index: 4;
+    z-index: 3;
     @include modules.flex($d: flex,$fd: column,$jc: space-between,$ai: center);
   }
 
