@@ -136,7 +136,7 @@ eval("module.exports = __webpack_require__.p + \"assets/icons/soundOff.svg\";\n\
   \**********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"7e7e4ac0cd1effda8f36.webp\";\n\n//# sourceURL=webpack://nonograms/./src/assets/images/bg-japan-dark.webp?");
+eval("module.exports = __webpack_require__.p + \"assets/bg-japan-dark.webp\";\n\n//# sourceURL=webpack://nonograms/./src/assets/images/bg-japan-dark.webp?");
 
 /***/ }),
 
@@ -146,7 +146,7 @@ eval("module.exports = __webpack_require__.p + \"7e7e4ac0cd1effda8f36.webp\";\n\
   \***********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"33b9a4538ba07776ee2a.webp\";\n\n//# sourceURL=webpack://nonograms/./src/assets/images/bg-japan-light.webp?");
+eval("module.exports = __webpack_require__.p + \"assets/bg-japan-light.webp\";\n\n//# sourceURL=webpack://nonograms/./src/assets/images/bg-japan-light.webp?");
 
 /***/ }),
 
@@ -156,7 +156,7 @@ eval("module.exports = __webpack_require__.p + \"33b9a4538ba07776ee2a.webp\";\n\
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"c65dd680feda1363f38a.mp3\";\n\n//# sourceURL=webpack://nonograms/./src/assets/sounds/click1.mp3?");
+eval("module.exports = __webpack_require__.p + \"assets/sounds/click1.mp3\";\n\n//# sourceURL=webpack://nonograms/./src/assets/sounds/click1.mp3?");
 
 /***/ }),
 
@@ -166,7 +166,7 @@ eval("module.exports = __webpack_require__.p + \"c65dd680feda1363f38a.mp3\";\n\n
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"d4d44e346efa766b9c7b.mp3\";\n\n//# sourceURL=webpack://nonograms/./src/assets/sounds/click2.mp3?");
+eval("module.exports = __webpack_require__.p + \"assets/sounds/click2.mp3\";\n\n//# sourceURL=webpack://nonograms/./src/assets/sounds/click2.mp3?");
 
 /***/ }),
 
@@ -176,7 +176,7 @@ eval("module.exports = __webpack_require__.p + \"d4d44e346efa766b9c7b.mp3\";\n\n
   \****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"be391cc1683c3763ddf1.wav\";\n\n//# sourceURL=webpack://nonograms/./src/assets/sounds/winGame2.wav?");
+eval("module.exports = __webpack_require__.p + \"assets/sounds/winGame2.wav\";\n\n//# sourceURL=webpack://nonograms/./src/assets/sounds/winGame2.wav?");
 
 /***/ }),
 
@@ -425,7 +425,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sas
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e97144e18ab7ea316ddc")
+/******/ 		__webpack_require__.h = () => ("32c5eaac28446d5aa8c9")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
