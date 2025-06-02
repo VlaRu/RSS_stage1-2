@@ -5,12 +5,15 @@ import { clearField, clearContainer } from '../game/restoreGame';
 import createNewElement from '../dom/builderDomElements';
 import { startGameTimer, clearGameTimer, timerID } from '../game/timer';
 import { fillSolution } from '../game/cellFilling';
+import {playSound, toggleSound, getSoundState } from '../utils/soundPlayer';
 import {
   renderColClues,
   renderRowClues,
   renderGameField,
   renderDropElements,
 } from '../ui/renderFieldElements';
+import soundOnIcon from '../../assets/icons/sound.svg';
+import soundOffIcon from '../../assets/icons/soundOff.svg';
 
 export let index = 0;
 let titleGame = gameData[index].title;
@@ -49,10 +52,21 @@ function createLogicGame() {
   burgerContainer = createNewElement('div', 'burger-container', gameToolsContainer);
   buttonContainer = createNewElement('div', 'nav-elements-container', gameToolsContainer);
   createNewElement('h1', null, gameToolsContainer, 'nonogram game');
-  createNewElement('button', ['random-game_button', 'nav-elements'], buttonContainer, 'random game');
-  const dropDawnContainer = createNewElement('ul', ['drop-down_container','nav-elements'], buttonContainer);
-  const nameGame = createNewElement('h2', null, gameToolsContainer, `${titleGame}`);
+  const dropDawnContainer = createNewElement('ul', ['drop-down_container', 'nav-elements'], buttonContainer);
+  nameGame = createNewElement('h2', null, gameToolsContainer, `${titleGame}`);
+  createNewElement('div', 'counter', gameToolsContainer, '00:00');
+  const soundIconElement = createNewElement('img', 'sound-icon', gameToolsContainer, null, { src: soundOnIcon, alt: 'sound-icon' });
+
+  soundIconElement.addEventListener('click', () => {
+    const isEnabled = toggleSound();
+    soundIconElement.src = isEnabled ? soundOnIcon : soundOffIcon;
+    playSound('click2');
+  });
+
+  soundIconElement.src = getSoundState() ? soundOnIcon : soundOffIcon;
+
   const chooseButton = createNewElement('li', ['choose-game_button'], dropDawnContainer, 'choose game');
+  createNewElement('button', ['random-game_button', 'nav-elements'], buttonContainer, 'random game');
   const dropDownContent = createNewElement('ul', 'drop-down_content', chooseButton);
   createNewElement('button', ['restore-game_button', 'nav-elements'], buttonContainer, 'restore');
   createNewElement('button', ['solution-game_button', 'nav-elements'], buttonContainer, 'solution');
@@ -72,22 +86,26 @@ function createLogicGame() {
   });
 }
 
-  document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('drop-element')) {
-      index = parseInt(event.target.dataset.index, 10);
-      renderGame(index);
-    } else if (event.target.classList.contains('random-game_button')) {
-      index = getRandomIndex();
-      renderGame(index);
-    } else if (event.target.classList.contains('restore-game_button')) {
-      clearField();
-    } else if (event.target.classList.contains('solution-game_button')) {
-      answerGame = gameData[index].answer;
-      fillSolution(answerGame);
-    } else if (event.target.classList.contains('row-field')) {
-      if (!timerID) startGameTimer();
-    }
-  });
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('drop-element')) {
+    playSound('click2');
+    index = parseInt(event.target.dataset.index, 10);
+    renderCurrentGame(index);
+  } else if (event.target.classList.contains('random-game_button')) {
+    playSound('click2');
+    index = getRandomIndex();
+    renderCurrentGame(index);
+  } else if (event.target.classList.contains('restore-game_button')) {
+    playSound('click2');
+    clearField();
+  } else if (event.target.classList.contains('solution-game_button')) {
+    playSound('click2');
+    answerGame = gameData[index].answer;
+    fillSolution(answerGame);
+  } else if (event.target.classList.contains('row-field')) {
+    if (!timerID) startGameTimer();
+  }
+});
 
 function handleModalWindow(event) {
   if (

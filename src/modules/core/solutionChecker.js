@@ -3,6 +3,7 @@ import { answerGame, mainContainer, index } from './logicGame';
 import { toggleFillCell, toggleCellState } from '../game/cellFilling';
 import createModal from '../ui/modalWindow';
 import isMobileDevice from '../utils/device';
+import { playSound } from '../utils/soundPlayer';
 
 function getHintUser() {
   const rowFieldElements = document.getElementsByClassName('row-field');
@@ -18,9 +19,12 @@ function checkUserInputAndDisplayResult() {
   const hintUser = getHintUser();
   const results = compareResults(hintUser);
 
-  setTimeout(() => {
-    displayGreat(results);
-  }, 500);
+  if (results) {
+    setTimeout(() => {
+      playSound('winGame');
+      createModal(mainContainer, index);
+    }, 500);
+  }
 }
 
 function handleRowFieldClick(event) {

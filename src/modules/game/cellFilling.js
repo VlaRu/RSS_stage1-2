@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import { playSound } from '../utils/soundPlayer';
 
 function fillSolution(answer) {
   const fieldEl = document.querySelectorAll('.row-field');
@@ -14,6 +15,7 @@ function fillSolution(answer) {
 }
 
 function toggleFillCell(cell) {
+  playSound('click1');
   if (cell.classList.contains('fill-cell')) {
     cell.classList.remove('fill-cell');
     cell.innerText = '';
@@ -23,6 +25,7 @@ function toggleFillCell(cell) {
 }
 
 function toggleCrossCell(cell) {
+  playSound('click1');
   if (cell.innerText === '') {
     cell.innerText = 'X';
     cell.classList.remove('fill-cell');
@@ -32,6 +35,7 @@ function toggleCrossCell(cell) {
 }
 
 function toggleCellState(cell) {
+  playSound('click1');
   if (!cell.classList.contains('fill-cell') && cell.innerText === '') {
     cell.classList.add('fill-cell');
     cell.innerText = '';
